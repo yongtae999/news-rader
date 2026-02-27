@@ -41,8 +41,8 @@ function createNewsCard(newsItem, index) {
         case 'editorial': categoryName = "사설/기획"; break;
     }
 
-    // 오늘 업데이트 된 기사면 'N시간 전' 또는 '오늘' 표시 로직 추가 가능하지만 현재는 날짜로 통일
-    const publishedDate = calculatePublishedDate(newsItem.daysAgo);
+    // 서버에서 전달한 실제 발행일(date)을 최우선으로 사용하고 없으면 기존 로직 폴백
+    const publishedDate = newsItem.date || calculatePublishedDate(newsItem.daysAgo);
     let isNew = newsItem.daysAgo === 0 ? '<span style="color:var(--accent-color); font-weight:bold; margin-right: 5px;">[새소식]</span>' : '';
 
     return `
@@ -170,7 +170,7 @@ function openNewsModal(newsId) {
     document.getElementById('modalTitle').textContent = targetNews.title;
     document.getElementById('modalSource').innerHTML = `< i class="fa-regular fa-building" ></i > ${targetNews.source} `;
 
-    const publishedDate = calculatePublishedDate(targetNews.daysAgo);
+    const publishedDate = targetNews.date || calculatePublishedDate(targetNews.daysAgo);
     document.getElementById('modalDate').innerHTML = `<i class="fa-regular fa-clock"></i> ${publishedDate}`;
 
     // 본문 내용 생성 (항목별 실제 저장된 상세 body 텍스트 활용)

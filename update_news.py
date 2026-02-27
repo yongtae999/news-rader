@@ -158,6 +158,8 @@ def main():
                 
                 # 2024년, 2025년 초 등 과거 기사 원천 차단 (최근 7일 이내 기사만 허용)
                 pub_date_str = str(item.get('pubDate', ''))
+                days_diff = 0
+                formatted_date = datetime.now().strftime("%y.%m.%d")
                 try:
                     # 네이버 API 날짜 형식: Tue, 04 Mar 2025 14:02:00 +0900
                     pub_date = datetime.strptime(pub_date_str, "%a, %d %b %Y %H:%M:%S %z")
@@ -165,6 +167,9 @@ def main():
                     days_diff = (datetime.now(pub_date.tzinfo) - pub_date).days
                     if days_diff > 7:
                         continue # 7일 이상 지난 과거 기사 스킵
+                        
+                    # YY.MM.DD 형식으로 포맷팅
+                    formatted_date = pub_date.strftime("%y.%m.%d")
                 except Exception:
                     # 날짜 형식이 이상하면 일단 통과 (API 오류 방지)
                     pass
@@ -220,7 +225,8 @@ def main():
                     "body": body_content,
                     "source": "네이버 뉴스",
                     "image": selected_image,
-                    "daysAgo": 0, # 오늘 크롤링했으므로 항상 0 (NEW 딱지 붙음)
+                    "daysAgo": days_diff,
+                    "date": formatted_date,
                     "link": link
                 }
                 
