@@ -13,8 +13,7 @@ client_secret = os.environ.get("NAVER_CLIENT_SECRET", "")
 categories = {
     "hunting": ["수렵 유해조수", "야생동물 밀렵 단속", "총기 안전 수렵"],
     "asf": ["아프리카돼지열병 멧돼지", "ASF 방역 멧돼지"],
-    "ecosystem": ["생태계교란생물", "뉴트리아 포획", "황소개구리 퇴치", "가시박 제거"],
-    "editorial": ["수렵 사설", "유해조수 기획", "아프리카돼지열병 칼럼", "ASF 기획", "밀렵 사설", "생태계교란생물 사설"]
+    "ecosystem": ["생태계교란생물", "뉴트리아 포획", "황소개구리 퇴치", "가시박 제거"]
 }
 
 # 뉴스 이미지 매핑 (랜덤 방지를 위해 카테고리별로 고정 이미지 지정)
@@ -96,7 +95,7 @@ def main():
         "hunting": [],
         "asf": [],
         "ecosystem": [],
-        "editorial": []
+        "editorial": [] # 사설/기획기사는 따로 담을 빈 바구니 준비
     }
     
     article_id: int = 1
@@ -137,12 +136,11 @@ def main():
                     # 날짜 형식이 이상하면 일단 통과 (API 오류 방지)
                     pass
                 
-                # 특수문자 및 공백을 모두 제거한 핵심 문자열 추출
+                # 특수문자 및 공백을 모두 제거한 핵심 문자열 추출 (중복 제거용)
                 norm_title = re.sub(r'[\W_]+', '', title)
                 
                 is_duplicate = False
                 for seen_title in seen_titles:
-                    # 한 쪽이 다른 쪽에 완전히 포함(부분 문자열)되면 같은 기사로 취급
                     if norm_title in seen_title or seen_title in norm_title:
                         is_duplicate = True
                         break
@@ -150,6 +148,20 @@ def main():
                 if is_duplicate:
                     continue
                 seen_titles.add(norm_title)
+                
+                # [사설], [기획], [기고], [칼럼] 등이 제목에 있으면 "사설/기획" 탭으로 강제 이동
+                editorial_tags = ["[사설]", "[기획]", "[기고]", "[칼럼]", "사설]", "기고]", "칼럼]", "기획]"]
+                target_category = category
+                
+                if any(tag in title for tag in editorial_tags):
+                    target_category = "editorial"
+                    # 만약 사설 탭이 이미 10개가 찼다면 더 넣지 않고 무시
+                    if len(news_data_output["editorial"]) >= 10:
+                        continue
+                else:
+                    # 일반 기사인데 이미 해당 카테고리가 10개가 찼다면 스킵
+                    if len(news_data_output[category]) >= 10:
+                        continue
                 
                 description = clean_html(str(item.get('description', '')))
                 link = str(item.get('link', ''))
@@ -174,11 +186,13 @@ def main():
                     "link": link
                 }
                 
-                news_data_output[category].append(news_item)
+                # 강제로 할당된 target_category("editorial" 또는 원본)에 저장
+                news_data_output[target_category].append(news_item)
                 article_id += 1
                 
-        # 카테고리별로 10개만 정확히 잘라내서 저장
-        news_data_output[category] = news_data_output[category][:10]
+    # 카테고리별로 혹시 넘치면 10개만 정확히 잘라내서 저장 (위에서 걸렀지만 한 번 더 안전장치)
+    for cat in news_data_output.keys():
+        news_data_output[cat] = news_data_output[cat][:10]
 
     # data 폴더 확인 및 생성
     os.makedirs('data', exist_ok=True)
