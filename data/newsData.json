@@ -113,16 +113,6 @@
             "link": "https://n.news.naver.com/mnews/article/658/0000136422?sid=101"
         },
         {
-            "id": 12,
-            "title": "[사설] 아프리카돼지열병, 정확한 원인 규명이 우선",
-            "excerpt": "아프리카돼지열병(ASF)이 전국을 뒤흔들고 있다. 방역당국에 따르면 올해 발생건수는 24일까지 20건으로... 방역당국은 초기에 야생멧돼지를 전...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>아프리카돼지열병(ASF)이 전국을 뒤흔들고 있다. 방역당국에 따르면 올해 발생건수는 24일까지 20건으로... 방역당국은 초기에 야생멧돼지를 전파 요인으로 지목했다. 하지만 전국 수천㎞에 달하는 차단울타리에도 발병이... <br><br><a href='https://n.news.naver.com/mnews/article/662/0000089463?sid=110' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/boar.png",
-            "daysAgo": 0,
-            "link": "https://n.news.naver.com/mnews/article/662/0000089463?sid=110"
-        },
-        {
             "id": 13,
             "title": "기초지자체 92곳 수의직 공백",
             "excerpt": "고병원성 AI와 아프리카돼지열병(ASF), 구제역까지 가축전염병이 전국을 휩쓸고 있는 가운데, 전국... 최근 5년간 ASF로 인한 사육돼지·멧...",
@@ -191,11 +181,21 @@
             "image": "images/boar.png",
             "daysAgo": 0,
             "link": "https://n.news.naver.com/mnews/article/056/0012129905?sid=101"
+        },
+        {
+            "id": 20,
+            "title": "2월 24일 오늘의 안전 상황",
+            "excerpt": "대처상황 < 아프리카돼지열병(ASF) >           ※ 위기경보 ‘심각’(’26.1.17.~) - 발생현황(2.23.): (양돈) 1건*...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>대처상황 < 아프리카돼지열병(ASF) >           ※ 위기경보 ‘심각’(’26.1.17.~) - 발생현황(2.23.): (양돈) 1건*(경남의령) (야생멧돼지) 1건(경기포천)* 경남 의령군 부림면 돼지 농장(11,000두)에서 폐사 신고(2.23.)... <br><br><a href='http://fpn119.co.kr/247292' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/boar.png",
+            "daysAgo": 0,
+            "link": "http://fpn119.co.kr/247292"
         }
     ],
     "ecosystem": [
         {
-            "id": 26,
+            "id": 22,
             "title": "AI가 여는 제2의 창세기…테크노 문명이 역사를 재편한다",
             "excerpt": "겨우 30년 남짓 만에 300년의 법과 제도를 근저에서 교란시키고 있다. 앞으로 30년, 산업문명의 모든... 지금까지 가상공간에서 창조한 피조...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>겨우 30년 남짓 만에 300년의 법과 제도를 근저에서 교란시키고 있다. 앞으로 30년, 산업문명의 모든... 지금까지 가상공간에서 창조한 피조물, 생태계의 오브젝트는 2억 개를 넘어선다. 46억년 지구사와 137년 우주사를... <br><br><a href='https://n.news.naver.com/mnews/article/092/0002412227?sid=105' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -205,7 +205,7 @@
             "link": "https://n.news.naver.com/mnews/article/092/0002412227?sid=105"
         },
         {
-            "id": 27,
+            "id": 23,
             "title": "국립생태원, '유입주의 생물 152종 자료집 Ⅶ' 발간",
             "excerpt": "김경석 기후에너지환경부 생물다양성과장은 \"유입주의 생물 지정·관리는 생태계 교란을 사전에 차단하는 핵심 수단\"이라며, \"앞으로도 외래생물 관리를...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>김경석 기후에너지환경부 생물다양성과장은 \"유입주의 생물 지정·관리는 생태계 교란을 사전에 차단하는 핵심 수단\"이라며, \"앞으로도 외래생물 관리를 강화해 나갈 것\"이라고 말했다. '유입주의 생물 152종 자료집... <br><br><a href='http://www.ikld.kr/news/articleView.html?idxno=330040' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -215,7 +215,7 @@
             "link": "http://www.ikld.kr/news/articleView.html?idxno=330040"
         },
         {
-            "id": 28,
+            "id": 24,
             "title": "참세상 인터링크 위클리 (2026.02.26)",
             "excerpt": "프로그램, 생태계서비스 지불제 등 비시장적·규제 기반 정책이 최대 50~60%까지 더 큰 감축 효과를 보일 수 있다. 그럼에도 EU 공동농업정책...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>프로그램, 생태계서비스 지불제 등 비시장적·규제 기반 정책이 최대 50~60%까지 더 큰 감축 효과를 보일 수 있다. 그럼에도 EU 공동농업정책(CAP) 예산의 대부분은 소득보전과 시장조치에 투입되고 환경·생물다양성... <br><br><a href='https://newscham.net/articles/115597' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -225,7 +225,7 @@
             "link": "https://newscham.net/articles/115597"
         },
         {
-            "id": 29,
+            "id": 25,
             "title": "3년째 성동구 중랑천 찾은 호사비오리",
             "excerpt": "호사비오리는 세계적 희귀종이자 멸종위기 야생생물 1급, 천연기념물 제448호로 전 세계 약 2500~3000마리만... 바닥 생태계 교란 감소로...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>호사비오리는 세계적 희귀종이자 멸종위기 야생생물 1급, 천연기념물 제448호로 전 세계 약 2500~3000마리만... 바닥 생태계 교란 감소로 먹이 자원인 소형 어류도 증가한 것으로 분석된다. 이번 사례는 자연의 회복력을... <br><br><a href='https://www.siminilbo.co.kr/news/newsview.php?ncode=1160287367734419' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -235,7 +235,7 @@
             "link": "https://www.siminilbo.co.kr/news/newsview.php?ncode=1160287367734419"
         },
         {
-            "id": 30,
+            "id": 26,
             "title": "성동구 중랑천에 '호사비오리' 3년 연속 찾아왔다...도심 하천생태복원...",
             "excerpt": "호사비오리는 세계적 희귀종이자 멸종위기 야생생물 1급, 천연기념물 제448호로 전 세계 약 2,500~3,000마리만... 바닥 생태계 교란 감...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>호사비오리는 세계적 희귀종이자 멸종위기 야생생물 1급, 천연기념물 제448호로 전 세계 약 2,500~3,000마리만... 바닥 생태계 교란 감소로 먹이 자원인 소형 어류도 증가한 것으로 분석된다. 이번 사례는 자연의 회복력을... <br><br><a href='https://weekly.cnbnews.com/news/article.html?no=206993' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -245,17 +245,7 @@
             "link": "https://weekly.cnbnews.com/news/article.html?no=206993"
         },
         {
-            "id": 31,
-            "title": "[사설]지켜야 할 바다에 음식물쓰레기 버린 해경",
-            "excerpt": "더욱이 한려해상국립공원은 수많은 섬과 암반, 연안 생태계가 어우러진 소중한 자연유산이다. 음식물쓰레기는 분해 과정에서 부영양화를 촉진해 수질을 ...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>더욱이 한려해상국립공원은 수많은 섬과 암반, 연안 생태계가 어우러진 소중한 자연유산이다. 음식물쓰레기는 분해 과정에서 부영양화를 촉진해 수질을 악화시키고, 해양 생물의 서식 환경을 교란할 수 있다. 양이 많고... <br><br><a href='https://www.gnnews.co.kr/news/articleView.html?idxno=631202' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/env_gov.png",
-            "daysAgo": 0,
-            "link": "https://www.gnnews.co.kr/news/articleView.html?idxno=631202"
-        },
-        {
-            "id": 32,
+            "id": 28,
             "title": "[멸종위기종의 안부를 묻다] 벌써 개구리 울음소리 들리는데...",
             "excerpt": "사람의 호흡기를 막듯이 황사와 미세먼지는 식물과 곤충의 숨구멍을 막고, 축적된 독성물질이 토양 미생물 군집을 교란한다. 대기오염은 건강뿐 아니라...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>사람의 호흡기를 막듯이 황사와 미세먼지는 식물과 곤충의 숨구멍을 막고, 축적된 독성물질이 토양 미생물 군집을 교란한다. 대기오염은 건강뿐 아니라 생태계 기능에 부정적 영향을 주고 농작물 피해, 토양·수질 오염까지... <br><br><a href='https://www.newspenguin.com/news/articleView.html?idxno=21273' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -265,7 +255,7 @@
             "link": "https://www.newspenguin.com/news/articleView.html?idxno=21273"
         },
         {
-            "id": 33,
+            "id": 29,
             "title": "성동구, 중랑천에 ‘호사비오리’ 3년 연속 방문…도심 하천생태복원 성...",
             "excerpt": "호사비오리는 세계적 희귀종이자 멸종위기 야생생물 1급, 천연기념물 제448호다. 전 세계 약 2500~3000마리만... 바닥 생태계 교란 감소...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>호사비오리는 세계적 희귀종이자 멸종위기 야생생물 1급, 천연기념물 제448호다. 전 세계 약 2500~3000마리만... 바닥 생태계 교란 감소로 먹이 자원인 소형 어류도 증가한 것으로 분석된다. 이번 사례는 자연의 회복력을... <br><br><a href='https://n.news.naver.com/mnews/article/081/0003620845?sid=100' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -275,7 +265,7 @@
             "link": "https://n.news.naver.com/mnews/article/081/0003620845?sid=100"
         },
         {
-            "id": 34,
+            "id": 30,
             "title": "기후부·국립생태원, 유입주의 생물 152종 담은 자료집 발간",
             "excerpt": "유입주의 생물 후보종은 ▲국제적으로 생태계 위해성이 확인된 종 ▲사회적·생태적 피해 사례가 있는 종 ▲기존 생태계교란 생물과 유전적·생태적 특성...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>유입주의 생물 후보종은 ▲국제적으로 생태계 위해성이 확인된 종 ▲사회적·생태적 피해 사례가 있는 종 ▲기존 생태계교란 생물과 유전적·생태적 특성이 유사한 종 ▲서식조건이 국내 환경과 유사해 정착 가능성이... <br><br><a href='http://www.lak.co.kr/news/boardview.php?id=22550' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -285,7 +275,7 @@
             "link": "http://www.lak.co.kr/news/boardview.php?id=22550"
         },
         {
-            "id": 35,
+            "id": 31,
             "title": "헌정회-전남도, 외래어종 퇴치 맞손 생태계 복원·농촌 일자리 창출 협...",
             "excerpt": "이번 협약은 정대철 회장 취임 이후 추진 중인 ‘외래어종 퇴치를 통한 생태계 복원 및 농촌 살리기 운동’의 일환이다. 현재 국내 하천에서는 큰입...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>이번 협약은 정대철 회장 취임 이후 추진 중인 ‘외래어종 퇴치를 통한 생태계 복원 및 농촌 살리기 운동’의 일환이다. 현재 국내 하천에서는 큰입배스, 블루길, 붉은귀거북, 황소개구리 등 포식성 외래어종이 토종 치어와... <br><br><a href='http://www.shinailbo.co.kr/news/articleView.html?idxno=2196814' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -293,108 +283,48 @@
             "image": "images/bullfrog.png",
             "daysAgo": 0,
             "link": "http://www.shinailbo.co.kr/news/articleView.html?idxno=2196814"
+        },
+        {
+            "id": 32,
+            "title": "외래어종 포획 후 사료·비료 자원화 및 농촌 일자리 창출 협력",
+            "excerpt": "대한민국헌정회(회장 정대철)는 25일오후 헌정회 대회의실에서 전라남도와 '외래어종 퇴치를 통한 생태계... 대표적인 4대 유해 외래어종은 큰입배...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>대한민국헌정회(회장 정대철)는 25일오후 헌정회 대회의실에서 전라남도와 '외래어종 퇴치를 통한 생태계... 대표적인 4대 유해 외래어종은 큰입배스, 블루길, 붉은귀거북, 황소개구리이다. 이번 협약에 따라 두 기관은... <br><br><a href='https://www.pinpointnews.co.kr/news/articleView.html?idxno=432738' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/bullfrog.png",
+            "daysAgo": 0,
+            "link": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=432738"
         }
     ],
     "editorial": [
         {
-            "id": 38,
-            "title": "[김영윤 칼럼] 대북 인도적 지원이 한반도 평화의 신호로 이어지려면",
-            "excerpt": "이번에 제재 면제된 사업은 보건·식수·취약계층 영양 지원, 아프리카돼지열병(ASF) 등 17개 분야로 위원회가 제재 면제를 결정한 것은 약 9개...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>이번에 제재 면제된 사업은 보건·식수·취약계층 영양 지원, 아프리카돼지열병(ASF) 등 17개 분야로 위원회가 제재 면제를 결정한 것은 약 9개월 만이다. 유엔 안보리는 2006년 북한의 핵실험 이후 결의안 1718을 시작으로 무기... <br><br><a href='https://www.ajunews.com/view/20260220145418385' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "id": 12,
+            "title": "[사설] 아프리카돼지열병, 정확한 원인 규명이 우선",
+            "excerpt": "아프리카돼지열병(ASF)이 전국을 뒤흔들고 있다. 방역당국에 따르면 올해 발생건수는 24일까지 20건으로... 방역당국은 초기에 야생멧돼지를 전...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>아프리카돼지열병(ASF)이 전국을 뒤흔들고 있다. 방역당국에 따르면 올해 발생건수는 24일까지 20건으로... 방역당국은 초기에 야생멧돼지를 전파 요인으로 지목했다. 하지만 전국 수천㎞에 달하는 차단울타리에도 발병이... <br><br><a href='https://n.news.naver.com/mnews/article/662/0000089463?sid=110' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
             "source": "네이버 뉴스",
             "image": "images/boar.png",
             "daysAgo": 0,
-            "link": "https://www.ajunews.com/view/20260220145418385"
+            "link": "https://n.news.naver.com/mnews/article/662/0000089463?sid=110"
         },
         {
-            "id": 39,
-            "title": "이기홍 한돈자조금 위원장 \"삼겹살데이, 소비자부담 낮추고·농가에 힘...",
-            "excerpt": "한돈 공식 온라인몰 '한돈몰'에서는 삼겹살 할인기획전을 운영하고, 전국 한돈인증점과 대형마트, 농협... 최근 한돈 농가는 아프리카돼지열병(AS...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>한돈 공식 온라인몰 '한돈몰'에서는 삼겹살 할인기획전을 운영하고, 전국 한돈인증점과 대형마트, 농협... 최근 한돈 농가는 아프리카돼지열병(ASF) 차단을 위한 상시 방역 체계를 유지하는 가운데, 생산비 부담과 소비... <br><br><a href='https://n.news.naver.com/mnews/article/277/0005726341?sid=101' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "id": 21,
+            "title": "[사설] 가축질병 대응, 그나마 믿을 건 방역수칙 준수다",
+            "excerpt": "경기 파주부터 경북 울진에 설치된 야생멧돼지 차단울타리가 무용지물이 돼버린 셈이다. 특히 바이러스... 또 이번 동절기에 발생한 고병원성 AI도...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>경기 파주부터 경북 울진에 설치된 야생멧돼지 차단울타리가 무용지물이 돼버린 셈이다. 특히 바이러스... 또 이번 동절기에 발생한 고병원성 AI도 특이 양상을 보인다는 게 방역당국 판단이다. 국내 처음으로... <br><br><a href='https://n.news.naver.com/mnews/article/662/0000089076?sid=110' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
             "source": "네이버 뉴스",
             "image": "images/boar.png",
             "daysAgo": 0,
-            "link": "https://n.news.naver.com/mnews/article/277/0005726341?sid=101"
+            "link": "https://n.news.naver.com/mnews/article/662/0000089076?sid=110"
         },
         {
-            "id": 40,
-            "title": "[기획] 합천 농업, '혁신과 변화'로 대도약",
-            "excerpt": "아프리카돼지열병(ASF) 등 악성 가축 전염병 차단을 위해 24시간 방역 체계를 운영한다. 그리고 올해 확정된 총 121억 원 규모의 예산으로 ...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>아프리카돼지열병(ASF) 등 악성 가축 전염병 차단을 위해 24시간 방역 체계를 운영한다. 그리고 올해 확정된 총 121억 원 규모의 예산으로 노후 저수지 보강, 용배수로 정비, 양수장 보강 공사 등을 통해 극한 강우나 가뭄에... <br><br><a href='https://www.newsgn.com/news/articleView.html?idxno=536530' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "id": 27,
+            "title": "[사설]지켜야 할 바다에 음식물쓰레기 버린 해경",
+            "excerpt": "더욱이 한려해상국립공원은 수많은 섬과 암반, 연안 생태계가 어우러진 소중한 자연유산이다. 음식물쓰레기는 분해 과정에서 부영양화를 촉진해 수질을 ...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>더욱이 한려해상국립공원은 수많은 섬과 암반, 연안 생태계가 어우러진 소중한 자연유산이다. 음식물쓰레기는 분해 과정에서 부영양화를 촉진해 수질을 악화시키고, 해양 생물의 서식 환경을 교란할 수 있다. 양이 많고... <br><br><a href='https://www.gnnews.co.kr/news/articleView.html?idxno=631202' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
             "source": "네이버 뉴스",
-            "image": "images/boar.png",
+            "image": "images/env_gov.png",
             "daysAgo": 0,
-            "link": "https://www.newsgn.com/news/articleView.html?idxno=536530"
-        },
-        {
-            "id": 41,
-            "title": "농협전남본부, 강진청자축제서 한돈 소비촉진 행사 개최",
-            "excerpt": "위해 기획됐다. 할인판매 행사는 지난 21일부터 3월 2일까지 10일간 진행되며 삼겹살과 목살 등 한돈 인기... 또 행사장에선 아프리카돼지열병...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>위해 기획됐다. 할인판매 행사는 지난 21일부터 3월 2일까지 10일간 진행되며 삼겹살과 목살 등 한돈 인기... 또 행사장에선 아프리카돼지열병(ASF)에 대한 소비감축을 우려해 한돈의 안전성과 품질관리 체계에 대한 홍보를... <br><br><a href='http://www.aflnews.co.kr/news/articleView.html?idxno=315022' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/boar.png",
-            "daysAgo": 0,
-            "link": "http://www.aflnews.co.kr/news/articleView.html?idxno=315022"
-        },
-        {
-            "id": 42,
-            "title": "충남도, ASF 확산 차단 나서…수입식품 판매업소 집중 단속",
-            "excerpt": "충남도 특별사법경찰이 아프리카 돼지열병의 추가 확산을 막기 위해, 불법 축산물 유통 기획 단속에 나섰습니다. 도는 최근 불법 유통 축산물이 아프...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>충남도 특별사법경찰이 아프리카 돼지열병의 추가 확산을 막기 위해, 불법 축산물 유통 기획 단속에 나섰습니다. 도는 최근 불법 유통 축산물이 아프리카돼지열병 주요 전파 경로 중 하나로 의심됨에 따라 수입 식품 전문... <br><br><a href='https://tjmbc.co.kr/NewsArticle/826288' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/police.png",
-            "daysAgo": 0,
-            "link": "https://tjmbc.co.kr/NewsArticle/826288"
-        },
-        {
-            "id": 43,
-            "title": "충남특사경, 위생 사각지대 축산물 유통 \"강력\" 단속",
-            "excerpt": "충남도청 충남도 특별사법경찰은 최근 도내 양돈 농가에서 아프리카돼지열병(ASF)이 발생함에 따라 23일부터 3월 4일까지 추가 확산을 막기 위한...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>충남도청 충남도 특별사법경찰은 최근 도내 양돈 농가에서 아프리카돼지열병(ASF)이 발생함에 따라 23일부터 3월 4일까지 추가 확산을 막기 위한 기획단속을 실시한다고 밝혔다. 단속 대상은 아프리카돼지열병 발생 지역인... <br><br><a href='https://www.gukjenews.com/news/articleView.html?idxno=3511723' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/police.png",
-            "daysAgo": 0,
-            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3511723"
-        },
-        {
-            "id": 44,
-            "title": "전남농협, 강진청자축제서 한돈 소비촉진 행사 개최",
-            "excerpt": "위해 기획됐다. 할인판매 행사는 지난 21일부터 오는 3월 2일까지 10일간 진행되며, 삼겹살과 목살 등 한돈... 또 행사장에서는 아프리카돼지...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>위해 기획됐다. 할인판매 행사는 지난 21일부터 오는 3월 2일까지 10일간 진행되며, 삼겹살과 목살 등 한돈... 또 행사장에서는 아프리카돼지열병(ASF)에 대한 소비감축을 우려해 한돈의 안전성과 품질관리 체계에 대한... <br><br><a href='https://www.nspna.com/news/?mode=view&newsid=803829' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/boar.png",
-            "daysAgo": 0,
-            "link": "https://www.nspna.com/news/?mode=view&newsid=803829"
-        },
-        {
-            "id": 45,
-            "title": "충남특사경, 불법 축산물 유통 기획단속",
-            "excerpt": "사진= 충남도청 충남도 특별사법경찰은 최근 도내 양돈 농가에서 아프리카돼지열병(ASF)이 발생함에 따라 내달 4일까지 추가 확산을 막기 위한 기...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>사진= 충남도청 충남도 특별사법경찰은 최근 도내 양돈 농가에서 아프리카돼지열병(ASF)이 발생함에 따라 내달 4일까지 추가 확산을 막기 위한 기획단속을 실시한다. 단속 대상은 아프리카돼지열병 발생 지역인 보령·당진... <br><br><a href='https://www.ggilbo.com/news/articleView.html?idxno=1143061' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/police.png",
-            "daysAgo": 0,
-            "link": "https://www.ggilbo.com/news/articleView.html?idxno=1143061"
-        },
-        {
-            "id": 46,
-            "title": "[전남농협 소식] 강진청자축제서 한돈 소비촉진 행사",
-            "excerpt": "위해 기획됐다. 할인판매 행사는 3월2일까지 진행되며 삼겹살과 목살 등 한돈 인기 부위를 시중가 대비 25% 이상 할인된 가격으로 판매한다. 행...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>위해 기획됐다. 할인판매 행사는 3월2일까지 진행되며 삼겹살과 목살 등 한돈 인기 부위를 시중가 대비 25% 이상 할인된 가격으로 판매한다. 행사장에서는 아프리카돼지열병(ASF)에 대한 소비감축을 우려해 한돈의 안전성과... <br><br><a href='https://n.news.naver.com/mnews/article/417/0001131027?sid=102' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/boar.png",
-            "daysAgo": 0,
-            "link": "https://n.news.naver.com/mnews/article/417/0001131027?sid=102"
-        },
-        {
-            "id": 47,
-            "title": "충남도, ASF 확산 차단…불법 축산물 유통 기획단속",
-            "excerpt": "충남도특별사법경찰이 아프리카돼지열병(ASF) 확산 차단을 위해 불법 축산물 유통 기획단속에 돌입했다. 축산물 특별 위생점검을 실시하는 모습 최근...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>충남도특별사법경찰이 아프리카돼지열병(ASF) 확산 차단을 위해 불법 축산물 유통 기획단속에 돌입했다. 축산물 특별 위생점검을 실시하는 모습 최근 도내 양돈 농가에서 ASF가 발생함에 따라 도는 23일부터 다음 달... <br><br><a href='http://www.aflnews.co.kr/news/articleView.html?idxno=314972' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/police.png",
-            "daysAgo": 0,
-            "link": "http://www.aflnews.co.kr/news/articleView.html?idxno=314972"
+            "link": "https://www.gnnews.co.kr/news/articleView.html?idxno=631202"
         }
     ]
 }
