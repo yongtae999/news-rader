@@ -133,6 +133,12 @@ def main():
                 if not isinstance(item, dict):
                     continue
                 title = clean_html(str(item.get('title', '')))
+                description = clean_html(str(item.get('description', '')))
+                
+                # 협회관련 탭의 경우 반드시 "야생생물관리협회" 단어가 포함되어야 함
+                if category == "association":
+                    if "야생생물관리협회" not in title and "야생생물관리협회" not in description:
+                        continue
                 
                 # 스팸/테마주 기사 원천 차단 블랙리스트 (제약사, 주식 용어 대폭 추가)
                 blacklist = [
@@ -189,7 +195,6 @@ def main():
                     if len(news_data_output[category]) >= 10:
                         continue
                 
-                description = clean_html(str(item.get('description', '')))
                 link = str(item.get('link', ''))
                 
                 # 기사 내용을 바탕으로 가장 적절한 스마트 이미지 선택
