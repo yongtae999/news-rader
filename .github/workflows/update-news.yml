@@ -35,4 +35,7 @@ jobs:
           git config --global user.email "action@github.com"
           git add data/newsData.json
           # 새 뉴스가 있어서 파일이 변경된 경우에만 커밋
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update: Daily news sync" && git push)
+                    git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update: Daily news sync"
+          git pull --rebase origin main
+          git push
+
