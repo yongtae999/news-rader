@@ -1,5 +1,5 @@
 // 전역 뉴스 데이터 변수
-let newsData = { hunting: [], asf: [], ecosystem: [], editorial: [] };
+let newsData = { hunting: [], asf: [], ecosystem: [], association: [], editorial: [] };
 
 // --- 날짜 표시 영역 ---
 // 날짜 포맷 함수 (YY.MM.DD)
@@ -36,6 +36,7 @@ function createNewsCard(newsItem, index) {
         case 'hunting': categoryName = "수렵"; break;
         case 'asf': categoryName = "ASF 동향"; break;
         case 'ecosystem': categoryName = "교란생물"; break;
+        case 'association': categoryName = "협회 관련"; break;
         case 'editorial': categoryName = "사설/기획"; break;
     }
 
@@ -154,6 +155,7 @@ function openNewsModal(newsId) {
             if (key === 'hunting') targetCategoryName = '수렵';
             if (key === 'asf') targetCategoryName = 'ASF 동향';
             if (key === 'ecosystem') targetCategoryName = '교란생물';
+            if (key === 'association') targetCategoryName = '협회 관련';
             if (key === 'editorial') targetCategoryName = '사설/기획';
             break;
         }
