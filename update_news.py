@@ -98,8 +98,9 @@ def main():
     for category, keywords in categories.items():
         print(f"[{category}] 카테고리 수집 중...")
         for idx, keyword in enumerate(keywords):
-            # 카테고리별로 키워드당 2개씩 가져와서 총 6~8개 구성
-            items = get_news(keyword, display=2)
+            # 카테고리별로 키워드 개수가 다르므로 표시 개수를 다르게 설정 (총 10개 이상 목표)
+            display_count = 5 if len(keywords) <= 2 else (4 if len(keywords) == 3 else 3)
+            items = get_news(keyword, display=display_count)
             
             for item in items: # type: ignore
                 if not isinstance(item, dict):
@@ -130,6 +131,9 @@ def main():
                 
                 news_data_output[category].append(news_item)
                 article_id += 1
+                
+        # 카테고리별로 10개만 정확히 잘라내서 저장
+        news_data_output[category] = news_data_output[category][:10]
 
     # data 폴더 확인 및 생성
     os.makedirs('data', exist_ok=True)

@@ -44,23 +44,20 @@ function createNewsCard(newsItem, index) {
 
     return `
         <a href="#" class="news-card" aria-label="${newsItem.title} 기사 읽기" onclick="openNewsModal(${newsItem.id}); return false;">
-            <div class="card-image">
-                <span class="card-category-badge">${categoryName}</span>
-                <img src="${imageUrl}" alt="기사 섬네일 이미지" loading="lazy">
-            </div>
             <div class="card-content">
                 <div class="card-meta">
-                    <span class="card-source"><i class="fa-regular fa-building"></i> ${newsItem.source}</span>
-                    <span class="card-date"><i class="fa-regular fa-clock"></i> ${publishedDate}</span>
-                </div>
-                <h2 class="card-title">${isNew}${newsItem.title}</h2>
-                <p class="card-excerpt">${newsItem.excerpt}</p>
-                <div class="card-footer">
-                    <span>자세히 보기</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
+                    <span class="card-category-badge">${categoryName}</span>
+                <span class="card-source"><i class="fa-regular fa-building"></i> ${newsItem.source}</span>
+                <span class="card-date"><i class="fa-regular fa-clock"></i> ${publishedDate}</span>
             </div>
-        </a>
+            <h2 class="card-title">${isNew}${newsItem.title}</h2>
+            <p class="card-excerpt">${newsItem.excerpt}</p>
+            <div class="card-footer">
+                <span>자세히 보기</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </div>
+    </a>
     `;
 }
 
@@ -86,11 +83,11 @@ function renderNews(category) {
             newsListContainer.innerHTML = html;
         } else {
             newsListContainer.innerHTML = `
-                <div class="empty-state">
+        < div class="empty-state" >
                     <i class="fa-regular fa-folder-open" style="font-size: 3rem; margin-bottom: 1rem; color: var(--text-secondary);"></i>
                     <p>현재 등록된 뉴스가 없습니다.</p>
-                </div>
-            `;
+                </div >
+        `;
         }
 
         // 새로 렌더링된 요소 페이드 인
@@ -117,7 +114,7 @@ function initTabs() {
 
             // 데스크탑 인디케이터 슬라이딩 애니메이션 계산 (탭 3개 기준)
             if (window.innerWidth > 768) {
-                indicator.style.transform = `translateX(${index * 100}%)`;
+                indicator.style.transform = `translateX(${index * 100} %)`;
             }
 
             // 데이터 변경 렌더링 호출
@@ -133,7 +130,7 @@ function initTabs() {
         } else {
             const activeIndex = Array.from(tabs).findIndex(t => t.classList.contains('active'));
             if (activeIndex !== -1) {
-                indicator.style.transform = `translateX(${activeIndex * 100}%)`;
+                indicator.style.transform = `translateX(${activeIndex * 100} %)`;
             }
         }
     });
@@ -165,17 +162,17 @@ function openNewsModal(newsId) {
     // 2. 모달 내 DOM 엘리먼트에 데이터 주입
     document.getElementById('modalCategory').textContent = targetCategoryName;
     document.getElementById('modalTitle').textContent = targetNews.title;
-    document.getElementById('modalSource').innerHTML = `<i class="fa-regular fa-building"></i> ${targetNews.source}`;
+    document.getElementById('modalSource').innerHTML = `< i class="fa-regular fa-building" ></i > ${targetNews.source} `;
 
     const publishedDate = calculatePublishedDate(targetNews.daysAgo);
-    document.getElementById('modalDate').innerHTML = `<i class="fa-regular fa-clock"></i> ${publishedDate}`;
+    document.getElementById('modalDate').innerHTML = `< i class="fa-regular fa-clock" ></i > ${publishedDate} `;
 
     document.getElementById('modalImage').src = targetNews.image;
 
     // 본문 내용 생성 (항목별 실제 저장된 상세 body 텍스트 활용)
     const articleBodyHTML = `
-        <p><strong>${targetNews.excerpt}</strong></p>
-        <p>${targetNews.body}</p>
+        < p > <strong>${targetNews.excerpt}</strong></p >
+            <p>${targetNews.body}</p>
     `;
     document.getElementById('modalBody').innerHTML = articleBodyHTML;
 
