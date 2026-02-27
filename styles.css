@@ -112,6 +112,14 @@ body {
     gap: 0.2rem;
 }
 
+.title-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    /* 작은 화면에서 제목과 버튼이 겹치지 않게 허용 */
+}
+
 .logo-text h1 {
     font-size: 2.2rem;
     font-weight: 700;
@@ -120,6 +128,8 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 0;
+    white-space: nowrap;
+    /* 텍스트가 세로로 쪼개지는 현상 방지 */
 }
 
 .logo-text .subtitle {
@@ -127,6 +137,7 @@ body {
     color: var(--text-secondary);
     font-weight: 300;
     letter-spacing: 0.05em;
+    white-space: nowrap;
 }
 
 .header-actions {
@@ -415,72 +426,60 @@ body {
 
 @media (max-width: 768px) {
     .app-header {
+        display: flex;
         flex-direction: column;
-        align-items: stretch;
-        /* 전체 너비 사용 */
-        gap: 1rem;
+        align-items: flex-start;
+        gap: 1.2rem;
     }
 
     .logo-area {
+        display: flex;
         flex-direction: row;
-        /* 로고와 텍스트 가로 배치 유지 */
-        align-items: center;
+        /* 로고와 텍스트를 나란히 배치 */
+        align-items: flex-start;
         width: 100%;
-        gap: 1rem;
+        gap: 0.8rem;
     }
 
     .header-logo {
-        height: 40px;
-        /* 모바일에서 로고 크기 축소 */
+        height: 60px;
+        /* 로고 크기 유지 */
+        width: 80px;
+        object-fit: contain;
     }
 
     .logo-text {
         flex: 1;
-        /* 남은 공간 차지 */
+        /* 가용 공간 차지 */
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        min-width: 0;
+        /* Flex Child가 화면 밖으로 넘치거나 글자가 세로로 깨지는 현상 방지 */
+    }
+
+    .title-row {
+        gap: 0.5rem;
     }
 
     .logo-text h1 {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         /* 모바일에서 타이틀 크기 축소 */
     }
 
     .logo-text .subtitle {
-        font-size: 0.8rem;
-    }
-
-    .header-actions {
-        flex-direction: row;
-        width: 100%;
-        justify-content: space-between;
-        /* 날짜는 왼쪽, 배너는 오른쪽 (또는 배너만 있을 경우 고려) */
-        align-items: center;
-    }
-
-    /* 배너를 로고 우측 끝으로 올리기 위한 특수 레이아웃 조정 */
-    .app-header {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        grid-template-rows: auto auto;
-        row-gap: 1rem;
-        align-items: center;
-    }
-
-    .logo-area {
-        grid-column: 1 / 2;
-        grid-row: 1 / 2;
+        font-size: 0.85rem;
     }
 
     .association-banner {
-        grid-column: 2 / 3;
-        grid-row: 1 / 2;
-        padding: 0.4rem 0.8rem;
+        padding: 0.3rem 0.6rem;
         font-size: 0.8rem;
         border-radius: 6px;
     }
 
-    .association-banner span {
+    .association-banner span.banner-text {
         display: none;
-        /* 모바일에서는 공간 제약으로 텍스트 숨기고 아이콘만 표시하거나 텍스트 줄임 */
+        /* 모바일에서는 공간 제약으로 텍스트 숨기고 아이콘만 표시 */
     }
 
     .association-banner::after {
@@ -488,11 +487,21 @@ body {
         /* 짧은 텍스트로 대체 */
     }
 
+    .header-actions {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: flex-end;
+        /* 날짜를 우측으로 배치 */
+        align-items: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 0.8rem;
+    }
+
     .date-display {
-        grid-column: 1 / 3;
-        grid-row: 2 / 3;
-        justify-content: center;
         font-size: 0.95rem;
+        padding: 0.4rem 0.8rem;
+        justify-content: center;
     }
 
     .tab-navigation {
@@ -701,10 +710,16 @@ body {
 /* Floating Refresh Button */
 .floating-refresh {
     position: fixed;
-    bottom: 2rem;
+    bottom: max(2rem, env(safe-area-inset-bottom) + 1rem);
     right: 2rem;
     width: 60px;
     height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    aspect-ratio: 1/1;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
     background: var(--primary-gradient);
     color: white;
     border: none;
@@ -715,7 +730,8 @@ body {
     align-items: center;
     cursor: pointer;
     box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
-    z-index: 100;
+    z-index: 9999;
+    /* 다른 요소에 가려지지 않게 최상단 배치 */
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -732,10 +748,12 @@ body {
 
 @media (max-width: 768px) {
     .floating-refresh {
-        bottom: 1.5rem;
+        bottom: max(1.5rem, env(safe-area-inset-bottom) + 0.5rem);
         right: 1.5rem;
         width: 50px;
         height: 50px;
+        min-width: 50px;
+        min-height: 50px;
         font-size: 1.2rem;
     }
 }
