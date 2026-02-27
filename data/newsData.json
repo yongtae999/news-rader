@@ -1,5 +1,188 @@
 {
-    "hunting": [],
-    "asf": [],
-    "ecosystem": []
+    "hunting": [
+        {
+            "id": 1,
+            "title": "\"사람과 자연이 공존하는 생태 태안\" 구현",
+            "excerpt": "▲  태안군수렵인연합회가 유해 조수 퇴치 작업을 벌이고 있다. ⓒ 신문웅(태안군수렵인연합회 제공) 태안군은 이번 계획이 단순한 포획 위주의 대응...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>▲  태안군수렵인연합회가 유해 조수 퇴치 작업을 벌이고 있다. ⓒ 신문웅(태안군수렵인연합회 제공) 태안군은 이번 계획이 단순한 포획 위주의 대응을 넘어 '보호와 관리의 균형'에 초점을 맞추고 있다고 강조한다.... <br><br><a href='https://n.news.naver.com/mnews/article/047/0002504669?sid=102' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/env_gov.png",
+            "daysAgo": 0,
+            "link": "https://n.news.naver.com/mnews/article/047/0002504669?sid=102"
+        },
+        {
+            "id": 2,
+            "title": "장흥서 유해조수 퇴치 위해 나선 60대, 동료가 쏜 엽총에 맞아 숨져",
+            "excerpt": "수렵 면허를 갖추고 유해조수단으로 활동중인 A씨와 B씨는 이날 돼지나 고라니 등 농산물 피해를 입히는 유해조수 사냥에 나섰던 것으로 전해졌다. ...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>수렵 면허를 갖추고 유해조수단으로 활동중인 A씨와 B씨는 이날 돼지나 고라니 등 농산물 피해를 입히는 유해조수 사냥에 나섰던 것으로 전해졌다. 이들은 전날 오후 5시께 장흥파출소에서 보관중인 엽총을 가지고... <br><br><a href='http://www.kwangju.co.kr/article.php?aid=1757383200789162006' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/env_gov.png",
+            "daysAgo": 0,
+            "link": "http://www.kwangju.co.kr/article.php?aid=1757383200789162006"
+        },
+        {
+            "id": 3,
+            "title": "남해군, 유관기관 합동 야생동물 보호활동 전개",
+            "excerpt": "남해군은 지난 21일 한려해상국립공원 상주·금산 지구에서 겨울철 야생동물 보호와 불법행위 예방을 위해 유관기관과 함께 '야생동물 밀렵·밀거래 단...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>남해군은 지난 21일 한려해상국립공원 상주·금산 지구에서 겨울철 야생동물 보호와 불법행위 예방을 위해 유관기관과 함께 '야생동물 밀렵·밀거래 단속 및 불법엽구 수거활동'을 펼쳤다고 밝혔다. 이날 활동에는 남해군... <br><br><a href='https://www.gnnews.co.kr/news/articleView.html?idxno=631099' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/hunter.png",
+            "daysAgo": 0,
+            "link": "https://www.gnnews.co.kr/news/articleView.html?idxno=631099"
+        },
+        {
+            "id": 4,
+            "title": "남해군, 유관기관 합동 '야생동물 보호활동' 전개",
+            "excerpt": "▲ 남해군은 지난 21일 한려해상국립공원 상주·금산 지구에서 유관기관과 함께 '야생동물 밀렵·밀거래 단속 및 불법엽구 수거활동'을 펼쳤다. /남...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>▲ 남해군은 지난 21일 한려해상국립공원 상주·금산 지구에서 유관기관과 함께 '야생동물 밀렵·밀거래 단속 및 불법엽구 수거활동'을 펼쳤다. /남해군 남해군은 지난 21일 한려해상국립공원 상주·금산 지구에서 겨울철... <br><br><a href='http://www.gndomin.com/news/articleView.html?idxno=466336' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/hunter.png",
+            "daysAgo": 0,
+            "link": "http://www.gndomin.com/news/articleView.html?idxno=466336"
+        },
+        {
+            "id": 5,
+            "title": "울주군, 유해야생동물 피해방지단 발대…\"총기 안전 주의\"",
+            "excerpt": "발대식과 안전교육을 했다. 발대식에서는 공개모집으로 선발된 단원(수렵인) 30명에게 위촉장을 수여했다.... 울주군 관계자는 \"포획 활동은 위험...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>발대식과 안전교육을 했다. 발대식에서는 공개모집으로 선발된 단원(수렵인) 30명에게 위촉장을 수여했다.... 울주군 관계자는 \"포획 활동은 위험한 총기를 이용하는 만큼 항상 총기 안전에도 각별히 주의하도록 당부했다... <br><br><a href='https://n.news.naver.com/mnews/article/001/0015914396?sid=102' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/police.png",
+            "daysAgo": 0,
+            "link": "https://n.news.naver.com/mnews/article/001/0015914396?sid=102"
+        },
+        {
+            "id": 6,
+            "title": "울주군, '2026년 유해야생동물 피해방지단 발대식'...안전교육 실시",
+            "excerpt": "발대식과 안전교육을 실시했다. 이날 발대식에서는 공개모집을 통해 선발된 수렵인 유해야생동물... 총기를 이용하는 만큼 항상 총기 안전에도 각별한...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>발대식과 안전교육을 실시했다. 이날 발대식에서는 공개모집을 통해 선발된 수렵인 유해야생동물... 총기를 이용하는 만큼 항상 총기 안전에도 각별한 주의를 기울여주시길 당부드린다\"고 말했다. 민영뉴스통신사 국제뉴스<br><br><a href='https://www.gukjenews.com/news/articleView.html?idxno=3510116' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/police.png",
+            "daysAgo": 0,
+            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3510116"
+        }
+    ],
+    "asf": [
+        {
+            "id": 7,
+            "title": "중앙백신 \"한국 멧돼지 유래 ASF 생백신 글로벌 상용화 추진”",
+            "excerpt": "동물백신 기업 중앙백신연구소는 한국 멧돼지에서 분리한 백신 후보주 'ASFV‑MEC‑01'을 기반으로 아프리카돼지열병(ASF) 생백신 '수이샷 ...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>동물백신 기업 중앙백신연구소는 한국 멧돼지에서 분리한 백신 후보주 'ASFV‑MEC‑01'을 기반으로 아프리카돼지열병(ASF) 생백신 '수이샷 ASF-X(가칭)'를 개발하고, 글로벌 상용화를 추진한다고 26일 밝혔다. 회사는 이번... <br><br><a href='https://n.news.naver.com/mnews/article/003/0013789063?sid=101' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/boar.png",
+            "daysAgo": 0,
+            "link": "https://n.news.naver.com/mnews/article/003/0013789063?sid=101"
+        },
+        {
+            "id": 8,
+            "title": "경남 합천 돼지농장에서 아프리카돼지열병 확인",
+            "excerpt": "아프리카돼지열병은 한 번 발생하면 돼지와 멧돼지에 치명적인 영향을 미친다. 고열, 식욕 부진, 기립 불능, 구토, 출혈, 폐사 등의 증상이 나타...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>아프리카돼지열병은 한 번 발생하면 돼지와 멧돼지에 치명적인 영향을 미친다. 고열, 식욕 부진, 기립 불능, 구토, 출혈, 폐사 등의 증상이 나타나며 암퇘지는 유산 확률이 높아진다. 그러나 사람에게는 감염되지 않는다.... <br><br><a href='https://n.news.naver.com/mnews/article/658/0000136422?sid=101' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/boar.png",
+            "daysAgo": 0,
+            "link": "https://n.news.naver.com/mnews/article/658/0000136422?sid=101"
+        },
+        {
+            "id": 9,
+            "title": "중앙백신 \"한국 멧돼지 유래 ASF 생백신 글로벌 상용화 추진”",
+            "excerpt": "회사 관계자는 \"ASF‑MEC‑01은 한국에서 분리한 멧돼지 유래 ASF 바이러스를 기반으로 개발한 백신 후보로, 국내 양돈 산업의 방역 안정성...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>회사 관계자는 \"ASF‑MEC‑01은 한국에서 분리한 멧돼지 유래 ASF 바이러스를 기반으로 개발한 백신 후보로, 국내 양돈 산업의 방역 안정성과 더불어 아시아·유럽 시장 진출까지 동시에 겨냥할 수 있는 전략 자산... <br><br><a href='https://n.news.naver.com/mnews/article/003/0013789063?sid=101' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/env_gov.png",
+            "daysAgo": 0,
+            "link": "https://n.news.naver.com/mnews/article/003/0013789063?sid=101"
+        },
+        {
+            "id": 10,
+            "title": "중앙백신연구소 \"한국 멧돼지 유래 ASF 생백신으로 글로벌 상용화 추진...",
+            "excerpt": "회사 측은 \"ASF‑MEC‑01은 한국에서 분리한 멧돼지 유래 ASF 바이러스를 기반으로 개발한 백신 후보로, 국내 양돈 산업의 방역 안정성과 ...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>회사 측은 \"ASF‑MEC‑01은 한국에서 분리한 멧돼지 유래 ASF 바이러스를 기반으로 개발한 백신 후보로, 국내 양돈 산업의 방역 안정성과 더불어 아시아·유럽 시장 진출까지 동시에 겨냥할 수 있는 전략 자산\"이라며... <br><br><a href='https://n.news.naver.com/mnews/article/015/0005255436?sid=101' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/env_gov.png",
+            "daysAgo": 0,
+            "link": "https://n.news.naver.com/mnews/article/015/0005255436?sid=101"
+        }
+    ],
+    "ecosystem": [
+        {
+            "id": 11,
+            "title": "외래 '유입주의 생물' 152종 사전 차단…자료집 배포",
+            "excerpt": "국제적으로 생태계 위해성이 확인된 종이나, 사회적·생태적 피해 사례가 있는 종, 혹은 기존 생태계 교란 생물과 유전적·생태적 특성이 유사한 종 ...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>국제적으로 생태계 위해성이 확인된 종이나, 사회적·생태적 피해 사례가 있는 종, 혹은 기존 생태계 교란 생물과 유전적·생태적 특성이 유사한 종 등이 후보종에 포함된다. 기후부는 지난해 12월 30일 152종을 신규... <br><br><a href='https://n.news.naver.com/mnews/article/003/0013787127?sid=101' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/env_gov.png",
+            "daysAgo": 0,
+            "link": "https://n.news.naver.com/mnews/article/003/0013787127?sid=101"
+        },
+        {
+            "id": 12,
+            "title": "신규 지정 '유입주의 외래생물' 152종 자료집 발간",
+            "excerpt": "국립생태원이 전문가 자문과 해외 연구자료 분석을 거쳐 ①국제적으로 생태계 위해성이 확인된 종 ②사회적·생태적 피해 사례가 있는 종 ③기존 생태계...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>국립생태원이 전문가 자문과 해외 연구자료 분석을 거쳐 ①국제적으로 생태계 위해성이 확인된 종 ②사회적·생태적 피해 사례가 있는 종 ③기존 생태계교란 생물과 유전적·생태적 특성이 유사한 종 ④서식조건이... <br><br><a href='https://n.news.naver.com/mnews/article/079/0004118747?sid=103' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/env_gov.png",
+            "daysAgo": 0,
+            "link": "https://n.news.naver.com/mnews/article/079/0004118747?sid=103"
+        },
+        {
+            "id": 13,
+            "title": "뉴트리아는 익사시켜도 합법인 나라 [고은경의 반려배려]",
+            "excerpt": "영상 속에는 포상금으로 1억 원을 벌었다고 알려진 뉴트리아 포획업자(헌터)가 등장한다. 그는 \"이전처럼 몽둥이로 때려죽이지는 않지만, 워낙 수가...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>영상 속에는 포상금으로 1억 원을 벌었다고 알려진 뉴트리아 포획업자(헌터)가 등장한다. 그는 \"이전처럼 몽둥이로 때려죽이지는 않지만, 워낙 수가 많다 보니 가스로 안락사시키기 어렵고 대부분 굶기거나 물에 빠트려... <br><br><a href='https://n.news.naver.com/mnews/article/469/0000895128?sid=103' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/nutria.png",
+            "daysAgo": 0,
+            "link": "https://n.news.naver.com/mnews/article/469/0000895128?sid=103"
+        },
+        {
+            "id": 14,
+            "title": "괴생명체로 불리는 건데…한국 늪에서 진짜 잡혀 눈길 끈 '이 동물'",
+            "excerpt": "이 영상에는 지방 하천으로 직접 이동해 뉴트리아 포획에 나서는 모습이 담겼다. 영상 속 이충근은 “뉴트리아는 생태계 교란종이라 퇴치가 필요하다\"...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>이 영상에는 지방 하천으로 직접 이동해 뉴트리아 포획에 나서는 모습이 담겼다. 영상 속 이충근은 “뉴트리아는 생태계 교란종이라 퇴치가 필요하다\"며 늪 주변 은신처를 중심으로 탐색을 진행했다. 탐색 과정에서는... <br><br><a href='https://www.wikitree.co.kr/articles/1088821' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/nutria.png",
+            "daysAgo": 0,
+            "link": "https://www.wikitree.co.kr/articles/1088821"
+        },
+        {
+            "id": 15,
+            "title": "헌정회-전남도, 외래어종 퇴치 맞손 생태계 복원·농촌 일자리 창출 협...",
+            "excerpt": "이번 협약은 정대철 회장 취임 이후 추진 중인 ‘외래어종 퇴치를 통한 생태계 복원 및 농촌 살리기 운동’의 일환이다. 현재 국내 하천에서는 큰입...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>이번 협약은 정대철 회장 취임 이후 추진 중인 ‘외래어종 퇴치를 통한 생태계 복원 및 농촌 살리기 운동’의 일환이다. 현재 국내 하천에서는 큰입배스, 블루길, 붉은귀거북, 황소개구리 등 포식성 외래어종이 토종 치어와... <br><br><a href='http://www.shinailbo.co.kr/news/articleView.html?idxno=2196814' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/bullfrog.png",
+            "daysAgo": 0,
+            "link": "http://www.shinailbo.co.kr/news/articleView.html?idxno=2196814"
+        },
+        {
+            "id": 16,
+            "title": "한국 도랑에 깔렸다…100마리 넘게 출몰한 거대 '생태계 교란 동물' 정체",
+            "excerpt": "하지만 여전히 대부분 지역에서는 높은 밀도를 유지하고 있어 지속적인 모니터링과 관리가 요구된다.환경부는 1990년대부터 황소개구리 퇴치를 위해 ...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>하지만 여전히 대부분 지역에서는 높은 밀도를 유지하고 있어 지속적인 모니터링과 관리가 요구된다.환경부는 1990년대부터 황소개구리 퇴치를 위해 전국적으로 포스터 배포, 지자체 협력, 학생 동원, 민관 합동 퇴치작전... <br><br><a href='https://www.wikitree.co.kr/articles/1056078' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/bullfrog.png",
+            "daysAgo": 0,
+            "link": "https://www.wikitree.co.kr/articles/1056078"
+        },
+        {
+            "id": 17,
+            "title": "박길선 강원도의원 \"생태계 교란 식물 제거 완전 이행\"",
+            "excerpt": "박 의원에 따르면 강원도는 올해 17억6,000만원 상당의 예산을 투입해 단풍잎돼지풀, 가시박 등 환경부 지정 생태계교란 식물 18종에 대한 제...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>박 의원에 따르면 강원도는 올해 17억6,000만원 상당의 예산을 투입해 단풍잎돼지풀, 가시박 등 환경부 지정 생태계교란 식물 18종에 대한 제거 사업 및 모니터링 연구를 추진한다. 특히 지난해에는 764만4,000㎡ 규모의 교란... <br><br><a href='https://n.news.naver.com/mnews/article/087/0001172845?sid=100' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/hunter.png",
+            "daysAgo": 0,
+            "link": "https://n.news.naver.com/mnews/article/087/0001172845?sid=100"
+        },
+        {
+            "id": 18,
+            "title": "남양주시, 양정동 도심 가시박 제거로 생태환경 개선",
+            "excerpt": "양정동 도심 가시박 제거로 생태환경 개선 후 모습 / 남양주시청 남양주시(시장 주광덕)는 15일 양정동주민센터(동장 이주연)가 시민 불편 해소와...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>양정동 도심 가시박 제거로 생태환경 개선 후 모습 / 남양주시청 남양주시(시장 주광덕)는 15일 양정동주민센터(동장 이주연)가 시민 불편 해소와 도심 생태환경 회복을 위해 생태교란종 '가시박' 제거 작업을 완료했다고... <br><br><a href='http://www.newstown.co.kr/news/articleView.html?idxno=681022' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/hunter.png",
+            "daysAgo": 0,
+            "link": "http://www.newstown.co.kr/news/articleView.html?idxno=681022"
+        }
+    ]
 }
