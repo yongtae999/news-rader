@@ -113,14 +113,6 @@ body {
     gap: 0.2rem;
 }
 
-.title-row {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    flex-wrap: wrap;
-    /* 작은 화면에서 제목과 버튼이 겹치지 않게 허용 */
-}
-
 .logo-text h1 {
     font-size: 2.2rem;
     font-weight: 700;
@@ -129,10 +121,6 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 0;
-    word-break: keep-all;
-    /* 단어 단위로 줄바꿈을 유지 */
-    white-space: nowrap;
-    /* 텍스트가 세로로 쪼개지는 현상 강제 방지 */
 }
 
 .logo-text .subtitle {
@@ -140,8 +128,6 @@ body {
     color: var(--text-secondary);
     font-weight: 300;
     letter-spacing: 0.05em;
-    word-break: keep-all;
-    white-space: nowrap;
 }
 
 .header-actions {
@@ -149,34 +135,6 @@ body {
     flex-direction: column;
     align-items: flex-end;
     gap: 0.8rem;
-}
-
-.association-banner {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1.2rem;
-    background: var(--card-bg);
-    border: 1px solid var(--accent-color);
-    border-radius: 8px;
-    color: var(--accent-color);
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-sm);
-    backdrop-filter: blur(10px);
-}
-
-.association-banner:hover {
-    background: var(--accent-color);
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(16, 185, 129, 0.2);
-}
-
-.association-banner i {
-    font-size: 0.9rem;
 }
 
 .date-display {
@@ -419,13 +377,96 @@ body {
 }
 
 .app-footer {
-    margin-top: 4rem;
+    margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 1px solid var(--card-border);
     text-align: center;
     color: var(--text-secondary);
     font-size: 0.9rem;
     line-height: 1.6;
+}
+
+/* --- 하단 배너 섹션 --- */
+.bottom-banner-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--card-border);
+}
+
+.bottom-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.2));
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.bottom-banner:hover {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.3));
+    border-color: rgba(16, 185, 129, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.banner-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.4);
+}
+
+.banner-text-info h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    /* 가독성을 위해 순백색으로 강제 지정 */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    /* 글자가 배경에 묻히지 않게 약간의 그림자 추가 */
+}
+
+.banner-text-info p {
+    margin: 0.3rem 0 0 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.banner-action {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #ffffff;
+    /* 텍스트가 야광색으로 보여 가독성을 해치므로 흰색으로 수정 */
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.15);
+    /* 버튼처럼 보이게 배경 추가 */
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.banner-action i {
+    transition: transform 0.3s;
+}
+
+.bottom-banner:hover .banner-action i {
+    transform: translateX(5px);
 }
 
 @media (max-width: 768px) {
@@ -433,87 +474,51 @@ body {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 1.2rem;
+        gap: 1.5rem;
     }
 
     .logo-area {
         display: flex;
-        flex-direction: row;
-        /* 로고와 텍스트를 반드시 가로로 나란히 배치 */
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
         width: 100%;
-        gap: 0.8rem;
+        gap: 1rem;
     }
 
     .header-logo {
         height: 50px;
-        /* 로고 크기 살짝 조정 */
         width: auto;
         object-fit: contain;
-        flex-shrink: 0;
-        /* 공간이 부족해도 로고 크기는 줄어들지 않음 */
     }
 
     .logo-text {
-        flex: 1;
-        /* 남은 공간 모두 차지 */
         display: flex;
         flex-direction: column;
-        /* 텍스트는 위(로고타이틀) 아래(서브타이틀) 배치 */
-        justify-content: center;
         gap: 0.3rem;
-        min-width: 0;
-        /* Flexbox 하위 요소가 영역을 벗어나는 버그 방지 */
-        overflow: visible;
-    }
-
-    .title-row {
-        gap: 0.5rem;
-        flex-wrap: nowrap;
-        /* 모바일에서는 절대 줄바꿈 하지 않고 배너와 강제 한 줄 유지 */
     }
 
     .logo-text h1 {
-        font-size: 1.4rem;
-        /* 모바일에서 타이틀 크기 최적화 */
+        font-size: 1.8rem;
         letter-spacing: -0.05em;
     }
 
     .logo-text .subtitle {
-        font-size: 0.8rem;
-    }
-
-    .association-banner {
-        padding: 0.3rem 0.6rem;
-        font-size: 0.8rem;
-        border-radius: 6px;
-    }
-
-    .association-banner span.banner-text {
-        display: none;
-        /* 모바일에서는 공간 제약으로 텍스트 숨기고 아이콘만 표시 */
-    }
-
-    .association-banner::after {
-        content: "홈페이지";
-        /* 짧은 텍스트로 대체 */
+        font-size: 0.9rem;
     }
 
     .header-actions {
         display: flex;
         flex-direction: row;
         width: 100%;
-        justify-content: flex-end;
-        /* 날짜를 우측으로 배치 */
+        justify-content: flex-start;
         align-items: center;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 0.8rem;
+        border-top: none;
+        padding-top: 0;
     }
 
     .date-display {
         font-size: 0.95rem;
-        padding: 0.4rem 0.8rem;
-        justify-content: center;
+        padding: 0.5rem 1rem;
     }
 
     .tab-navigation {
@@ -767,5 +772,19 @@ body {
         min-width: 50px;
         min-height: 50px;
         font-size: 1.2rem;
+    }
+
+    .bottom-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .banner-action {
+        width: 100%;
+        justify-content: space-between;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 }
