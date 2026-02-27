@@ -101,8 +101,8 @@ def main():
         seen_titles = set() # 중복 기사 필터링용 Set
         
         for idx, keyword in enumerate(keywords):
-            # 강력한 중복 제거를 감안하여 API 기사를 아주 넉넉하게 가져옴 (키워드당 10~15개)
-            display_count = 15 if len(keywords) <= 2 else (10 if len(keywords) == 3 else 8)
+            # 강력한 중복/스팸/날짜 제거를 감안하여 API 기사를 아주 넉넉하게 가져옴 (키워드당 15~20개)
+            display_count = 20 if len(keywords) <= 2 else (15 if len(keywords) == 3 else 12)
             items = get_news(keyword, display=display_count)
             
             for item in items: # type: ignore
@@ -110,10 +110,27 @@ def main():
                     continue
                 title = clean_html(str(item.get('title', '')))
                 
-                # 스팸/테마주 기사 원천 차단 블랙리스트
-                blacklist = ["중앙백신", "특징주", "주가", "주식", "증시", "상한가", "급등", "수혜주", "테마주", "이글벳", "제일바이오", "체시스", "대성미생물", "진바이오텍"]
+                # 스팸/테마주 기사 원천 차단 블랙리스트 (제약사, 주식 용어 대폭 추가)
+                blacklist = [
+                    "중앙백신", "특징주", "주가", "주식", "증시", "상한가", "급등", "수혜주", "테마주", 
+                    "이글벳", "제일바이오", "체시스", "대성미생물", "진바이오텍", "우진비앤지", "파루", 
+                    "코미팜", "마니커", "하림", "투자", "매수", "매도", "종목", "코스닥", "코스피"
+                ]
                 if any(b_word in title for b_word in blacklist):
                     continue
+                
+                # 2024년, 2025년 초 등 과거 기사 원천 차단 (최근 7일 이내 기사만 허용)
+                pub_date_str = str(item.get('pubDate', ''))
+                try:
+                    # 네이버 API 날짜 형식: Tue, 04 Mar 2025 14:02:00 +0900
+                    pub_date = datetime.strptime(pub_date_str, "%a, %d %b %Y %H:%M:%S %z")
+                    # 현재 시간(UTC)을 기준으로 Naver 시간대를 고려한 단순 날짜 차이 계산
+                    days_diff = (datetime.now(pub_date.tzinfo) - pub_date).days
+                    if days_diff > 7:
+                        continue # 7일 이상 지난 과거 기사 스킵
+                except Exception:
+                    # 날짜 형식이 이상하면 일단 통과 (API 오류 방지)
+                    pass
                 
                 # 특수문자 및 공백을 모두 제거한 핵심 문자열 추출
                 norm_title = re.sub(r'[\W_]+', '', title)
