@@ -61,7 +61,8 @@ def get_best_image(category, title, description):
 def get_news(keyword, display=3):
     """네이버 뉴스 검색 API 호출"""
     encText = urllib.parse.quote(keyword)
-    url = f"https://openapi.naver.com/v1/search/news.json?query={encText}&display={display}&sort=sim"
+    # sort=sim(정확도순) 대신 sort=date(최신순)을 사용하여 항상 최근 기사만 가져오도록 수정
+    url = f"https://openapi.naver.com/v1/search/news.json?query={encText}&display={display}&sort=date"
     
     request = urllib.request.Request(url)
     request.add_header("X-Naver-Client-Id", client_id)
@@ -108,6 +109,11 @@ def main():
                 if not isinstance(item, dict):
                     continue
                 title = clean_html(str(item.get('title', '')))
+                
+                # 스팸/테마주 기사 원천 차단 블랙리스트
+                blacklist = ["중앙백신", "특징주", "주가", "주식", "증시", "상한가", "급등", "수혜주", "테마주", "이글벳", "제일바이오", "체시스", "대성미생물", "진바이오텍"]
+                if any(b_word in title for b_word in blacklist):
+                    continue
                 
                 # 특수문자 및 공백을 모두 제거한 핵심 문자열 추출
                 norm_title = re.sub(r'[\W_]+', '', title)
