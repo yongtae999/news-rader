@@ -114,7 +114,7 @@ function initTabs() {
 
             // 데스크탑 인디케이터 슬라이딩 애니메이션 계산 (탭 3개 기준)
             if (window.innerWidth > 768) {
-                indicator.style.transform = `translateX(${index * 100} %)`;
+                indicator.style.transform = `translateX(${index * 100}%)`;
             }
 
             // 데이터 변경 렌더링 호출
@@ -130,7 +130,7 @@ function initTabs() {
         } else {
             const activeIndex = Array.from(tabs).findIndex(t => t.classList.contains('active'));
             if (activeIndex !== -1) {
-                indicator.style.transform = `translateX(${activeIndex * 100} %)`;
+                indicator.style.transform = `translateX(${activeIndex * 100}%)`;
             }
         }
     });
