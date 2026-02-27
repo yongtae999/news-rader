@@ -109,13 +109,14 @@ body {
 .logo-text {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 0.2rem;
 }
 
 .title-row {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.8rem;
     flex-wrap: wrap;
     /* 작은 화면에서 제목과 버튼이 겹치지 않게 허용 */
 }
@@ -128,8 +129,10 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 0;
+    word-break: keep-all;
+    /* 단어 단위로 줄바꿈을 유지 */
     white-space: nowrap;
-    /* 텍스트가 세로로 쪼개지는 현상 방지 */
+    /* 텍스트가 세로로 쪼개지는 현상 강제 방지 */
 }
 
 .logo-text .subtitle {
@@ -137,6 +140,7 @@ body {
     color: var(--text-secondary);
     font-weight: 300;
     letter-spacing: 0.05em;
+    word-break: keep-all;
     white-space: nowrap;
 }
 
@@ -435,40 +439,48 @@ body {
     .logo-area {
         display: flex;
         flex-direction: row;
-        /* 로고와 텍스트를 나란히 배치 */
-        align-items: flex-start;
+        /* 로고와 텍스트를 반드시 가로로 나란히 배치 */
+        align-items: center;
         width: 100%;
         gap: 0.8rem;
     }
 
     .header-logo {
-        height: 60px;
-        /* 로고 크기 유지 */
-        width: 80px;
+        height: 50px;
+        /* 로고 크기 살짝 조정 */
+        width: auto;
         object-fit: contain;
+        flex-shrink: 0;
+        /* 공간이 부족해도 로고 크기는 줄어들지 않음 */
     }
 
     .logo-text {
         flex: 1;
-        /* 가용 공간 차지 */
+        /* 남은 공간 모두 차지 */
         display: flex;
         flex-direction: column;
-        gap: 0.4rem;
+        /* 텍스트는 위(로고타이틀) 아래(서브타이틀) 배치 */
+        justify-content: center;
+        gap: 0.3rem;
         min-width: 0;
-        /* Flex Child가 화면 밖으로 넘치거나 글자가 세로로 깨지는 현상 방지 */
+        /* Flexbox 하위 요소가 영역을 벗어나는 버그 방지 */
+        overflow: visible;
     }
 
     .title-row {
         gap: 0.5rem;
+        flex-wrap: nowrap;
+        /* 모바일에서는 절대 줄바꿈 하지 않고 배너와 강제 한 줄 유지 */
     }
 
     .logo-text h1 {
-        font-size: 1.5rem;
-        /* 모바일에서 타이틀 크기 축소 */
+        font-size: 1.4rem;
+        /* 모바일에서 타이틀 크기 최적화 */
+        letter-spacing: -0.05em;
     }
 
     .logo-text .subtitle {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
     .association-banner {
