@@ -167,9 +167,7 @@ function openNewsModal(newsId) {
     document.getElementById('modalSource').innerHTML = `< i class="fa-regular fa-building" ></i > ${targetNews.source} `;
 
     const publishedDate = calculatePublishedDate(targetNews.daysAgo);
-    document.getElementById('modalDate').innerHTML = `< i class="fa-regular fa-clock" ></i > ${publishedDate} `;
-
-    document.getElementById('modalImage').src = targetNews.image;
+    document.getElementById('modalDate').innerHTML = `<i class="fa-regular fa-clock"></i> ${publishedDate}`;
 
     // 본문 내용 생성 (항목별 실제 저장된 상세 body 텍스트 활용)
     const articleBodyHTML = `
