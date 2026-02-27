@@ -416,34 +416,83 @@ body {
 @media (max-width: 768px) {
     .app-header {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 1.5rem;
+        align-items: stretch;
+        /* 전체 너비 사용 */
+        gap: 1rem;
     }
 
     .logo-area {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        /* 로고와 텍스트 가로 배치 유지 */
+        align-items: center;
+        width: 100%;
         gap: 1rem;
     }
 
     .header-logo {
-        height: 50px;
+        height: 40px;
+        /* 모바일에서 로고 크기 축소 */
+    }
+
+    .logo-text {
+        flex: 1;
+        /* 남은 공간 차지 */
     }
 
     .logo-text h1 {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
+        /* 모바일에서 타이틀 크기 축소 */
+    }
+
+    .logo-text .subtitle {
+        font-size: 0.8rem;
     }
 
     .header-actions {
-        align-items: flex-start;
-        width: 100%;
         flex-direction: row;
+        width: 100%;
         justify-content: space-between;
+        /* 날짜는 왼쪽, 배너는 오른쪽 (또는 배너만 있을 경우 고려) */
+        align-items: center;
+    }
+
+    /* 배너를 로고 우측 끝으로 올리기 위한 특수 레이아웃 조정 */
+    .app-header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        row-gap: 1rem;
+        align-items: center;
+    }
+
+    .logo-area {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
     }
 
     .association-banner {
-        flex: 1;
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        border-radius: 6px;
+    }
+
+    .association-banner span {
+        display: none;
+        /* 모바일에서는 공간 제약으로 텍스트 숨기고 아이콘만 표시하거나 텍스트 줄임 */
+    }
+
+    .association-banner::after {
+        content: "홈페이지";
+        /* 짧은 텍스트로 대체 */
+    }
+
+    .date-display {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
         justify-content: center;
+        font-size: 0.95rem;
     }
 
     .tab-navigation {
