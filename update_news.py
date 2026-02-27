@@ -61,6 +61,21 @@ def get_best_image(category, title, description):
         
     return "images/env_gov.png"
 
+def longest_common_substring(s1, s2):
+    """두 문자열 사이의 가장 긴 연속된 공통 부분 문자열의 길이를 반환"""
+    m = [[0] * (1 + len(s2)) for _ in range(1 + len(s1))]
+    longest, x_longest = 0, 0
+    for x in range(1, 1 + len(s1)):
+        for y in range(1, 1 + len(s2)):
+            if s1[x - 1] == s2[y - 1]:
+                m[x][y] = m[x - 1][y - 1] + 1
+                if m[x][y] > longest:
+                    longest = m[x][y]
+                    x_longest = x
+            else:
+                m[x][y] = 0
+    return longest
+
 def get_news(keyword, display=3):
     """네이버 뉴스 검색 API 호출"""
     encText = urllib.parse.quote(keyword)
@@ -141,7 +156,13 @@ def main():
                 
                 is_duplicate = False
                 for seen_title in seen_titles:
+                    # 1. 완전 포함 관계
                     if norm_title in seen_title or seen_title in norm_title:
+                        is_duplicate = True
+                        break
+                    # 2. 가장 긴 연속 공통 문자열이 10글자 이상 겹치면 (동일 사건 기사로 간주)
+                    # (특수문자/공백 제거 상태이므로 10글자면 보통 3~5어절 길이의 핵심 문장 단위임)
+                    if longest_common_substring(norm_title, seen_title) >= 10:
                         is_duplicate = True
                         break
                         
