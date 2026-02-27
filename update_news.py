@@ -163,8 +163,28 @@ def main():
                 try:
                     # 네이버 API 날짜 형식: Tue, 04 Mar 2025 14:02:00 +0900
                     pub_date = datetime.strptime(pub_date_str, "%a, %d %b %Y %H:%M:%S %z")
-                    # 현재 시간(UTC)을 기준으로 Naver 시간대를 고려한 단순 날짜 차이 계산
-                    days_diff = (datetime.now(pub_date.tzinfo) - pub_date).days
+                    
+                    # pub_date의 tzinfo를 제거하여 naive datetime으로 변환 (KST 기준)
+                    pub_date_naive = pub_date.replace(tzinfo=None)
+                    
+                    # 현재 시간(UTC) 대신 한국 시간(또는 시스템 로컬 시간)을 naive 형식으로 가져와서 비교
+                    # GitHub Actions는 UTC이므로, 단순히 datetime.now()를 쓰면 9시간 차이가 발생.
+                    # 가장 안전한 방법은 두 시간을 모두 동일한 기준으로 맞추는 것입니다.
+                    # pub_date는 이미 문자열 자체에 한국 시간(+0900)이 반영되어 있으므로, timestamp 기반으로 비교합니다.
+                    
+                    now = datetime.now()
+                    # pub_date_naive와 now의 차이를 계산 (로컬 시간 기준)
+                    days_diff = (now - pub_date_naive).days
+                    
+                    # 만약 GitHub Actions 서버(UTC)에서 실행될 경우를 대비해, 
+                    # 확실하게 UTC 기준으로 변환해서 비교하는 방식을 사용합니다.
+                    now_utc = datetime.utcnow()
+                    # pub_date를 강제로 UTC로 변환
+                    pub_date_utc = pub_date.astimezone(timezone.utc).replace(tzinfo=None) if hasattr(datetime, 'timezone') else pub_date_naive
+                    
+                    # 혹시 몰라 가장 단순한 timestamp 차이로 계산 (초 단위 -> 일 단위)
+                    days_diff = int((datetime.now().timestamp() - pub_date.timestamp()) / (60 * 60 * 24))
+                    
                     if days_diff > 7:
                         continue # 7일 이상 지난 과거 기사 스킵
                         
