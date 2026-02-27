@@ -97,15 +97,23 @@ def main():
     
     for category, keywords in categories.items():
         print(f"[{category}] 카테고리 수집 중...")
+        seen_titles = set() # 중복 기사 필터링용 Set
+        
         for idx, keyword in enumerate(keywords):
-            # 카테고리별로 키워드 개수가 다르므로 표시 개수를 다르게 설정 (총 10개 이상 목표)
-            display_count = 5 if len(keywords) <= 2 else (4 if len(keywords) == 3 else 3)
+            # 중복이 제거될 것을 감안하여 넉넉하게 기사를 가져옴 (키워드당 5~8개 수준)
+            display_count = 8 if len(keywords) <= 2 else (6 if len(keywords) == 3 else 5)
             items = get_news(keyword, display=display_count)
             
             for item in items: # type: ignore
                 if not isinstance(item, dict):
                     continue
                 title = clean_html(str(item.get('title', '')))
+                
+                # 중복 기사 스킵 (같은 제목이 이미 있으면 무시)
+                if title in seen_titles:
+                    continue
+                seen_titles.add(title)
+                
                 description = clean_html(str(item.get('description', '')))
                 link = str(item.get('link', ''))
                 
