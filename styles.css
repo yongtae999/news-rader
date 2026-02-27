@@ -697,3 +697,45 @@ body {
         font-size: 1.5rem;
     }
 }
+
+/* Floating Refresh Button */
+.floating-refresh {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
+    z-index: 100;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.floating-refresh:hover,
+.floating-refresh:active {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(16, 185, 129, 0.6);
+}
+
+/* 새로고침 버튼 애니메이션 적용 시 사용할 클래스 */
+.floating-refresh.is-refreshing i {
+    animation: spin 1s linear infinite;
+}
+
+@media (max-width: 768px) {
+    .floating-refresh {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}

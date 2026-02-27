@@ -191,9 +191,16 @@ function closeNewsModal() {
 }
 
 // --- 초기화 시점 데이터 패치 로직 ---
-async function fetchNewsData() {
+async function fetchNewsData(isRefresh = false) {
     try {
-        const response = await fetch('data/newsData.json');
+        // 캐시 방지를 위해 현재 시간 타임스탬프를 쿼리 파라미터로 추가
+        const timestamp = new Date().getTime();
+        const url = `data/newsData.json?t=${timestamp}`;
+
+        const response = await fetch(url, {
+            cache: 'no-store' // 추가적인 캐시 방지 옵션
+        });
+
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -202,8 +209,10 @@ async function fetchNewsData() {
         console.error('Failed to load news data, falling back to empty state or dummy.', error);
         // 에러 시 렌더링 할 것이 없으나, 안전을 위해 캐치
     } finally {
-        displayDate();
-        renderNews('hunting');
+        if (!isRefresh) {
+            displayDate();
+        }
+        renderNews(currentCategory);
     }
 }
 
@@ -215,17 +224,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // 모달 닫기 이벤트 리스너
     closeModalBtn.addEventListener('click', closeNewsModal);
 
-    // 모달 외부(딤 처리된 배경) 클릭 시 닫기
+    // 모달 클릭 외부 영역 및 ESC 이벤트
     modalOverlay.addEventListener('click', (e) => {
         if (e.target === modalOverlay) {
             closeNewsModal();
         }
     });
 
-    // ESC 키 입력 시 닫기
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
             closeNewsModal();
         }
     });
+
+    // 새로고침 버튼 이벤트 연동
+    const refreshBtn = document.getElementById('refreshBtn');
+    if (refreshBtn) {
+        refreshBtn.addEventListener('click', async () => {
+            // 새로고침 중복 클릭 방지 및 시각적 애니메이션 피드백
+            if (refreshBtn.classList.contains('is-refreshing')) return;
+
+            refreshBtn.classList.add('is-refreshing');
+
+            // 데이터 재요청 (true 파라미터로 새로고침 모드 전달)
+            await fetchNewsData(true);
+
+            // 시각적 피드백을 위해 최소 800ms 애니메이션 유지 후 제거
+            setTimeout(() => {
+                refreshBtn.classList.remove('is-refreshing');
+            }, 800);
+        });
+    }
 });
