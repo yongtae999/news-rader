@@ -13,6 +13,7 @@ client_secret = os.environ.get("NAVER_CLIENT_SECRET", "")
 categories = {
     "hunting": ["수렵 유해조수", "야생동물 밀렵 단속", "총기 안전 수렵"],
     "asf": ["아프리카돼지열병 멧돼지", "ASF 방역 멧돼지"],
+    "ai": ["조류독감 야생조류", "고병원성 AI 야생조류", "조류인플루엔자 철새"],
     "ecosystem": ["생태계교란생물", "뉴트리아 포획", "황소개구리 퇴치", "가시박 제거"],
     "association": ["야생생물관리협회"]
 }
@@ -21,6 +22,7 @@ categories = {
 image_mapping = {
     "hunting": ["images/env_gov.png", "images/hunter.png", "images/police.png"],
     "asf": ["images/boar.png", "images/env_gov.png", "images/hunter.png"],
+    "ai": ["images/bird_flu.png", "images/env_gov.png"],
     "ecosystem": ["images/env_gov.png", "images/nutria.png", "images/bullfrog.png", "images/hunter.png"],
     "association": ["images/env_gov.png"],
     "editorial": ["images/env_gov.png"]
@@ -40,6 +42,8 @@ def get_best_image(category, title, description):
     # 1. 특정 키워드에 대한 강력한 매칭
     if "경찰" in combined_text or "순찰" in combined_text or "단속" in combined_text or "총기" in combined_text:
         return "images/police.png"
+    if "조류독감" in combined_text or "조류인플루엔자" in combined_text or "고병원성 AI" in combined_text.upper() or "철새" in combined_text or "야생조류" in combined_text:
+        return "images/bird_flu.png"
     if "멧돼지" in combined_text or "돼지열병" in combined_text or "ASF" in combined_text.upper():
         return "images/boar.png"
     if "뉴트리아" in combined_text or "괴물쥐" in combined_text:
@@ -56,6 +60,8 @@ def get_best_image(category, title, description):
         return "images/hunter.png"
     elif category == "asf":
         return "images/boar.png"
+    elif category == "ai":
+        return "images/bird_flu.png"
     elif category == "ecosystem":
         return "images/env_gov.png"
     elif category == "association":
@@ -113,8 +119,9 @@ def main():
     news_data_output: dict[str, list[dict[str, str | int]]] = {
         "hunting": [],
         "asf": [],
+        "ai": [],
         "ecosystem": [],
-        "association": [], # 5번째 협회관련 탭용 메모리
+        "association": [], # 6번째 협회관련 탭용 메모리
         "editorial": [] # 사설/기획기사는 따로 담을 빈 바구니 준비
     }
     

@@ -1,5 +1,5 @@
 // 전역 뉴스 데이터 변수
-let newsData = { hunting: [], asf: [], ecosystem: [], association: [], editorial: [] };
+let newsData = { hunting: [], asf: [], ai: [], ecosystem: [], association: [], editorial: [] };
 
 // --- 날짜 표시 영역 ---
 // 날짜 포맷 함수 (YY.MM.DD)
@@ -33,9 +33,10 @@ function createNewsCard(newsItem, index) {
     let categoryName = '';
 
     switch (currentCategory) {
-        case 'hunting': categoryName = "수렵"; break;
-        case 'asf': categoryName = "ASF 동향"; break;
-        case 'ecosystem': categoryName = "교란생물"; break;
+        case 'hunting': categoryName = "수렵관련"; break;
+        case 'asf': categoryName = "ASF관련"; break;
+        case 'ai': categoryName = "AI관련"; break;
+        case 'ecosystem': categoryName = "교란생물 관련"; break;
         case 'association': categoryName = "협회 관련"; break;
         case 'editorial': categoryName = "사설/기획"; break;
     }
@@ -114,9 +115,9 @@ function initTabs() {
             // 클릭된 탭 활성화
             tab.classList.add('active');
 
-            // 데스크탑 인디케이터 슬라이딩 애니메이션 계산 (탭 3개 기준)
+            // 데스크탑 인디케이터 슬라이딩 애니메이션 계산
             if (window.innerWidth > 768) {
-                indicator.style.transform = `translateX(${index * 100}%)`;
+                indicator.style.transform = `translateX(calc(${index * 100}% + ${index * 1}rem))`;
             }
 
             // 데이터 변경 렌더링 호출
@@ -132,7 +133,7 @@ function initTabs() {
         } else {
             const activeIndex = Array.from(tabs).findIndex(t => t.classList.contains('active'));
             if (activeIndex !== -1) {
-                indicator.style.transform = `translateX(${activeIndex * 100}%)`;
+                indicator.style.transform = `translateX(calc(${activeIndex * 100}% + ${activeIndex * 1}rem))`;
             }
         }
     });
@@ -152,9 +153,10 @@ function openNewsModal(newsId) {
         const found = items.find(item => item.id === newsId);
         if (found) {
             targetNews = found;
-            if (key === 'hunting') targetCategoryName = '수렵';
-            if (key === 'asf') targetCategoryName = 'ASF 동향';
-            if (key === 'ecosystem') targetCategoryName = '교란생물';
+            if (key === 'hunting') targetCategoryName = '수렵관련';
+            if (key === 'asf') targetCategoryName = 'ASF관련';
+            if (key === 'ai') targetCategoryName = 'AI관련';
+            if (key === 'ecosystem') targetCategoryName = '교란생물 관련';
             if (key === 'association') targetCategoryName = '협회 관련';
             if (key === 'editorial') targetCategoryName = '사설/기획';
             break;
