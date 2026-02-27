@@ -13,14 +13,16 @@ client_secret = os.environ.get("NAVER_CLIENT_SECRET", "")
 categories = {
     "hunting": ["수렵 유해조수", "야생동물 밀렵 단속", "총기 안전 수렵"],
     "asf": ["아프리카돼지열병 멧돼지", "ASF 방역 멧돼지"],
-    "ecosystem": ["생태계교란생물", "뉴트리아 포획", "황소개구리 퇴치", "가시박 제거"]
+    "ecosystem": ["생태계교란생물", "뉴트리아 포획", "황소개구리 퇴치", "가시박 제거"],
+    "editorial": ["야생동물 사설", "생태계 칼럼", "환경보호 기획기사", "동물보호 사설"]
 }
 
 # 뉴스 이미지 매핑 (랜덤 방지를 위해 카테고리별로 고정 이미지 지정)
 image_mapping = {
     "hunting": ["images/env_gov.png", "images/hunter.png", "images/police.png"],
     "asf": ["images/boar.png", "images/env_gov.png", "images/hunter.png"],
-    "ecosystem": ["images/env_gov.png", "images/nutria.png", "images/bullfrog.png", "images/hunter.png"]
+    "ecosystem": ["images/env_gov.png", "images/nutria.png", "images/bullfrog.png", "images/hunter.png"],
+    "editorial": ["images/env_gov.png"]
 }
 
 def clean_html(raw_html):
@@ -54,6 +56,8 @@ def get_best_image(category, title, description):
     elif category == "asf":
         return "images/boar.png"
     elif category == "ecosystem":
+        return "images/env_gov.png"
+    elif category == "editorial":
         return "images/env_gov.png"
         
     return "images/env_gov.png"
@@ -91,7 +95,8 @@ def main():
     news_data_output: dict[str, list[dict[str, str | int]]] = {
         "hunting": [],
         "asf": [],
-        "ecosystem": []
+        "ecosystem": [],
+        "editorial": []
     }
     
     article_id: int = 1
