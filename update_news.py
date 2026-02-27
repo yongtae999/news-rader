@@ -30,6 +30,34 @@ def clean_html(raw_html):
     cleantext = cleantext.replace('&quot;', '"').replace('&apos;', "'").replace('&lt;', '<').replace('&gt;', '>').replace('&amp;', '&')
     return cleantext
 
+def get_best_image(category, title, description):
+    """기사 제목과 내용을 분석하여 가장 적합한 이미지를 반환합니다."""
+    combined_text = title + " " + description
+    
+    # 1. 특정 키워드에 대한 강력한 매칭
+    if "경찰" in combined_text or "순찰" in combined_text or "단속" in combined_text or "총기" in combined_text:
+        return "images/police.png"
+    if "멧돼지" in combined_text or "돼지열병" in combined_text or "ASF" in combined_text.upper():
+        return "images/boar.png"
+    if "뉴트리아" in combined_text or "괴물쥐" in combined_text:
+        return "images/nutria.png"
+    if "개구리" in combined_text or "거북" in combined_text or "배스" in combined_text or "블루길" in combined_text:
+        return "images/bullfrog.png"
+    if "수렵" in combined_text or "엽사" in combined_text or "포획단" in combined_text or "사냥" in combined_text:
+        return "images/hunter.png"
+    if "환경부" in combined_text or "정부" in combined_text or "지자체" in combined_text or "환경청" in combined_text:
+        return "images/env_gov.png"
+        
+    # 2. 매칭되는 키워드가 없을 경우 카테고리에 따른 기본(Fallback) 이미지 제공
+    if category == "hunting":
+        return "images/hunter.png"
+    elif category == "asf":
+        return "images/boar.png"
+    elif category == "ecosystem":
+        return "images/env_gov.png"
+        
+    return "images/env_gov.png"
+
 def get_news(keyword, display=3):
     """네이버 뉴스 검색 API 호출"""
     encText = urllib.parse.quote(keyword)
@@ -80,9 +108,8 @@ def main():
                 description = clean_html(str(item.get('description', '')))
                 link = str(item.get('link', ''))
                 
-                # 이미지 로테이션 선택
-                img_list = image_mapping[category]
-                selected_image = img_list[idx % len(img_list)]
+                # 기사 내용을 바탕으로 가장 적절한 스마트 이미지 선택
+                selected_image = get_best_image(category, title, description)
                 
                 # 요약문 생성 (description이 너무 길면 자름)
                 excerpt = description[:80] + '...' if len(description) > 80 else description
