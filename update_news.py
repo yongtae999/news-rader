@@ -100,8 +100,8 @@ def main():
         seen_titles = set() # 중복 기사 필터링용 Set
         
         for idx, keyword in enumerate(keywords):
-            # 중복이 제거될 것을 감안하여 넉넉하게 기사를 가져옴 (키워드당 5~8개 수준)
-            display_count = 8 if len(keywords) <= 2 else (6 if len(keywords) == 3 else 5)
+            # 강력한 중복 제거를 감안하여 API 기사를 아주 넉넉하게 가져옴 (키워드당 10~15개)
+            display_count = 15 if len(keywords) <= 2 else (10 if len(keywords) == 3 else 8)
             items = get_news(keyword, display=display_count)
             
             for item in items: # type: ignore
@@ -109,10 +109,19 @@ def main():
                     continue
                 title = clean_html(str(item.get('title', '')))
                 
-                # 중복 기사 스킵 (같은 제목이 이미 있으면 무시)
-                if title in seen_titles:
+                # 특수문자 및 공백을 모두 제거한 핵심 문자열 추출
+                norm_title = re.sub(r'[\W_]+', '', title)
+                
+                is_duplicate = False
+                for seen_title in seen_titles:
+                    # 한 쪽이 다른 쪽에 완전히 포함(부분 문자열)되면 같은 기사로 취급
+                    if norm_title in seen_title or seen_title in norm_title:
+                        is_duplicate = True
+                        break
+                        
+                if is_duplicate:
                     continue
-                seen_titles.add(title)
+                seen_titles.add(norm_title)
                 
                 description = clean_html(str(item.get('description', '')))
                 link = str(item.get('link', ''))
