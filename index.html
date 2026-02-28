@@ -74,6 +74,31 @@
                 </div>
             </section>
 
+            <!-- 관련 법령/지침 검색 배너 영역 -->
+            <section class="law-search-section">
+                <div class="law-search-container">
+                    <div class="law-search-header">
+                        <div class="law-search-icon">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <div class="law-search-title">
+                            <h3>관련 법령 검색</h3>
+                            <p>입력하신 검색어는 국가법령정보센터 홈페이지의 원문 검색으로 연결됩니다.</p>
+                        </div>
+                    </div>
+
+                    <form id="lawSearchForm" class="law-search-form" onsubmit="searchLaw(event)">
+                        <div class="search-input-wrapper">
+                            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                            <input type="text" id="lawSearchInput" placeholder="예: 야생생물, 포획지침, 시행규칙 등" required
+                                aria-label="법령 및 지침 검색어 입력">
+                            <button type="submit" class="search-btn">검색</button>
+                        </div>
+                    </form>
+
+                </div>
+            </section>
+
             <!-- 하단 홈페이지 연결 배너 -->
             <section class="bottom-banner-section">
                 <a href="https://www.kowaps.or.kr/" target="_blank" class="bottom-banner"

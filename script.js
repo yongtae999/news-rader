@@ -216,6 +216,35 @@ async function fetchNewsData(isRefresh = false) {
     }
 }
 
+// --- 기사 렌더링 시점 이후 초기화 로직 ---
+
+// 법령 검색 처리 함수
+function processLawSearch(query) {
+    if (!query || query.trim() === '') return;
+
+    // 법제처 국가법령정보센터 통합검색 결과 페이지로 직접 연결되는 파라미터 URL
+    // lsSc.do 로 전송하면 메인화면을 거치지 않고 바로 검색 결과창을 띄워즙니다.
+    // lsSchType=1 파라미터를 추가하여 기본 검색을 "법령명"이 아닌 "본문"으로 설정합니다.
+    const lawSearchUrl = `https://www.law.go.kr/LSW/lsSc.do?menuId=1&lsSchType=1&query=`;
+
+    // 새 창으로 검색 결과 열기
+    window.open(lawSearchUrl + encodeURIComponent(query.trim()), '_blank');
+}
+
+// 검색폼 제출 핸들러
+function searchLaw(event) {
+    event.preventDefault();
+    const input = document.getElementById('lawSearchInput');
+    processLawSearch(input.value);
+}
+
+// 빠른 검색(태그버튼) 핸들러
+function quickSearch(keyword) {
+    const input = document.getElementById('lawSearchInput');
+    input.value = keyword;
+    processLawSearch(keyword);
+}
+
 // 초기화
 document.addEventListener('DOMContentLoaded', () => {
     fetchNewsData();
