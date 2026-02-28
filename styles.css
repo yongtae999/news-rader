@@ -700,10 +700,40 @@ body {
         padding: 1.5rem;
     }
 
-    .quick-links {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
+    .law-search-form {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .search-input-wrapper {
+        width: 100%;
+        display: flex;
+        box-sizing: border-box;
+    }
+
+    #lawSearchInput {
+        width: 100%;
+        /* 너비를 100%로 설정하여 부모를 꽉 채움 */
+        flex: 1;
+        /* flex item으로서 남은 공간 대부분 차지 */
+        min-width: 0;
+        /* 화면 밖으로 넘치지 않게 방지 */
+        padding: 0.8rem 0.5rem 0.8rem 2.2rem;
+        font-size: 0.95rem;
+    }
+
+    .search-icon {
+        left: 0.8rem;
+    }
+
+    .search-btn {
+        padding: 0 1rem;
+        font-size: 0.95rem;
+        white-space: nowrap;
+        /* 버튼 텍스트 줄바꿈 방지 */
+        flex-shrink: 0;
+        /* 버튼 크기 유지 */
     }
 }
 
