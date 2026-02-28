@@ -222,10 +222,9 @@ async function fetchNewsData(isRefresh = false) {
 function processLawSearch(query) {
     if (!query || query.trim() === '') return;
 
-    // 법제처 국가법령정보센터 통합검색 결과 페이지로 직접 연결되는 파라미터 URL
-    // lsSc.do 로 전송하면 메인화면을 거치지 않고 바로 검색 결과창을 띄워즙니다.
-    // lsSchType=1 파라미터를 추가하여 기본 검색을 "법령명"이 아닌 "본문"으로 설정합니다.
-    const lawSearchUrl = `https://www.law.go.kr/LSW/lsSc.do?menuId=1&lsSchType=1&query=`;
+    // 법제처 국가법령정보센터 통합검색 URL (본문 검색: lsSchType=1, 정렬: vwBdn=10 등 원본 규칙 준수)
+    // lsSc.do 다이렉트 접근이 보안상 차단되거나 프레임 에러를 일으킬 수 있어, 정상적인 main.html 라우팅을 사용하되 본문 검색 옵션을 유지.
+    const lawSearchUrl = `https://www.law.go.kr/LSW/main.html?cptOfi=&=&pt1=&pt2=&pt3=&pt4=&nb=&kb=&vwBdn=10&lsSchType=1&reSchYN=N&prec1=&prec2=&chrYn=&chrClsCd=&rltmR=0&tabGbn=1&sv=`;
 
     // 새 창으로 검색 결과 열기
     window.open(lawSearchUrl + encodeURIComponent(query.trim()), '_blank');
