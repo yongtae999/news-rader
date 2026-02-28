@@ -222,9 +222,9 @@ async function fetchNewsData(isRefresh = false) {
 function processLawSearch(query) {
     if (!query || query.trim() === '') return;
 
-    // 국가법령정보센터의 가장 확실한 통합검색 쿼리스트링 (본문 검색: lsSchType=1)
-    // q 파라미터가 핵심 검색어입니다. (이전에는 sv를 사용했으나 웹 접근 방식에 따라 q가 더 안정적임)
-    const lawSearchUrl = `https://www.law.go.kr/LSW/main.html?cptOfi=&=&pt1=&pt2=&pt3=&pt4=&nb=&kb=&vwBdn=10&lsSchType=1&reSchYN=N&prec1=&prec2=&chrYn=&chrClsCd=&rltmR=0&tabGbn=1&q=`;
+    // 국가법령정보센터의 본문 검색 직접 연결 URL
+    // lsSc.do와 lsSchType=1(본문검색) 파라미터를 사용하여 통합검색 결과 페이지를 새 창으로 직접 띄웁니다.
+    const lawSearchUrl = `https://www.law.go.kr/LSW/lsSc.do?menuId=1&lsSchType=1&query=`;
 
     // 새 창으로 검색 결과 열기
     window.open(lawSearchUrl + encodeURIComponent(query.trim()), '_blank');
