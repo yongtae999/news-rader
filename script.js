@@ -190,6 +190,62 @@ function closeNewsModal() {
     document.body.style.overflow = '';
 }
 
+// 주간 AI 브리핑 모달 열기 함수
+async function openAIBriefingModal() {
+    // 로딩 상태 표시 (옵션)
+    document.getElementById('modalCategory').innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> 제미나이 요약';
+    document.getElementById('modalTitle').textContent = '주간 주요 뉴스 브리핑 (로딩 중...)';
+    document.getElementById('modalSource').innerHTML = `<i class="fa-solid fa-robot"></i> AI 요약 팀`;
+
+    // 날짜는 오늘 날짜로 표시 (또는 파일에서 추출할 수도 있습니다)
+    const today = new Date();
+    document.getElementById('modalDate').innerHTML = `<i class="fa-regular fa-clock"></i> ${formatDate(today)}`;
+    document.getElementById('modalBody').innerHTML = '<div class="spinner" style="margin: 2rem auto;"></div><p style="text-align:center;">브리핑을 불러오는 중입니다...</p>';
+
+    // 모달 띄우기
+    modalOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    try {
+        // 캐시 방지를 위한 타임스탬프
+        const timestamp = new Date().getTime();
+        const response = await fetch(`data/weekly_briefing.txt?t=${timestamp}`);
+
+        if (!response.ok) {
+            throw new Error('브리핑 파일을 찾을 수 없습니다.');
+        }
+
+        const textData = await response.text();
+
+        document.getElementById('modalTitle').textContent = '주간 주요 뉴스 브리핑 살펴보기';
+
+        // 간단한 마크다운 파싱 (줄바꿈 및 볼드, 리스트 처리)
+        // 1. 줄바꿈 보존을 위해 <br> 로 치환 또는 p 태그로 감싸기
+        let formattedHtml = textData
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // **굵게** 처리
+            .replace(/\n\n/g, '</p><p>') // 빈 줄은 새 문단으로
+            .replace(/\n/g, '<br>'); // 단순 줄바꿈은 <br>로
+
+        // 전체를 p 태그로 감싸기
+        if (!formattedHtml.startsWith('<p>')) {
+            formattedHtml = '<p>' + formattedHtml + '</p>';
+        }
+
+        document.getElementById('modalBody').innerHTML = `<div style="line-height: 1.8; font-size: 1.05rem; color: #e2e8f0; background: rgba(59, 130, 246, 0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(59, 130, 246, 0.2);">${formattedHtml}</div>`;
+
+    } catch (error) {
+        document.getElementById('modalTitle').textContent = '브리핑 불러오기 실패';
+        document.getElementById('modalBody').innerHTML = `
+            <div style="text-align:center; padding: 2rem 0;">
+                <i class="fa-solid fa-triangle-exclamation" style="font-size: 3rem; color: #f59e0b; margin-bottom: 1rem;"></i>
+                <p>이번 주 브리핑 요약 파일이 아직 준비되지 않았습니다.</p>
+                <p style="font-size:0.9rem; color:var(--text-secondary); margin-top:0.5rem;">('data/weekly_briefing.txt' 파일을 확인해주세요)</p>
+            </div>
+        `;
+        console.error(error);
+    }
+}
+
 // --- 초기화 시점 데이터 패치 로직 ---
 async function fetchNewsData(isRefresh = false) {
     try {
@@ -248,6 +304,20 @@ function quickSearch(keyword) {
 document.addEventListener('DOMContentLoaded', () => {
     fetchNewsData();
     initTabs();
+
+    // AI 주간 뉴스 브리핑 배너 클릭 이벤트
+    const aiBanner = document.getElementById('aiBriefingBanner');
+    if (aiBanner) {
+        aiBanner.addEventListener('click', openAIBriefingModal);
+
+        // 접근성을 위한 키보드 이벤트
+        aiBanner.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openAIBriefingModal();
+            }
+        });
+    }
 
     // 모달 닫기 이벤트 리스너
     closeModalBtn.addEventListener('click', closeNewsModal);

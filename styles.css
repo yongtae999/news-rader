@@ -550,9 +550,134 @@ body {
     }
 }
 
+/* --- 주간 AI 뉴스 브리핑 배너 --- */
+.ai-briefing-section {
+    margin-top: 3rem;
+}
+
+.ai-briefing-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(59, 130, 246, 0.15));
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    border-radius: 20px;
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.ai-briefing-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.7s ease;
+}
+
+.ai-briefing-banner:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);
+    border-color: rgba(16, 185, 129, 0.6);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(59, 130, 246, 0.2));
+}
+
+.ai-briefing-banner:hover::before {
+    left: 200%;
+}
+
+.briefing-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 1;
+}
+
+.briefing-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #10b981, #3b82f6);
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+
+.briefing-text-info h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.briefing-text-info .highlight-text {
+    background: linear-gradient(to right, #4ade80, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.briefing-text-info p {
+    margin: 0.3rem 0 0 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.briefing-action {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #ffffff;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1;
+    transition: background 0.3s;
+}
+
+.briefing-action i {
+    transition: transform 0.3s;
+}
+
+.ai-briefing-banner:hover .briefing-action {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.ai-briefing-banner:hover .briefing-action i {
+    transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+    .ai-briefing-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .briefing-action {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
 /* --- 법령/지침 검색 배너 섹션 --- */
 .law-search-section {
     margin-top: 3rem;
+}
+
+margin-top: 3rem;
 }
 
 .law-search-container {
