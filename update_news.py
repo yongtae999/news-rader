@@ -132,8 +132,8 @@ def main():
         seen_titles = set() # 중복 기사 필터링용 Set
         
         for idx, keyword in enumerate(keywords):
-            # 강력한 중복/스팸/날짜 제거를 감안하여 API 기사를 아주 넉넉하게 가져옴 (키워드당 15~20개)
-            display_count = 20 if len(keywords) <= 2 else (15 if len(keywords) == 3 else 12)
+            # 강력한 중복/스팸/날짜 제거를 감안하여 API 기사 수집량을 최대치(100개)로 늘림
+            display_count = 100
             items = get_news(keyword, display=display_count)
             
             for item in items: # type: ignore
