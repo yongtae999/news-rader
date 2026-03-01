@@ -92,17 +92,6 @@
         },
         {
             "id": 9,
-            "title": "[혈장단백질 사태] ASF 혈장 오염 충격, 가축방역 전면 재편 불가피",
-            "excerpt": "아프리카돼지열병(ASF)에 오염된 혈장단백질 사료첨가제 사태가 양돈산업 전반에 충격을 던지고 있다. 이번... 야생 멧돼지 오염도 심각하다. 강...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>아프리카돼지열병(ASF)에 오염된 혈장단백질 사료첨가제 사태가 양돈산업 전반에 충격을 던지고 있다. 이번... 야생 멧돼지 오염도 심각하다. 강원·경기·충북 등 산간 지역을 중심으로 올해 55건이 추가 검출됐다. 누적... <br><br><a href='https://www.chukkyung.co.kr/news/articleView.html?idxno=79876' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/boar.png",
-            "daysAgo": 3,
-            "date": "26.02.27",
-            "link": "https://www.chukkyung.co.kr/news/articleView.html?idxno=79876"
-        },
-        {
-            "id": 10,
             "title": "사료서 ASF 첫 검출… 방역망 뚫려",
             "excerpt": "양돈사료에서 아프리카돼지열병(A SF) 유전자가 확인되며 국내 방역 체계에 긴장감이 높아지고 있다. 농장... 차량, 야생멧돼지 중심이던 방역 ...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>양돈사료에서 아프리카돼지열병(A SF) 유전자가 확인되며 국내 방역 체계에 긴장감이 높아지고 있다. 농장... 차량, 야생멧돼지 중심이던 방역 관리 범위가 사료 유통망까지 확대되는 전환점이 될 수 있다\"고 강조했다.<br><br><a href='https://www.chukkyung.co.kr/news/articleView.html?idxno=79892' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -111,6 +100,17 @@
             "daysAgo": 3,
             "date": "26.02.27",
             "link": "https://www.chukkyung.co.kr/news/articleView.html?idxno=79892"
+        },
+        {
+            "id": 10,
+            "title": "[혈장단백질 사태] ASF 혈장 오염 충격, 가축방역 전면 재편 불가피",
+            "excerpt": "아프리카돼지열병(ASF)에 오염된 혈장단백질 사료첨가제 사태가 양돈산업 전반에 충격을 던지고 있다. 이번... 야생 멧돼지 오염도 심각하다. 강...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>아프리카돼지열병(ASF)에 오염된 혈장단백질 사료첨가제 사태가 양돈산업 전반에 충격을 던지고 있다. 이번... 야생 멧돼지 오염도 심각하다. 강원·경기·충북 등 산간 지역을 중심으로 올해 55건이 추가 검출됐다. 누적... <br><br><a href='https://www.chukkyung.co.kr/news/articleView.html?idxno=79876' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/boar.png",
+            "daysAgo": 3,
+            "date": "26.02.27",
+            "link": "https://www.chukkyung.co.kr/news/articleView.html?idxno=79876"
         },
         {
             "id": 11,
