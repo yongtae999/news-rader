@@ -11,10 +11,14 @@ client_secret = os.environ.get("NAVER_CLIENT_SECRET", "")
 
 # 검색 키워드 및 카테고리 매핑
 categories = {
-    "hunting": ["수렵 유해조수", "야생동물 밀렵 단속", "총기 안전 수렵"],
-    "asf": ["아프리카돼지열병 멧돼지", "ASF 방역 멧돼지"],
-    "ai": ["조류독감 야생조류", "고병원성 AI 야생조류", "조류인플루엔자 철새"],
-    "ecosystem": ["생태계교란생물", "뉴트리아 포획", "황소개구리 퇴치", "가시박 제거"],
+    # 수렵 탭: 확실히 포획, 엽사, 총기안전 등과 관련된 단어로 좁힘
+    "hunting": ["유해조수 포획단", "수렵면허", "총기 안전 수렵", "야생동물 포획"],
+    # ASF 탭: 유해동물 포획이 아니라 '돼지열병' 자체가 강조되어야 함
+    "asf": ["아프리카돼지열병 멧돼지", "ASF 멧돼지", "야생멧돼지 아프리카돼지열병"],
+    # AI 탭: 야생조류 AI
+    "ai": ["야생조류 조류인플루엔자", "고병원성 AI 야생조류", "철새 조류인플루엔자"],
+    # 생태계 탭: 뉴트리아, 가시박, 교란종 등
+    "ecosystem": ["생태계교란 교란종", "뉴트리아 포획", "황소개구리 퇴치", "가시박 제거"],
     "association": ["야생생물관리협회"]
 }
 
@@ -147,14 +151,31 @@ def main():
                     if "야생생물관리협회" not in title and "야생생물관리협회" not in description:
                         continue
                 
-                # 스팸/테마주 기사 원천 차단 블랙리스트 (제약사, 주식 용어 대폭 추가)
+                # 스팸/테마주/해외 기사 원천 차단 블랙리스트
                 blacklist = [
+                    # 주식/투자 관련
                     "중앙백신", "특징주", "주가", "주식", "증시", "상한가", "급등", "수혜주", "테마주", 
                     "이글벳", "제일바이오", "체시스", "대성미생물", "진바이오텍", "우진비앤지", "파루", 
-                    "코미팜", "마니커", "하림", "투자", "매수", "매도", "종목", "코스닥", "코스피"
+                    "코미팜", "마니커", "하림", "투자", "매수", "매도", "종목", "코스닥", "코스피",
+                    # 아프리카나 해외 사파리, 밀수 관련 차단
+                    "남아프리카", "남아공", "케냐", "탄자니아", "짐바브웨", "사파리", 
+                    "코뿔소", "코끼리", "사자", "표범", "기린", "밀매", "밀수", "해외 동물원", "국제"
                 ]
                 if any(b_word in title for b_word in blacklist):
                     continue
+                
+                # 카테고리별 엄격한 필수 단어 확인 (오분류 방지)
+                if category == "asf":
+                    # ASF 카테고리는 제목이나 설명에 반드시 'ASF' 나 '돼지열병'이 있어야 통과
+                    if "돼지열병" not in title and "asf" not in title.lower() and "돼지열병" not in description and "asf" not in description.lower():
+                        continue
+                elif category == "ai":
+                    if "인플루엔자" not in title and "ai" not in title.lower() and "조류독감" not in title and "인플루엔자" not in description and "ai" not in description.lower() and "조류독감" not in description:
+                        continue
+                elif category == "hunting":
+                    # 아프리카돼지열병 기사가 수렵으로 빠지는 것을 방지
+                    if "돼지열병" in title or "asf" in title.lower():
+                        continue
                 
                 # 2024년, 2025년 초 등 과거 기사 원천 차단 (최근 7일 이내 기사만 허용)
                 pub_date_str = str(item.get('pubDate', ''))
