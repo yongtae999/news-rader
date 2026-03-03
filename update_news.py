@@ -221,7 +221,12 @@ def main():
                     if not any(word in title for word in must_have) and not any(word in description for word in must_have):
                         continue
                 
-                # 2024년, 2025년 초 등 과거 기사 원천 차단 (최근 7일 이내 기사만 허용)
+                # 2024년, 2025년 초 등 과거 기사 원천 차단 (카테고리별 허용 기간 다름)
+                max_days = 7
+                editorial_tags = ["[사설]", "[기획]", "[기고]", "[칼럼]", "사설]", "기고]", "칼럼]", "기획]"]
+                if category in ["association", "editorial"] or any(tag in title for tag in editorial_tags):
+                    max_days = 90  # 협회 및 사설/기획 탭은 뉴스량이 적으므로 최대 90일까지 허용
+                    
                 pub_date_str = str(item.get('pubDate', ''))
                 days_diff = 0
                 
@@ -240,8 +245,8 @@ def main():
                     # 날짜 차이 계산 (KST 기준)
                     days_diff = (now_kst.date() - pub_date_kst.date()).days
                     
-                    if days_diff > 7:
-                        continue # 7일 이상 지난 과거 기사 스킵
+                    if days_diff > max_days:
+                        continue # 허용 기간(기본 7일, 사설/협회 90일) 지났으면 스킵
                         
                     # YY.MM.DD 형식으로 포맷팅 (KST 기준)
                     formatted_date = pub_date_kst.strftime("%y.%m.%d")
