@@ -19,7 +19,9 @@ categories = {
     "ai": ["야생조류 조류인플루엔자", "고병원성 AI 야생조류", "철새 조류인플루엔자"],
     # 생태계 탭: 뉴트리아, 가시박, 교란종 등
     "ecosystem": ["생태계교란 교란종", "뉴트리아 포획", "황소개구리 퇴치", "가시박 제거"],
-    "association": ["야생생물관리협회"]
+    "association": ["야생생물관리협회"],
+    # 사설/기획 탭: 야생동물, 수렵, 생태계 등과 관련된 심층/기획 논의
+    "editorial": ["야생동물 사설", "야생동물 기고", "야생동물 칼럼", "유해조수 기획", "수렵 기획"]
 }
 
 # 뉴스 이미지 매핑 (랜덤 방지를 위해 카테고리별로 고정 이미지 지정)
@@ -126,7 +128,7 @@ def main():
         "ai": [],
         "ecosystem": [],
         "association": [], # 6번째 협회관련 탭용 메모리
-        "editorial": [] # 사설/기획기사는 따로 담을 빈 바구니 준비
+        "editorial": [] # 5번째 사설/기획기사 전용 바구니
     }
     
     article_id: int = 1
@@ -181,6 +183,15 @@ def main():
                 elif category == "hunting":
                     # 아프리카돼지열병 위주 기사가 수렵으로 빠지는 것을 방지 (제목 기준)
                     if "돼지열병" in title or "asf" in title.lower():
+                        continue
+                elif category == "editorial":
+                    # 일반 뉴스 기사가 기획/사설로 들어오는 것을 방지 (제목에 기획, 사설, 칼럼, 기고, 인터뷰 등이 포함되거나 검색어가 명확한지)
+                    good_tags = ["사설", "기획", "기고", "칼럼", "인터뷰", "시론", "데스크"]
+                    if not any(tag in title for tag in good_tags):
+                        continue
+                    # 정치/경제 등 무관한 사설 필터링: 본문이나 설명에 필수 단어가 있는지 확인
+                    must_have = ["야생동물", "수렵", "유해조수", "밀렵", "생태계교란", "동물보호", "철새", "돼지열병", "포획단", "가축전염병", "유해야생동물"]
+                    if not any(word in title for word in must_have) and not any(word in description for word in must_have):
                         continue
                 
                 # 2024년, 2025년 초 등 과거 기사 원천 차단 (최근 7일 이내 기사만 허용)
@@ -239,14 +250,18 @@ def main():
                 
                 # [사설], [기획], [기고], [칼럼] 등이 제목에 있으면 "사설/기획" 탭으로 강제 이동
                 editorial_tags = ["[사설]", "[기획]", "[기고]", "[칼럼]", "사설]", "기고]", "칼럼]", "기획]"]
-                target_category = category
                 
-                if any(tag in title for tag in editorial_tags):
+                if category == "editorial":
+                    target_category = "editorial"
+                    if len(news_data_output["editorial"]) >= 10:
+                        continue
+                elif any(tag in title for tag in editorial_tags):
                     target_category = "editorial"
                     # 만약 사설 탭이 이미 10개가 찼다면 더 넣지 않고 무시
                     if len(news_data_output["editorial"]) >= 10:
                         continue
                 else:
+                    target_category = category
                     # 일반 기사인데 이미 해당 카테고리가 10개가 찼다면 스킵
                     if len(news_data_output[category]) >= 10:
                         continue
