@@ -77,20 +77,47 @@ def get_best_image(category, title, description):
         
     return "images/env_gov.png"
 
-def longest_common_substring(s1, s2):
-    """두 문자열 사이의 가장 긴 연속된 공통 부분 문자열의 길이를 반환"""
-    m = [[0] * (1 + len(s2)) for _ in range(1 + len(s1))]
-    longest, x_longest = 0, 0
-    for x in range(1, 1 + len(s1)):
-        for y in range(1, 1 + len(s2)):
-            if s1[x - 1] == s2[y - 1]:
-                m[x][y] = m[x - 1][y - 1] + 1
-                if m[x][y] > longest:
-                    longest = m[x][y]
-                    x_longest = x
-            else:
-                m[x][y] = 0
-    return longest
+def get_bigrams(text):
+    """문자열에서 2글자 단위(바이그램) 세트를 추출하여 반환 (유사도 비교용)"""
+    text = re.sub(r'[\W_]+', '', text)
+    if len(text) < 2:
+        return set()
+    return set(text[i:i+2] for i in range(len(text)-1))
+
+def is_duplicate_article(new_title, new_desc, new_date, seen_articles):
+    """새 기사가 기존 수집된 기사들과 중복(복붙 보도자료 포함)인지 강력하게 판별"""
+    norm_t1 = re.sub(r'[\W_]+', '', new_title)
+    new_t_bi = get_bigrams(new_title)
+    new_d_bi = get_bigrams(new_desc)
+    
+    for seen in seen_articles:
+        # 1. 완전 포함 관계 (단순 제목 포함)
+        norm_t2 = re.sub(r'[\W_]+', '', seen["title"])
+        if norm_t1 in norm_t2 or norm_t2 in norm_t1:
+            return True
+            
+        # 2. 같은 날짜에 발행된 기사에 대해 정밀 분석 (보도자료 복붙 검사)
+        if seen["date"] == new_date:
+            seen_t_bi = get_bigrams(seen["title"])
+            seen_d_bi = get_bigrams(seen["desc"])
+            
+            # 제목 Jaccard & Intersection 검사
+            if len(new_t_bi) > 0 and len(seen_t_bi) > 0:
+                t_inter = len(new_t_bi.intersection(seen_t_bi))
+                t_union = len(new_t_bi.union(seen_t_bi))
+                # 바이그램 7개 이상 겹치거나, 유사도가 25% 이상이면 같은 기사로 간주
+                if t_inter >= 7 or (t_union > 0 and t_inter / t_union >= 0.25):
+                    return True
+            
+            # 본문(요약) Jaccard & Intersection 검사 (제목은 다르게 썼지만 내용은 복붙한 보도자료 분석)
+            if len(new_d_bi) > 0 and len(seen_d_bi) > 0:
+                d_inter = len(new_d_bi.intersection(seen_d_bi))
+                d_union = len(new_d_bi.union(seen_d_bi))
+                # 요약문 바이그램 15개 이상 겹치거나 30% 이상 일치하면 같은 보도자료로 간주해 차단
+                if d_inter >= 15 or (d_union > 0 and d_inter / d_union >= 0.30):
+                    return True
+                    
+    return False
 
 def get_news(keyword, display=3):
     """네이버 뉴스 검색 API 호출"""
@@ -133,8 +160,8 @@ def main():
     
     article_id: int = 1
     
-    # 전체 카테고리 통합 중복 기사 필터링용 Set (동일 기사가 여러 탭에 뜨는 것 방지)
-    global_seen_titles = set()
+    # 전체 카테고리 통합 중복 기사 필터링용 (보도자료 복붙 방지를 위해 날짜/내용까지 저장)
+    global_seen_articles = []
     global_seen_links = set()
     
     for category, keywords in categories.items():
@@ -230,23 +257,11 @@ def main():
                     continue
                 global_seen_links.add(link)
 
-                # 특수문자 및 공백을 모두 제거한 핵심 문자열 추출 (제목 중복 제거용)
-                norm_title = re.sub(r'[\W_]+', '', title)
-                
-                is_duplicate = False
-                for seen_title in global_seen_titles:
-                    # 1. 완전 포함 관계
-                    if norm_title in seen_title or seen_title in norm_title:
-                        is_duplicate = True
-                        break
-                    # 2. 가장 긴 연속 공통 문자열이 8글자 이상 겹치면 (유사 기사로 간주, 기존 10글자에서 기준 강화)
-                    if longest_common_substring(norm_title, seen_title) >= 8:
-                        is_duplicate = True
-                        break
-                        
-                if is_duplicate:
+                # AI 바이그램 및 날짜 기반 강력한 중복/보도자료 복붙 검사
+                if is_duplicate_article(title, description, formatted_date, global_seen_articles):
                     continue
-                global_seen_titles.add(norm_title)
+                
+                global_seen_articles.append({"date": formatted_date, "title": title, "desc": description})
                 
                 # [사설], [기획], [기고], [칼럼] 등이 제목에 있으면 "사설/기획" 탭으로 강제 이동
                 editorial_tags = ["[사설]", "[기획]", "[기고]", "[칼럼]", "사설]", "기고]", "칼럼]", "기획]"]
