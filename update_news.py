@@ -93,8 +93,8 @@ def longest_common_substring(s1, s2):
 def get_news(keyword, display=3):
     """네이버 뉴스 검색 API 호출"""
     encText = urllib.parse.quote(keyword)
-    # sort=sim(정확도순) 대신 sort=date(최신순)을 사용하여 항상 최근 기사만 가져오도록 수정
-    url = f"https://openapi.naver.com/v1/search/news.json?query={encText}&display={display}&sort=date"
+    # sort=sim(정확도순)으로 복구하여, 동시간대 복붙 기사 중복을 줄이고 품질 높은 기사를 우선 확보
+    url = f"https://openapi.naver.com/v1/search/news.json?query={encText}&display={display}&sort=sim"
     
     request = urllib.request.Request(url)
     request.add_header("X-Naver-Client-Id", client_id)
@@ -131,12 +131,15 @@ def main():
     
     article_id: int = 1
     
+    # 전체 카테고리 통합 중복 기사 필터링용 Set (동일 기사가 여러 탭에 뜨는 것 방지)
+    global_seen_titles = set()
+    global_seen_links = set()
+    
     for category, keywords in categories.items():
         print(f"[{category}] 카테고리 수집 중...")
-        seen_titles = set() # 중복 기사 필터링용 Set
         
         for idx, keyword in enumerate(keywords):
-            # 강력한 중복/스팸/날짜 제거를 감안하여 API 기사 수집량을 최대치(100개)로 늘림
+            # API 기사 수집량을 최대치(100개)로 가져와서 필터링
             display_count = 100
             items = get_news(keyword, display=display_count)
             
@@ -166,14 +169,15 @@ def main():
                 
                 # 카테고리별 엄격한 필수 단어 확인 (오분류 방지)
                 if category == "asf":
-                    # ASF 카테고리는 제목이나 설명에 반드시 'ASF' 나 '돼지열병'이 있어야 통과
-                    if "돼지열병" not in title and "asf" not in title.lower() and "돼지열병" not in description and "asf" not in description.lower():
+                    # ASF 카테고리는 제목에 반드시 'ASF' 나 '돼지열병'이 있어야 통과 (본문에만 있는 단순 포획기사 배제)
+                    if "돼지열병" not in title and "asf" not in title.lower():
                         continue
                 elif category == "ai":
-                    if "인플루엔자" not in title and "ai" not in title.lower() and "조류독감" not in title and "인플루엔자" not in description and "ai" not in description.lower() and "조류독감" not in description:
+                    # AI 카테고리도 제목 중심으로 판별
+                    if "인플루엔자" not in title and "ai" not in title.lower() and "조류독감" not in title:
                         continue
                 elif category == "hunting":
-                    # 아프리카돼지열병 기사가 수렵으로 빠지는 것을 방지
+                    # 아프리카돼지열병 위주 기사가 수렵으로 빠지는 것을 방지 (제목 기준)
                     if "돼지열병" in title or "asf" in title.lower():
                         continue
                 
@@ -206,24 +210,30 @@ def main():
                     print(f"날짜 파싱 오류: {e} - {pub_date_str}")
                     pass
                 
-                # 특수문자 및 공백을 모두 제거한 핵심 문자열 추출 (중복 제거용)
+                link = str(item.get('link', ''))
+                
+                # 링크 중복 검사 (완전히 동일한 기사가 다른 키워드로 수집된 경우 즉시 차단)
+                if link in global_seen_links:
+                    continue
+                global_seen_links.add(link)
+
+                # 특수문자 및 공백을 모두 제거한 핵심 문자열 추출 (제목 중복 제거용)
                 norm_title = re.sub(r'[\W_]+', '', title)
                 
                 is_duplicate = False
-                for seen_title in seen_titles:
+                for seen_title in global_seen_titles:
                     # 1. 완전 포함 관계
                     if norm_title in seen_title or seen_title in norm_title:
                         is_duplicate = True
                         break
-                    # 2. 가장 긴 연속 공통 문자열이 10글자 이상 겹치면 (동일 사건 기사로 간주)
-                    # (특수문자/공백 제거 상태이므로 10글자면 보통 3~5어절 길이의 핵심 문장 단위임)
-                    if longest_common_substring(norm_title, seen_title) >= 10:
+                    # 2. 가장 긴 연속 공통 문자열이 8글자 이상 겹치면 (유사 기사로 간주, 기존 10글자에서 기준 강화)
+                    if longest_common_substring(norm_title, seen_title) >= 8:
                         is_duplicate = True
                         break
                         
                 if is_duplicate:
                     continue
-                seen_titles.add(norm_title)
+                global_seen_titles.add(norm_title)
                 
                 # [사설], [기획], [기고], [칼럼] 등이 제목에 있으면 "사설/기획" 탭으로 강제 이동
                 editorial_tags = ["[사설]", "[기획]", "[기고]", "[칼럼]", "사설]", "기고]", "칼럼]", "기획]"]
