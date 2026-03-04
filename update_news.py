@@ -18,7 +18,7 @@ categories = {
     # AI 탭: 야생조류 AI
     "ai": ["야생조류 조류인플루엔자", "고병원성 AI 야생조류", "철새 조류인플루엔자"],
     # 생태계 탭: 뉴트리아, 가시박, 교란종 등
-    "ecosystem": ["생태계교란 교란종", "뉴트리아 포획", "황소개구리 퇴치", "가시박 제거"],
+    "ecosystem": ["생태계교란생물", "교란식물", "교란어종", "교란종", "가시박", "단풍잎돼지풀", "베스", "블루길", "뉴트리아 포획", "황소개구리 퇴치"],
     "association": ["야생생물관리협회"],
     # 사설/기획 탭: 야생동물, 수렵, 생태계 등과 관련된 심층/기획 논의
     "editorial": ["야생동물 사설", "야생동물 기고", "야생동물 칼럼", "유해조수 기획", "수렵 기획"]
@@ -226,6 +226,8 @@ def main():
                 editorial_tags = ["[사설]", "[기획]", "[기고]", "[칼럼]", "사설]", "기고]", "칼럼]", "기획]"]
                 if category in ["association", "editorial"] or any(tag in title for tag in editorial_tags):
                     max_days = 90  # 협회 및 사설/기획 탭은 뉴스량이 적으므로 최대 90일까지 허용
+                elif category == "ecosystem":
+                    max_days = 30  # 생태계 교란생물 뉴스는 최대 30일(1달)까지 허용
                     
                 pub_date_str = str(item.get('pubDate', ''))
                 days_diff = 0
