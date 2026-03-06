@@ -202,6 +202,17 @@
         },
         {
             "id": 20,
+            "title": "경산시, 드론으로 ASF 선제 차단 방역",
+            "excerpt": "경산시는 최근 전국적으로 아프리카돼지열병(ASF)이 잇따라 발생함에 따라 바이러스의 농가 유입을 원천... 야생 멧돼지 출현이 우려되는 산림 인...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>경산시는 최근 전국적으로 아프리카돼지열병(ASF)이 잇따라 발생함에 따라 바이러스의 농가 유입을 원천... 야생 멧돼지 출현이 우려되는 산림 인접 농장 등을 중심으로 소독약품과 멧돼지 기피제를 집중 살포했다. 조현일... <br><br><a href='http://www.enewstoday.co.kr/news/articleView.html?idxno=2402247' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/boar.png",
+            "daysAgo": 0,
+            "date": "26.03.06",
+            "link": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2402247"
+        },
+        {
+            "id": 21,
             "title": "사료서 ASF 유전자 나와 양돈업계 ‘충격’",
             "excerpt": "조호성 전북대학교 수의과대학 교수는 “올해 ASF 발생은 최대 3주까지 이어지는 조용한 잠복기와 발생지역에 야생멧돼지 양성 위험이 낮았던 것이 ...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>조호성 전북대학교 수의과대학 교수는 “올해 ASF 발생은 최대 3주까지 이어지는 조용한 잠복기와 발생지역에 야생멧돼지 양성 위험이 낮았던 것이 오히려 (원인 규명에선) 함정이었다”고 말했다. 그러면서... <br><br><a href='https://n.news.naver.com/mnews/article/662/0000089690?sid=101' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -210,23 +221,12 @@
             "daysAgo": 2,
             "date": "26.03.04",
             "link": "https://n.news.naver.com/mnews/article/662/0000089690?sid=101"
-        },
-        {
-            "id": 21,
-            "title": "연천 농장 ASF, 봉화 산란계 고병원성 AI 발생 방역관리 강화",
-            "excerpt": "경기 연천군 양돈장에서 ASF가 발생해 긴급초동방역이 이뤄졌다. [가축위생방역지원본부 제공] 경기 연천... 이동식 농식품부 방역정책국장은 \"접...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>경기 연천군 양돈장에서 ASF가 발생해 긴급초동방역이 이뤄졌다. [가축위생방역지원본부 제공] 경기 연천... 이동식 농식품부 방역정책국장은 \"접경지역에 있는 연천군의 경우 최근까지도 야생멧돼지에서... <br><br><a href='http://www.aflnews.co.kr/news/articleView.html?idxno=315735' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/bird_flu.png",
-            "daysAgo": 1,
-            "date": "26.03.05",
-            "link": "http://www.aflnews.co.kr/news/articleView.html?idxno=315735"
         }
     ],
     "ai": [
         {
             "id": 22,
-            "title": "\"AI 인체감염 없지만…살처분 인력 '외국인 98%' 의존 구조\"",
+            "title": "AI 감염 위험 큰 '동물 살처분 인력' 98%가 외국인…방역 구멍 우려",
             "excerpt": "호남은 국내 최초로 야생 포유류인 삵에서 고병원성 AI가 검출된 지역이다. 조류에서만 확인되던 AI... <용어설명> ■ 조류인플루엔자(Avia...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>호남은 국내 최초로 야생 포유류인 삵에서 고병원성 AI가 검출된 지역이다. 조류에서만 확인되던 AI... <용어설명> ■ 조류인플루엔자(Avian Influenza, AI) 조류인플루엔자는 급성 바이러스성 전염병으로, 닭·오리 등... <br><br><a href='https://n.news.naver.com/mnews/article/421/0008809749?sid=105' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
             "source": "네이버 뉴스",
@@ -237,17 +237,6 @@
         },
         {
             "id": 23,
-            "title": "AI·ASF·구제역 '3월 고비'…특별방역 1개월 연장",
-            "excerpt": "■ AI 50건ㆍ야생조류 59건…위험지역 32곳 특별점검 = 이번 동절기('25/'26 시즌) 가금농장에서는 고병원성 조류인플루엔자가 50건, ...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>■ AI 50건ㆍ야생조류 59건…위험지역 32곳 특별점검 = 이번 동절기('25/'26 시즌) 가금농장에서는 고병원성 조류인플루엔자가 50건, 야생조류에서는 59건 발생했다. 지난 시즌보다 47일 빠르게 첫 발생했고, 검출 지역도... <br><br><a href='http://www.youngnong.co.kr/news/articleView.html?idxno=57859' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/bird_flu.png",
-            "daysAgo": 2,
-            "date": "26.03.04",
-            "link": "http://www.youngnong.co.kr/news/articleView.html?idxno=57859"
-        },
-        {
-            "id": 24,
             "title": "경기 포천 산란계 농장서 고병원성 AI…동절기 51건 발생",
             "excerpt": "중수본 관계자는 \"최근 철새 북상 등의 영향으로 경기·강원 지역 야생조류에서 고병원성 조류인플루엔자가 집중적으로 검출되고 있어 해당 지역 오염도...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>중수본 관계자는 \"최근 철새 북상 등의 영향으로 경기·강원 지역 야생조류에서 고병원성 조류인플루엔자가 집중적으로 검출되고 있어 해당 지역 오염도가 매우 높을 가능성이 있다\"며 \"해당 지방정부는 철새도래지 주변... <br><br><a href='https://n.news.naver.com/mnews/article/001/0015931653?sid=101' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -256,6 +245,17 @@
             "daysAgo": 5,
             "date": "26.03.01",
             "link": "https://n.news.naver.com/mnews/article/001/0015931653?sid=101"
+        },
+        {
+            "id": 24,
+            "title": "AI·ASF·구제역 '3월 고비'…특별방역 1개월 연장",
+            "excerpt": "■ AI 50건ㆍ야생조류 59건…위험지역 32곳 특별점검 = 이번 동절기('25/'26 시즌) 가금농장에서는 고병원성 조류인플루엔자가 50건, ...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>■ AI 50건ㆍ야생조류 59건…위험지역 32곳 특별점검 = 이번 동절기('25/'26 시즌) 가금농장에서는 고병원성 조류인플루엔자가 50건, 야생조류에서는 59건 발생했다. 지난 시즌보다 47일 빠르게 첫 발생했고, 검출 지역도... <br><br><a href='http://www.youngnong.co.kr/news/articleView.html?idxno=57859' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/bird_flu.png",
+            "daysAgo": 2,
+            "date": "26.03.04",
+            "link": "http://www.youngnong.co.kr/news/articleView.html?idxno=57859"
         },
         {
             "id": 25,
@@ -404,17 +404,6 @@
         },
         {
             "id": 38,
-            "title": "[기획특집] ‘시흥에서 세계로’ 시흥창업센터에서 창업의 날개를 달다",
-            "excerpt": "종자배합 및 드론 융합 기술을 활용, 생태계교란과 생물다양성 저해를 초래하는 침입외래식물(IAP) 방제를 위한 통합 솔루션을 제공하고 있다. 생...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>종자배합 및 드론 융합 기술을 활용, 생태계교란과 생물다양성 저해를 초래하는 침입외래식물(IAP) 방제를 위한 통합 솔루션을 제공하고 있다. 생태복원이라는 분야의 특수성으로 인해 다양한 시행착오를 겪기도 했지만... <br><br><a href='https://www.kgnews.co.kr/news/article.html?no=884825' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/env_gov.png",
-            "daysAgo": 3,
-            "date": "26.03.03",
-            "link": "https://www.kgnews.co.kr/news/article.html?no=884825"
-        },
-        {
-            "id": 39,
             "title": "박길선 강원도의원 \"생태계 교란 식물 제거 완전 이행\"",
             "excerpt": "강원지역 내 토종 식물 생태계 유지를 위해 교란 식물 제거 사업에 대한 지속적인 관리와 이행이 이뤄져야 한다는 요구가 강원특별자치도의회에서 나왔...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>강원지역 내 토종 식물 생태계 유지를 위해 교란 식물 제거 사업에 대한 지속적인 관리와 이행이 이뤄져야 한다는 요구가 강원특별자치도의회에서 나왔다. 강원도의회 농림수산위원회 박길선(국민의힘·원주) 의원은... <br><br><a href='https://n.news.naver.com/mnews/article/087/0001172845?sid=100' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -425,7 +414,7 @@
             "link": "https://n.news.naver.com/mnews/article/087/0001172845?sid=100"
         },
         {
-            "id": 40,
+            "id": 39,
             "title": "[위클리오늘] 박길선 강원도의원, 생태계 교란 식물 제거 철저 이행 당...",
             "excerpt": "강원특별자치도의회 박길선 의원(원주1/농림수산위원회)은 2월 6일 제343회 임시회 산림환경국 업무보고를 통해 고유종 보호를 위한 생태계 교란 ...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>강원특별자치도의회 박길선 의원(원주1/농림수산위원회)은 2월 6일 제343회 임시회 산림환경국 업무보고를 통해 고유종 보호를 위한 생태계 교란 식물 제거 사업의 적기 추진과 완전한 이행을 강력히 촉구했다.... <br><br><a href='http://www.weeklytoday.com/news/articleView.html?idxno=757528' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -434,6 +423,17 @@
             "daysAgo": 28,
             "date": "26.02.06",
             "link": "http://www.weeklytoday.com/news/articleView.html?idxno=757528"
+        },
+        {
+            "id": 40,
+            "title": "서울시자원봉사센터, '2026 서울 청년 기획봉사단' 150개 팀 모집",
+            "excerpt": "실제로 지난해에는 장기 구직 청년을 위한 AI 면접 시뮬레이션 챗봇을 개발한 'AIDE' 팀과 AI 알고리즘을 활용해 독거노인 주거지의 낙상 위...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>실제로 지난해에는 장기 구직 청년을 위한 AI 면접 시뮬레이션 챗봇을 개발한 'AIDE' 팀과 AI 알고리즘을 활용해 독거노인 주거지의 낙상 위험을 분석한 '따숨하우스' 팀, 딥러닝 기술로 생태계 교란 식물을 탐지하는... <br><br><a href='https://n.news.naver.com/mnews/article/008/0005326321?sid=102' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/env_gov.png",
+            "daysAgo": 0,
+            "date": "26.03.06",
+            "link": "https://n.news.naver.com/mnews/article/008/0005326321?sid=102"
         },
         {
             "id": 41,
@@ -527,14 +527,14 @@
         },
         {
             "id": 49,
-            "title": "김해시, 유해야생동물 포획단 안전교육 강화…사고 예방 총력",
-            "excerpt": "이어 (사)야생생물관리협회 부산·울산·경남지부 박도범 사무국장이 강사로 나서 관련 법률과 총기 안전수칙, 안전장비 착용의 중요성, 아프리카돼지열...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>이어 (사)야생생물관리협회 부산·울산·경남지부 박도범 사무국장이 강사로 나서 관련 법률과 총기 안전수칙, 안전장비 착용의 중요성, 아프리카돼지열병(ASF) 예방법 등을 중점적으로 안내했다. 김해시는 매년 약 30명의... <br><br><a href='http://www.newstown.co.kr/news/articleView.html?idxno=692823' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "title": "김해시, 유해야생동물 포획단 안전교육 실시",
+            "excerpt": "이번 교육에서는 김해중·서부경찰서 범죄예방대응과 총포 담당자가 총기 취급 요령과 사고 사례를 안내했으며, 야생생물관리협회 부산·울산·경남지부 박...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>이번 교육에서는 김해중·서부경찰서 범죄예방대응과 총포 담당자가 총기 취급 요령과 사고 사례를 안내했으며, 야생생물관리협회 부산·울산·경남지부 박도범 사무국장이 관련 법률, 총기 안전수칙, 안전장비 착용의... <br><br><a href='http://www.paxetv.com/news/articleView.html?idxno=260656' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
             "source": "네이버 뉴스",
             "image": "images/police.png",
             "daysAgo": 31,
             "date": "26.02.03",
-            "link": "http://www.newstown.co.kr/news/articleView.html?idxno=692823"
+            "link": "http://www.paxetv.com/news/articleView.html?idxno=260656"
         },
         {
             "id": 50,
