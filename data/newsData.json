@@ -13,28 +13,17 @@
         },
         {
             "id": 3,
-            "title": "설악산 야생동물 노린 덫 17점 수거…불법 엽구 서리 횡행",
-            "excerpt": "국립공원 내에서 야생동물을 불법 포획하거나 엽구를 설치할 경우 자연공원법에 따라 3년 이하의 징역 또는 3000만 원 이하의 벌금에 처해질 수 ...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>국립공원 내에서 야생동물을 불법 포획하거나 엽구를 설치할 경우 자연공원법에 따라 3년 이하의 징역 또는 3000만 원 이하의 벌금에 처해질 수 있다. 설악산국립공원사무소는 야생동물 서식지 보호를 위해 앞으로도... <br><br><a href='https://n.news.naver.com/mnews/article/421/0008811104?sid=102' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "title": "세종시, 7~9일 원수산·전월산 유해야생동물 일제포획",
+            "excerpt": "지난해 세종에서는 멧돼지 205마리와 고라니 954마리 등 모두 1159마리의 유해야생동물을 포획했다. 손영민 동물정책과장은 \"이번 일제 포획은...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>지난해 세종에서는 멧돼지 205마리와 고라니 954마리 등 모두 1159마리의 유해야생동물을 포획했다. 손영민 동물정책과장은 \"이번 일제 포획은 시민 안전과 파종기 농작물 피해 예방을 위한 불가피한 조치\"라며 \"포획을... <br><br><a href='https://n.news.naver.com/mnews/article/421/0008802146?sid=102' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
             "source": "네이버 뉴스",
-            "image": "images/hunter.png",
-            "daysAgo": 3,
-            "date": "26.03.06",
-            "link": "https://n.news.naver.com/mnews/article/421/0008811104?sid=102"
+            "image": "images/boar.png",
+            "daysAgo": 6,
+            "date": "26.03.03",
+            "link": "https://n.news.naver.com/mnews/article/421/0008802146?sid=102"
         },
         {
             "id": 4,
-            "title": "[세종소식] 7∼9일 멧돼지 총기 포획…전월산·원수산 입산 자제",
-            "excerpt": "▲ 7∼9일 멧돼지 총기 포획…전월산·원수산 입산 자제 = 세종시는 7∼9일 원수산과 전월산, 읍면지역을 중심으로 멧돼지 등 유해 야생동물 총기...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>▲ 7∼9일 멧돼지 총기 포획…전월산·원수산 입산 자제 = 세종시는 7∼9일 원수산과 전월산, 읍면지역을 중심으로 멧돼지 등 유해 야생동물 총기 포획에 나선다고 3일 밝혔다. 도심지역 멧돼지 출몰이 잦아지고 농작물... <br><br><a href='https://n.news.naver.com/mnews/article/001/0015934929?sid=102' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/police.png",
-            "daysAgo": 6,
-            "date": "26.03.03",
-            "link": "https://n.news.naver.com/mnews/article/001/0015934929?sid=102"
-        },
-        {
-            "id": 5,
             "title": "[단독] 멧돼지는 살리고 농가는 죽이고…'야생동물기피제'가 사라진다",
             "excerpt": "철거된 빈자리는 야생동물 기피제와 위성항법장치(GPS) 포획트랩 등으로 메우겠다는 방침이다. 하지만 정작 방역 현장에서 가장 핵심적인 역할을 해...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>철거된 빈자리는 야생동물 기피제와 위성항법장치(GPS) 포획트랩 등으로 메우겠다는 방침이다. 하지만 정작 방역 현장에서 가장 핵심적인 역할을 해야 할 야동물기피제가 현실과 동떨어진 불합리한 규제 장벽에 막혀... <br><br><a href='https://n.news.naver.com/mnews/article/088/0000999799?sid=102' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -43,6 +32,17 @@
             "daysAgo": 3,
             "date": "26.03.06",
             "link": "https://n.news.naver.com/mnews/article/088/0000999799?sid=102"
+        },
+        {
+            "id": 5,
+            "title": "설악산 야생동물 노린 덫 17점 수거…불법 엽구 서리 횡행",
+            "excerpt": "국립공원 내에서 야생동물을 불법 포획하거나 엽구를 설치할 경우 자연공원법에 따라 3년 이하의 징역 또는 3000만 원 이하의 벌금에 처해질 수 ...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>국립공원 내에서 야생동물을 불법 포획하거나 엽구를 설치할 경우 자연공원법에 따라 3년 이하의 징역 또는 3000만 원 이하의 벌금에 처해질 수 있다. 설악산국립공원사무소는 야생동물 서식지 보호를 위해 앞으로도... <br><br><a href='https://n.news.naver.com/mnews/article/421/0008811104?sid=102' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/hunter.png",
+            "daysAgo": 3,
+            "date": "26.03.06",
+            "link": "https://n.news.naver.com/mnews/article/421/0008811104?sid=102"
         },
         {
             "id": 6,
@@ -90,6 +90,17 @@
         },
         {
             "id": 10,
+            "title": "'멧돼지 일제포획'·'학교급식 합동점검' 동시 추진…봄철 안전관리 강...",
+            "excerpt": "세종특별자치시가 도심 멧돼지 출몰 증가에 따른 안전사고 예방과 봄철 식중독 방지를 위해 유해야생동물 일제포획과 학교급식 합동점검을 잇달아 실시한...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>세종특별자치시가 도심 멧돼지 출몰 증가에 따른 안전사고 예방과 봄철 식중독 방지를 위해 유해야생동물 일제포획과 학교급식 합동점검을 잇달아 실시한다. ◇ 원수산·전월산 멧돼지 집중 포획 시는 오는 7일부터... <br><br><a href='https://www.bzeronews.com/news/articleView.html?idxno=812646' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/boar.png",
+            "daysAgo": 6,
+            "date": "26.03.03",
+            "link": "https://www.bzeronews.com/news/articleView.html?idxno=812646"
+        },
+        {
+            "id": 11,
             "title": "음성 유기 동물 1천 마리?…4년 새 3배 폭증 '기현상'",
             "excerpt": "5일 충청북도와 음성군에 따르면 지난해 음성지역에서 포획된 유기동물은 모두 992마리다. 개 723마리... 음성군은 야산을 중심으로 들개 등 ...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>5일 충청북도와 음성군에 따르면 지난해 음성지역에서 포획된 유기동물은 모두 992마리다. 개 723마리... 음성군은 야산을 중심으로 들개 등 야생화된 동물 번식이 늘어난 영향으로 보고 있다. 음성군 관계자는 \"들개가... <br><br><a href='https://n.news.naver.com/mnews/article/079/0004121698?sid=102' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -98,22 +109,22 @@
             "daysAgo": 4,
             "date": "26.03.05",
             "link": "https://n.news.naver.com/mnews/article/079/0004121698?sid=102"
-        },
-        {
-            "id": 11,
-            "title": "고흥군, 섬 지역 유해야생동물 대응 강화…시산도서 합동 포획 활동",
-            "excerpt": "고흥군(군수 공영민)은 지난 3일부터 4일까지 이틀간 도양읍 시산도 일대에서 유해야생동물 피해방지단과 민간 환경단체가 함께 참여한 가운데 불법 ...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>고흥군(군수 공영민)은 지난 3일부터 4일까지 이틀간 도양읍 시산도 일대에서 유해야생동물 피해방지단과 민간 환경단체가 함께 참여한 가운데 불법 엽구 수거와 유해야생동물 포획 활동을 실시했다고 밝혔다. 이번 활동은... <br><br><a href='https://www.thefairnews.co.kr/news/articleView.html?idxno=70735' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/hunter.png",
-            "daysAgo": 4,
-            "date": "26.03.05",
-            "link": "https://www.thefairnews.co.kr/news/articleView.html?idxno=70735"
         }
     ],
     "asf": [
         {
             "id": 12,
+            "title": "경산시, '드론 활용' 아프리카돼지열병 차단 방역 강화",
+            "excerpt": "소독약품과 멧돼지 기피제를 집중 살포했다. 이와 관련 조현일 경산시장은 이날 방역 현장을 직접 방문해 추진 상황을 점검하고, 현장 대응 체계를 ...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>소독약품과 멧돼지 기피제를 집중 살포했다. 이와 관련 조현일 경산시장은 이날 방역 현장을 직접 방문해 추진 상황을 점검하고, 현장 대응 체계를 살폈다. 방역 현장에서 조현일 경산시장은 \"아프리카돼지열병은 한 번... <br><br><a href='https://www.agrinet.co.kr/news/articleView.html?idxno=402400' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/boar.png",
+            "daysAgo": 0,
+            "date": "26.03.09",
+            "link": "https://www.agrinet.co.kr/news/articleView.html?idxno=402400"
+        },
+        {
+            "id": 13,
             "title": "‘아프리카돼지열병’ 확산…‘사료 감염’ 가능성에 혼란",
             "excerpt": "정부의 역학조사 결과, 새끼 돼지 사료의 원료인 '돼지 혈장 단백질' 시료에서 아프리카돼지열병 유전체가 검출됐습니다. 사료에 의한 감염 가능성이...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>정부의 역학조사 결과, 새끼 돼지 사료의 원료인 '돼지 혈장 단백질' 시료에서 아프리카돼지열병 유전체가 검출됐습니다. 사료에 의한 감염 가능성이 현실로 나타난 겁니다. 멧돼지를 감염원으로 보고 방역 시설을... <br><br><a href='https://n.news.naver.com/mnews/article/056/0012135662?sid=101' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -124,18 +135,18 @@
             "link": "https://n.news.naver.com/mnews/article/056/0012135662?sid=101"
         },
         {
-            "id": 13,
-            "title": "경산시, 아프리카돼지열병 차단 총력…드론 활용 고강도 방역 실시",
-            "excerpt": "경산시가 최근 전국적으로 아프리카돼지열병(ASF)이 잇따라 발생함에 따라 바이러스의 농가 유입을 원천... 야생 멧돼지 출현이 우려되는 산림 인...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>경산시가 최근 전국적으로 아프리카돼지열병(ASF)이 잇따라 발생함에 따라 바이러스의 농가 유입을 원천... 야생 멧돼지 출현이 우려되는 산림 인접 농장 등을 중심으로 소독약품과 멧돼지 기피제를 집중 살포했다. 특히... <br><br><a href='https://www.polinews.co.kr/news/articleView.html?idxno=724756' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "id": 14,
+            "title": "연천군 소재 돼지농가 ASF 확진…출입통제-살처분 등 긴급 방역",
+            "excerpt": "돼지농가에서 아프리카돼지열병(ASF)이 확진되자 즉시 초동 방역 조치를 시행하고 확산 차단에 나섰다. 해당... 야생 멧돼지를 통한 추가 전파를...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>돼지농가에서 아프리카돼지열병(ASF)이 확진되자 즉시 초동 방역 조치를 시행하고 확산 차단에 나섰다. 해당... 야생 멧돼지를 통한 추가 전파를 막기 위해 울타리 점검도 병행하고 있다. 연천군 관계 부서 공무원들은 발생... <br><br><a href='https://www.cnbnews.com/news/article.html?no=782307' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
             "source": "네이버 뉴스",
             "image": "images/boar.png",
-            "daysAgo": 3,
-            "date": "26.03.06",
-            "link": "https://www.polinews.co.kr/news/articleView.html?idxno=724756"
+            "daysAgo": 0,
+            "date": "26.03.09",
+            "link": "https://www.cnbnews.com/news/article.html?no=782307"
         },
         {
-            "id": 14,
+            "id": 15,
             "title": "현장 돼지수의사가 발견한 당진 ASF, 올해 발생 바이러스와 99.99% 동일",
             "excerpt": "지난해 11월 당진 돼지농장에서 발생한 아프리카돼지열병(ASF)은 일선 돼지수의사에 의해 포착됐다.당시... 경기도 포천에서 발생한 2건만 기존...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>지난해 11월 당진 돼지농장에서 발생한 아프리카돼지열병(ASF)은 일선 돼지수의사에 의해 포착됐다.당시... 경기도 포천에서 발생한 2건만 기존 국내 멧돼지에서 지배적으로 유행해 온 IGR-II로 판명됐다.방역당국은... <br><br><a href='https://www.dailyvet.co.kr/news/association/275325' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -146,7 +157,18 @@
             "link": "https://www.dailyvet.co.kr/news/association/275325"
         },
         {
-            "id": 15,
+            "id": 16,
+            "title": "경산시, 아프리카돼지열병 차단 총력…드론 활용 고강도 방역 실시",
+            "excerpt": "경산시가 최근 전국적으로 아프리카돼지열병(ASF)이 잇따라 발생함에 따라 바이러스의 농가 유입을 원천... 야생 멧돼지 출현이 우려되는 산림 인...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>경산시가 최근 전국적으로 아프리카돼지열병(ASF)이 잇따라 발생함에 따라 바이러스의 농가 유입을 원천... 야생 멧돼지 출현이 우려되는 산림 인접 농장 등을 중심으로 소독약품과 멧돼지 기피제를 집중 살포했다. 특히... <br><br><a href='https://www.polinews.co.kr/news/articleView.html?idxno=724756' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/boar.png",
+            "daysAgo": 3,
+            "date": "26.03.06",
+            "link": "https://www.polinews.co.kr/news/articleView.html?idxno=724756"
+        },
+        {
+            "id": 17,
             "title": "연천군, 돼지농가 ASF 확진…초동 방역·확산 차단",
             "excerpt": "경기 연천군이 관내 돼지농가에서 아프리카돼지열병(ASF)이 발생함에 따라 초동 방역 조치를 시행하고 확산... 또 농가 진입로에 통제초소를 설치...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>경기 연천군이 관내 돼지농가에서 아프리카돼지열병(ASF)이 발생함에 따라 초동 방역 조치를 시행하고 확산... 또 농가 진입로에 통제초소를 설치해 축산 차량과 관계자에 대한 소독을 실시하고 있으며 야생 멧돼지를... <br><br><a href='http://www.shinailbo.co.kr/news/articleView.html?idxno=2198922' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -157,7 +179,7 @@
             "link": "http://www.shinailbo.co.kr/news/articleView.html?idxno=2198922"
         },
         {
-            "id": 16,
+            "id": 18,
             "title": "경산시, 드론 활용해 ASF 선제 차단 방역 강화",
             "excerpt": "▲ 경산시는 아프리카돼지열병(ASF)에 대비, 바이러스의 농가 유입을 원천 차단하기 위해 드론을 활용한... 이날 드론 2대를 투입해 기존 소독...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>▲ 경산시는 아프리카돼지열병(ASF)에 대비, 바이러스의 농가 유입을 원천 차단하기 위해 드론을 활용한... 이날 드론 2대를 투입해 기존 소독 차량의 접근이 어려웠던 축사 지붕과 농장 주변, 야생 멧돼지 출현이 우려되는... <br><br><a href='https://www.dkilbo.com/news/articleView.html?idxno=536165' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -168,7 +190,7 @@
             "link": "https://www.dkilbo.com/news/articleView.html?idxno=536165"
         },
         {
-            "id": 17,
+            "id": 19,
             "title": "사료서 ASF 유전자 나와 양돈업계 ‘충격’",
             "excerpt": "조호성 전북대학교 수의과대학 교수는 “올해 ASF 발생은 최대 3주까지 이어지는 조용한 잠복기와 발생지역에 야생멧돼지 양성 위험이 낮았던 것이 ...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>조호성 전북대학교 수의과대학 교수는 “올해 ASF 발생은 최대 3주까지 이어지는 조용한 잠복기와 발생지역에 야생멧돼지 양성 위험이 낮았던 것이 오히려 (원인 규명에선) 함정이었다”고 말했다. 그러면서... <br><br><a href='https://n.news.naver.com/mnews/article/662/0000089690?sid=101' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -179,18 +201,7 @@
             "link": "https://n.news.naver.com/mnews/article/662/0000089690?sid=101"
         },
         {
-            "id": 18,
-            "title": "양돈장 ASF 사람이 전파했나…올해 유전자 대부분 해외 유래형",
-            "excerpt": "박정훈 농식품부 식량정책실장은 “그간 접경지역 등 야생멧돼지 활동 반경에서 주로 발생하던 ASF가 인위적 요인 등에 의해 전국적으로 확산할 것으...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>박정훈 농식품부 식량정책실장은 “그간 접경지역 등 야생멧돼지 활동 반경에서 주로 발생하던 ASF가 인위적 요인 등에 의해 전국적으로 확산할 것으로 보이는 엄중한 상황인 만큼 돼지농장 종사자와 출입자는... <br><br><a href='https://n.news.naver.com/mnews/article/662/0000089719?sid=101' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/boar.png",
-            "daysAgo": 5,
-            "date": "26.03.04",
-            "link": "https://n.news.naver.com/mnews/article/662/0000089719?sid=101"
-        },
-        {
-            "id": 19,
+            "id": 20,
             "title": "경산시, ASF 차단 총력…드론 투입 ‘고강도 방역’",
             "excerpt": "소독약품과 멧돼지 기피제를 집중 살포했다. 경산시는 드론 방역을 통해 차량 방역의 사각지대를 해소하고, ASF 전파 가능성이 높은 지역을 선제적...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>소독약품과 멧돼지 기피제를 집중 살포했다. 경산시는 드론 방역을 통해 차량 방역의 사각지대를 해소하고, ASF 전파 가능성이 높은 지역을 선제적으로 관리한다는 방침이다. 조현일 경산시장은 이날 방역 현장을 직접... <br><br><a href='https://n.news.naver.com/mnews/article/031/0001010721?sid=102' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -201,31 +212,31 @@
             "link": "https://n.news.naver.com/mnews/article/031/0001010721?sid=102"
         },
         {
-            "id": 20,
-            "title": "[가락골] 성급한 ASF 책임론, 농가 피해 키운다",
-            "excerpt": "이번 사태는 기존 ASF 발생 양상과 차이를 보인다. 과거에는 야생 멧돼지 발생 지역 인근 농장을 중심으로 확산하는 경우가 많았지만 올해는 전국...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>이번 사태는 기존 ASF 발생 양상과 차이를 보인다. 과거에는 야생 멧돼지 발생 지역 인근 농장을 중심으로 확산하는 경우가 많았지만 올해는 전국 곳곳에서 산발적으로 발생하고 있다. 이유 자돈 구간에서 폐사가 급격히... <br><br><a href='https://www.chukkyung.co.kr/news/articleView.html?idxno=79916' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/boar.png",
-            "daysAgo": 3,
-            "date": "26.03.06",
-            "link": "https://www.chukkyung.co.kr/news/articleView.html?idxno=79916"
-        },
-        {
             "id": 21,
-            "title": "이기홍 한돈협회장, \"ASF 발생, 농가는 피해자···사료업체도 책임 다...",
-            "excerpt": "그동안 국내에서는 야생 멧돼지에 의한 IGR-Ⅱ형의 ASF가 발생했는데 올해 발생한 ASF는 해외 유전형인 IGR-Ⅰ형이 대부분이기 때문이다. ...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>그동안 국내에서는 야생 멧돼지에 의한 IGR-Ⅱ형의 ASF가 발생했는데 올해 발생한 ASF는 해외 유전형인 IGR-Ⅰ형이 대부분이기 때문이다. 이 회장은 IGR-Ⅰ형 ASF가 발생하는 여러 이유 중 정부의 국경방역 실패와 국내... <br><br><a href='https://www.agrinet.co.kr/news/articleView.html?idxno=402287' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "title": "양돈장 ASF 사람이 전파했나…올해 유전자 대부분 해외 유래형",
+            "excerpt": "박정훈 농식품부 식량정책실장은 “그간 접경지역 등 야생멧돼지 활동 반경에서 주로 발생하던 ASF가 인위적 요인 등에 의해 전국적으로 확산할 것으...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>박정훈 농식품부 식량정책실장은 “그간 접경지역 등 야생멧돼지 활동 반경에서 주로 발생하던 ASF가 인위적 요인 등에 의해 전국적으로 확산할 것으로 보이는 엄중한 상황인 만큼 돼지농장 종사자와 출입자는... <br><br><a href='https://n.news.naver.com/mnews/article/662/0000089719?sid=101' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
             "source": "네이버 뉴스",
             "image": "images/boar.png",
-            "daysAgo": 4,
-            "date": "26.03.05",
-            "link": "https://www.agrinet.co.kr/news/articleView.html?idxno=402287"
+            "daysAgo": 5,
+            "date": "26.03.04",
+            "link": "https://n.news.naver.com/mnews/article/662/0000089719?sid=101"
         }
     ],
     "ai": [
         {
             "id": 22,
+            "title": "AI 발생농장 '방역 미흡' 잇단 적발…정부 \"보상금 감액 등 엄격 조치\"",
+            "excerpt": "정부가 이번 겨울 고병원성 조류인플루엔자(AI)가 발생한 가금농장에서 다수의 방역 미흡 사례가 확인됨에... 이번 2025~2026년 동절기 동...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>정부가 이번 겨울 고병원성 조류인플루엔자(AI)가 발생한 가금농장에서 다수의 방역 미흡 사례가 확인됨에... 이번 2025~2026년 동절기 동안 가금농장에서는 53건, 야생조류에서는 62건의 고병원성 AI가 발생했다.... <br><br><a href='https://n.news.naver.com/mnews/article/003/0013810051?sid=101' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/bird_flu.png",
+            "daysAgo": 0,
+            "date": "26.03.09",
+            "link": "https://n.news.naver.com/mnews/article/003/0013810051?sid=101"
+        },
+        {
+            "id": 23,
             "title": "포천 또 AI 발생…가금 농가 밀집 지역 방역 비상",
             "excerpt": "포천 창수면에서 또다시 고병원성 조류인플루엔자(AI)가 발생하면서 가금 사육 구조와 방역 체계 전반을... 않아 야생조류 접근을 완전히 차단하기...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>포천 창수면에서 또다시 고병원성 조류인플루엔자(AI)가 발생하면서 가금 사육 구조와 방역 체계 전반을... 않아 야생조류 접근을 완전히 차단하기 어려운 실정이라는 지적이다. 실제로 포천시는 이러한 위험성을... <br><br><a href='https://n.news.naver.com/mnews/article/666/0000098385?sid=102' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -236,7 +247,7 @@
             "link": "https://n.news.naver.com/mnews/article/666/0000098385?sid=102"
         },
         {
-            "id": 23,
+            "id": 24,
             "title": "AI·ASF·구제역 '3월 고비'…특별방역 1개월 연장",
             "excerpt": "■ AI 50건ㆍ야생조류 59건…위험지역 32곳 특별점검 = 이번 동절기('25/'26 시즌) 가금농장에서는 고병원성 조류인플루엔자가 50건, ...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>■ AI 50건ㆍ야생조류 59건…위험지역 32곳 특별점검 = 이번 동절기('25/'26 시즌) 가금농장에서는 고병원성 조류인플루엔자가 50건, 야생조류에서는 59건 발생했다. 지난 시즌보다 47일 빠르게 첫 발생했고, 검출 지역도... <br><br><a href='http://www.youngnong.co.kr/news/articleView.html?idxno=57859' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -247,7 +258,7 @@
             "link": "http://www.youngnong.co.kr/news/articleView.html?idxno=57859"
         },
         {
-            "id": 24,
+            "id": 25,
             "title": "AI 감염 위험 큰 '동물 살처분 인력' 98%가 외국인…방역 구멍 우려",
             "excerpt": "호남은 국내 최초로 야생 포유류인 삵에서 고병원성 AI가 검출된 지역이다. 조류에서만 확인되던 AI... <용어설명> ■ 조류인플루엔자(Avia...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>호남은 국내 최초로 야생 포유류인 삵에서 고병원성 AI가 검출된 지역이다. 조류에서만 확인되던 AI... <용어설명> ■ 조류인플루엔자(Avian Influenza, AI) 조류인플루엔자는 급성 바이러스성 전염병으로, 닭·오리 등... <br><br><a href='https://n.news.naver.com/mnews/article/421/0008809749?sid=105' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -258,7 +269,7 @@
             "link": "https://n.news.naver.com/mnews/article/421/0008809749?sid=105"
         },
         {
-            "id": 25,
+            "id": 26,
             "title": "포천 산란계 농장서 고병원성 AI 확진… 중수본 방역 관리 강화",
             "excerpt": "최근 철새 북상 시기와 맞물리며 경기ㆍ강원 등 북부 지역을 중심으로 야생조류에서 고병원성 조류인플루엔자 검출 사례가 이어지고 있다. 중수본은 H...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>최근 철새 북상 시기와 맞물리며 경기ㆍ강원 등 북부 지역을 중심으로 야생조류에서 고병원성 조류인플루엔자 검출 사례가 이어지고 있다. 중수본은 H5형 항원이 확인된 직후 '조류인플루엔자 긴급행동지침(SOP)'에... <br><br><a href='http://www.youngnong.co.kr/news/articleView.html?idxno=57813' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -269,7 +280,7 @@
             "link": "http://www.youngnong.co.kr/news/articleView.html?idxno=57813"
         },
         {
-            "id": 26,
+            "id": 27,
             "title": "ASF·구제역·AI 3중고, 특별방역기간 3월말까지 연장",
             "excerpt": "고병원성 조류인플루엔자(AI)가 추가 발생했다.3대 재난형 가축전염병 발생이 이어지는 삼중고 속에... 고병원성 AI는 25/26 동절기 들어 ...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>고병원성 조류인플루엔자(AI)가 추가 발생했다.3대 재난형 가축전염병 발생이 이어지는 삼중고 속에... 고병원성 AI는 25/26 동절기 들어 전년 시즌 대비 고병원성 AI 발생 시군수와 야생조류 검출 건수·지역이 모두... <br><br><a href='https://www.dailyvet.co.kr/news/prevention-hygiene/275036' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -280,7 +291,7 @@
             "link": "https://www.dailyvet.co.kr/news/prevention-hygiene/275036"
         },
         {
-            "id": 27,
+            "id": 28,
             "title": "고병원성 조류인플루엔자 확산에…정부, 계란 471만개 추가 수입",
             "excerpt": "정부가 고병원성 조류인플루엔자 확산에 따라 신학기 급식수요와 부활절 성수기에 대응하기 위해 계란을... 있고 철새가 본격 북상하는 시기인 점 등...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>정부가 고병원성 조류인플루엔자 확산에 따라 신학기 급식수요와 부활절 성수기에 대응하기 위해 계란을... 있고 철새가 본격 북상하는 시기인 점 등을 감안할 때 추가 발생 가능성이 있다\"며 \"현재 일평균 계란... <br><br><a href='https://n.news.naver.com/mnews/article/277/0005729773?sid=101' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -291,7 +302,7 @@
             "link": "https://n.news.naver.com/mnews/article/277/0005729773?sid=101"
         },
         {
-            "id": 28,
+            "id": 29,
             "title": "충북 조류인플루엔자 방역대 전면 해제",
             "excerpt": "［동양일보 지영수 기자］ 충북도는 지난달 28일 도내 고병원성 조류인플루엔자(AI) 방역대 이동제한... 도는 철새 북상 등 산발적 발생 가능성...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>［동양일보 지영수 기자］ 충북도는 지난달 28일 도내 고병원성 조류인플루엔자(AI) 방역대 이동제한... 도는 철새 북상 등 산발적 발생 가능성에 대비해 특별방역대책기간을 3월 말까지 연장하기로 했다. 도 관계자는... <br><br><a href='http://www.dynews.co.kr/news/articleView.html?idxno=840449' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -302,7 +313,7 @@
             "link": "http://www.dynews.co.kr/news/articleView.html?idxno=840449"
         },
         {
-            "id": 29,
+            "id": 30,
             "title": "철새 북상·기온 상승 겹친 3월… 경북 AI·ASF 방역 '긴장 유지'",
             "excerpt": "[사진=농식품부] [한국영농신문 백종호 기자] 경북 지역이 고병원성 조류인플루엔자(AI)와 아프리카돼지열병(ASF) 방역지역을...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>[사진=농식품부] [한국영농신문 백종호 기자] 경북 지역이 고병원성 조류인플루엔자(AI)와 아프리카돼지열병(ASF) 방역지역을 유지하고 있는 가운데, 봄철 기온 상승과 철새 북상 시기가... <br><br><a href='http://www.youngnong.co.kr/news/articleView.html?idxno=57841' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -315,7 +326,18 @@
     ],
     "ecosystem": [
         {
-            "id": 30,
+            "id": 31,
+            "title": "안양시, 시민 참여형 생태계 교란식물 제거활동 참가자 모집",
+            "excerpt": "시 관계자는 “시민과 함께 생태계 교란식물을 제거해 하천 생태계의 건강성을 회복하고 생물다양성 보전에 기여할 수 있도록 많은 관심과 참여를 바란...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>시 관계자는 “시민과 함께 생태계 교란식물을 제거해 하천 생태계의 건강성을 회복하고 생물다양성 보전에 기여할 수 있도록 많은 관심과 참여를 바란다”고 밝혔다.<br><br><a href='https://www.siminilbo.co.kr/news/newsview.php?ncode=1160293821195186' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/env_gov.png",
+            "daysAgo": 0,
+            "date": "26.03.09",
+            "link": "https://www.siminilbo.co.kr/news/newsview.php?ncode=1160293821195186"
+        },
+        {
+            "id": 32,
             "title": "외래 '유입주의 생물' 152종 사전 차단…자료집 배포",
             "excerpt": "국제적으로 생태계 위해성이 확인된 종이나, 사회적·생태적 피해 사례가 있는 종, 혹은 기존 생태계 교란 생물과 유전적·생태적 특성이 유사한 종 ...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>국제적으로 생태계 위해성이 확인된 종이나, 사회적·생태적 피해 사례가 있는 종, 혹은 기존 생태계 교란 생물과 유전적·생태적 특성이 유사한 종 등이 후보종에 포함된다. 기후부는 지난해 12월 30일 152종을 신규... <br><br><a href='https://n.news.naver.com/mnews/article/003/0013787127?sid=101' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -326,7 +348,7 @@
             "link": "https://n.news.naver.com/mnews/article/003/0013787127?sid=101"
         },
         {
-            "id": 31,
+            "id": 33,
             "title": "기후에너지환경부·국립생태원 '유입주의 생물 152종 자료집 Ⅶ' 발간.....",
             "excerpt": "국제적으로 생태계 위해성이 확인된 종이나, 사회적·생태적 피해 사례가 있는 종, 혹은 기존 생태계 교란 생물과 유전적·생태적 특성이 유사한 종 ...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>국제적으로 생태계 위해성이 확인된 종이나, 사회적·생태적 피해 사례가 있는 종, 혹은 기존 생태계 교란 생물과 유전적·생태적 특성이 유사한 종 등이 후보종에 포함된다. 기후부는 지난해 12월 30일 152종을 신규 지정해... <br><br><a href='http://www.econonews.co.kr/news/articleView.html?idxno=429267' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -337,7 +359,7 @@
             "link": "http://www.econonews.co.kr/news/articleView.html?idxno=429267"
         },
         {
-            "id": 32,
+            "id": 34,
             "title": "\"화려함 앞세운 새벼리 야간조명..빛공해·생태 교란 우려 확산\"",
             "excerpt": "\"화려함 앞세운 새벼리 야간조명..빛공해·생태 교란 우려 확산\"\"화려함 앞세운 새벼리 야간조명..빛공해... 등 생태계 전반에 영향을 미친다는 ...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>\"화려함 앞세운 새벼리 야간조명..빛공해·생태 교란 우려 확산\"\"화려함 앞세운 새벼리 야간조명..빛공해... 등 생태계 전반에 영향을 미친다는 결과가 잇따르고 있다. 남강 변 절벽과 수변 공간은 다양한 생물의 이동... <br><br><a href='http://www.dandinews.com/news/articleView.html?idxno=16474' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -348,7 +370,7 @@
             "link": "http://www.dandinews.com/news/articleView.html?idxno=16474"
         },
         {
-            "id": 33,
+            "id": 35,
             "title": "충주시, 야생생물 1마리라도 사육할 경우 반드시 지자체 신고 의무화",
             "excerpt": "충주시청 충주시가 개정된 「야생생물 보호 및 관리에 관한 법률」에 따라 야생생물을 1마리라도 사육할... 국내 생태계 교란을 방지할 계획이다. ...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>충주시청 충주시가 개정된 「야생생물 보호 및 관리에 관한 법률」에 따라 야생생물을 1마리라도 사육할... 국내 생태계 교란을 방지할 계획이다. 그동안 관리 사각지대에 있던 야생동물을 제도권 내로 편입해... <br><br><a href='http://www.newstown.co.kr/news/articleView.html?idxno=694428' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -359,7 +381,7 @@
             "link": "http://www.newstown.co.kr/news/articleView.html?idxno=694428"
         },
         {
-            "id": 34,
+            "id": 36,
             "title": "서울 생물의 절반 이상 ‘생태경관보전지역’에 서식",
             "excerpt": "종의 생물이 서식하는 것으로 확인됐다. 서울연구원은 최근 ‘서울시 생태·경관보전지역 동식물상 변화... 이외에도 이번 조사에서 보전지역에 생태계...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>종의 생물이 서식하는 것으로 확인됐다. 서울연구원은 최근 ‘서울시 생태·경관보전지역 동식물상 변화... 이외에도 이번 조사에서 보전지역에 생태계교란종 미국쑥부쟁이, 서양등골나무, 환삼덩굴, 돼지풀 등의... <br><br><a href='http://www.lak.co.kr/news/boardview.php?id=22574' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -370,7 +392,18 @@
             "link": "http://www.lak.co.kr/news/boardview.php?id=22574"
         },
         {
-            "id": 35,
+            "id": 37,
+            "title": "구경거리로 태어난 생명은 없다",
+            "excerpt": "하고, 생태계 안에서 다른 종과 관계 맺으며 생물 다양성을 구축하도록 돕는 것이 진정한 보존이 아닐까. 갓... 일본의 사설 체험 동물원에서 유...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>하고, 생태계 안에서 다른 종과 관계 맺으며 생물 다양성을 구축하도록 돕는 것이 진정한 보존이 아닐까. 갓... 일본의 사설 체험 동물원에서 유기한 야생동물이 시골과 도심에 나타나고, 생태계 교란이 발생해 그 동물들을... <br><br><a href='http://www.dtnews24.com/news/articleView.html?idxno=808180' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/env_gov.png",
+            "daysAgo": 0,
+            "date": "26.03.09",
+            "link": "http://www.dtnews24.com/news/articleView.html?idxno=808180"
+        },
+        {
+            "id": 38,
             "title": "한반도 생물다양성 10% 품은 숲...그곳에서 사라진 크낙새",
             "excerpt": "광릉숲은 식물과 곤충, 균류 등 12개 생물군을 아우르는 복합 생태계로 한국앉은부채, 광릉개고사리 같은... 광릉숲 공개 이후 방문객과 차량 통...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>광릉숲은 식물과 곤충, 균류 등 12개 생물군을 아우르는 복합 생태계로 한국앉은부채, 광릉개고사리 같은... 광릉숲 공개 이후 방문객과 차량 통행이 늘면서 소음과 교란이 커졌고 경계심이 강한 크낙새에게 치명적으로... <br><br><a href='https://www.newspenguin.com/news/articleView.html?idxno=21209' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -381,7 +414,7 @@
             "link": "https://www.newspenguin.com/news/articleView.html?idxno=21209"
         },
         {
-            "id": 36,
+            "id": 39,
             "title": "박길선 강원도의원 \"생태계 교란 식물 제거 완전 이행\"",
             "excerpt": "강원지역 내 토종 식물 생태계 유지를 위해 교란 식물 제거 사업에 대한 지속적인 관리와 이행이 이뤄져야 한다는 요구가 강원특별자치도의회에서 나왔...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>강원지역 내 토종 식물 생태계 유지를 위해 교란 식물 제거 사업에 대한 지속적인 관리와 이행이 이뤄져야 한다는 요구가 강원특별자치도의회에서 나왔다. 강원도의회 농림수산위원회 박길선(국민의힘·원주) 의원은... <br><br><a href='https://n.news.naver.com/mnews/article/087/0001172845?sid=100' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -392,7 +425,7 @@
             "link": "https://n.news.naver.com/mnews/article/087/0001172845?sid=100"
         },
         {
-            "id": 37,
+            "id": 40,
             "title": "서울시자원봉사센터, '2026 서울 청년 기획봉사단' 150개 팀 모집",
             "excerpt": "실제로 지난해에는 장기 구직 청년을 위한 AI 면접 시뮬레이션 챗봇을 개발한 'AIDE' 팀과 AI 알고리즘을 활용해 독거노인 주거지의 낙상 위...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>실제로 지난해에는 장기 구직 청년을 위한 AI 면접 시뮬레이션 챗봇을 개발한 'AIDE' 팀과 AI 알고리즘을 활용해 독거노인 주거지의 낙상 위험을 분석한 '따숨하우스' 팀, 딥러닝 기술로 생태계 교란 식물을 탐지하는... <br><br><a href='https://n.news.naver.com/mnews/article/008/0005326321?sid=102' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -401,33 +434,11 @@
             "daysAgo": 3,
             "date": "26.03.06",
             "link": "https://n.news.naver.com/mnews/article/008/0005326321?sid=102"
-        },
-        {
-            "id": 38,
-            "title": "전남도-대한민국헌정회, 유해 외래어종 퇴치 업무협약",
-            "excerpt": "특히 생태계 교란어종은 포획 이후 처리·활용 체계가 부족해 현장 부담이 반복되고 예산 규모 또한 제한적이어서 장기적으로 추진하기 어려운 실정이다...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>특히 생태계 교란어종은 포획 이후 처리·활용 체계가 부족해 현장 부담이 반복되고 예산 규모 또한 제한적이어서 장기적으로 추진하기 어려운 실정이다. 이에 따라 전남도와 헌정회는 '포획–수매–처리–자원화'로... <br><br><a href='https://www.newspim.com/news/view/20260225001182' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/env_gov.png",
-            "daysAgo": 12,
-            "date": "26.02.25",
-            "link": "https://www.newspim.com/news/view/20260225001182"
-        },
-        {
-            "id": 39,
-            "title": "전남도-대한민국헌정회, 유해 외래어종 퇴치·자원화 맞손",
-            "excerpt": "특히 생태계 교란어종은 포획 이후 처리·활용 체계가 부족해 현장 부담이 반복되고, 예산 규모 또한 제한적이어서 장기적으로 추진하기 어려운 실정이...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>특히 생태계 교란어종은 포획 이후 처리·활용 체계가 부족해 현장 부담이 반복되고, 예산 규모 또한 제한적이어서 장기적으로 추진하기 어려운 실정이다. 이에 따라 전남도와 헌정회는 ‘포획–수매–처리–자원화’로... <br><br><a href='https://gj.newdaily.co.kr/site/data/html/2026/02/26/2026022600052.html' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/env_gov.png",
-            "daysAgo": 11,
-            "date": "26.02.26",
-            "link": "https://gj.newdaily.co.kr/site/data/html/2026/02/26/2026022600052.html"
         }
     ],
     "association": [
         {
-            "id": 40,
+            "id": 41,
             "title": "영산강청, 장성 일대서 야생동물 불법 엽구 27점 수거",
             "excerpt": "영산강청에 따르면 장성군과 내장산 국립공원 백암사무소, 야생생물관리협회 광주전남지부 등 유관기관이 함께한 이번 수거는 겨울철 먹이 부족으로 민가...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>영산강청에 따르면 장성군과 내장산 국립공원 백암사무소, 야생생물관리협회 광주전남지부 등 유관기관이 함께한 이번 수거는 겨울철 먹이 부족으로 민가 인근까지 내려오는 야생동물을 노린 불법 포획 행위를 근절하기... <br><br><a href='https://n.news.naver.com/mnews/article/421/0008793478?sid=102' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -438,7 +449,7 @@
             "link": "https://n.news.naver.com/mnews/article/421/0008793478?sid=102"
         },
         {
-            "id": 41,
+            "id": 42,
             "title": "야생생물관리협회 예천지회, 예천군에 고향사랑기부금 기탁",
             "excerpt": "야생생물관리협회 예천지회(회장 김정규)가 26일 예천군청을 방문, 고향사랑기부금 300만 원을 김학동 군수를 통해 지정 기탁했다. 김학동 군수는...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>야생생물관리협회 예천지회(회장 김정규)가 26일 예천군청을 방문, 고향사랑기부금 300만 원을 김학동 군수를 통해 지정 기탁했다. 김학동 군수는 \"야생생물관리협회 예천지회 회원과 가족분들의 따뜻한 관심과 지원에... <br><br><a href='https://www.dkilbo.com/news/articleView.html?idxno=535107' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -447,17 +458,6 @@
             "daysAgo": 11,
             "date": "26.02.26",
             "link": "https://www.dkilbo.com/news/articleView.html?idxno=535107"
-        },
-        {
-            "id": 42,
-            "title": "여수서 60대 엽사 등 2명, 야생 동물 해체하다 검거",
-            "excerpt": "경찰은 이들이 야생생물관리협회 회원 자격 여부와 여수시 유해조수구제 의뢰, 총기 반출, 해체 과정 등에 대해 조사하고 있다. 아프리카돼지열병(A...",
-            "body": "네이버 뉴스 검색 결과입니다.<br><br>경찰은 이들이 야생생물관리협회 회원 자격 여부와 여수시 유해조수구제 의뢰, 총기 반출, 해체 과정 등에 대해 조사하고 있다. 아프리카돼지열병(ASF)이 올해 전국적으로 5건 발생해 감염 경로 조사가 진행 중이다. 야생... <br><br><a href='https://n.news.naver.com/mnews/article/003/0013753218?sid=102' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
-            "source": "네이버 뉴스",
-            "image": "images/police.png",
-            "daysAgo": 31,
-            "date": "26.02.06",
-            "link": "https://n.news.naver.com/mnews/article/003/0013753218?sid=102"
         },
         {
             "id": 43,
@@ -535,6 +535,17 @@
             "daysAgo": 57,
             "date": "26.01.11",
             "link": "https://www.dkilbo.com/news/articleView.html?idxno=529668"
+        },
+        {
+            "id": 50,
+            "title": "김천시, 야생생물관리협회와 로드킬 처리 업무협약",
+            "excerpt": "김천시, 야생생물관리협회와 로드킬 처리 업무협약 김천시는 지난 8일 '로드킬 동물사체 처리 상시기동반'운영을 위해 야생생물관리협회 김천지회와 로...",
+            "body": "네이버 뉴스 검색 결과입니다.<br><br>김천시, 야생생물관리협회와 로드킬 처리 업무협약 김천시는 지난 8일 '로드킬 동물사체 처리 상시기동반'운영을 위해 야생생물관리협회 김천지회와 로드킬 처리 업무협약을 체결했다. 상시기동반은 밤낮을 가리지... <br><br><a href='https://www.thebk.co.kr/news/articleView.html?idxno=306181' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
+            "source": "네이버 뉴스",
+            "image": "images/env_gov.png",
+            "daysAgo": 59,
+            "date": "26.01.09",
+            "link": "https://www.thebk.co.kr/news/articleView.html?idxno=306181"
         }
     ],
     "editorial": [
@@ -550,7 +561,7 @@
             "link": "https://www.kyeongin.com/article/1758616"
         },
         {
-            "id": 50,
+            "id": 51,
             "title": "[사설] 사람과 자연 공존하는 금정산 관리 계획을",
             "excerpt": "금정산은 수많은 희귀 야생동물이 자라고 각종 문화유산과 경관을 가져 최고의 국립공원이 될 수 있는 자원을 충분히 갖추고 있다. 외국인 관광객 연...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>금정산은 수많은 희귀 야생동물이 자라고 각종 문화유산과 경관을 가져 최고의 국립공원이 될 수 있는 자원을 충분히 갖추고 있다. 외국인 관광객 연간 500만 명 유치를 목표로 하는 부산은 바다 강 산을 연결하는... <br><br><a href='https://n.news.naver.com/mnews/article/658/0000136805?sid=110' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -561,7 +572,7 @@
             "link": "https://n.news.naver.com/mnews/article/658/0000136805?sid=110"
         },
         {
-            "id": 51,
+            "id": 52,
             "title": "[사설] 진주시 진양호동물원 수의사 찾기 대책을",
             "excerpt": "그러나 3년 전부터 전담 수의사 채용 공고를 냈지만, 공영 동물원이다 보니 전담 수의사 임금을 사설 동물원... 또한 급여 외에, 야생동물 보전...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>그러나 3년 전부터 전담 수의사 채용 공고를 냈지만, 공영 동물원이다 보니 전담 수의사 임금을 사설 동물원... 또한 급여 외에, 야생동물 보전과 복지 연구라는 특수한 경험, 논문 출판 및 국외 동물원과 교류 기회 등을... <br><br><a href='https://www.idomin.com/news/articleView.html?idxno=2000382' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -572,7 +583,7 @@
             "link": "https://www.idomin.com/news/articleView.html?idxno=2000382"
         },
         {
-            "id": 52,
+            "id": 53,
             "title": "[사설] 아프리카돼지열병, 정확한 원인 규명이 우선",
             "excerpt": "야생동물 관리, 사람 이동, 사료 원료 수입·가공 공정 등 모든 단계에 대한 데이터 기반 추적이 동시에 이뤄져야 한다. 또한 조사 과정과 근거를...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>야생동물 관리, 사람 이동, 사료 원료 수입·가공 공정 등 모든 단계에 대한 데이터 기반 추적이 동시에 이뤄져야 한다. 또한 조사 과정과 근거를 투명하게 공개해 정책 신뢰를 회복해야 한다. 오락가락·우왕좌왕하는... <br><br><a href='https://n.news.naver.com/mnews/article/662/0000089463?sid=110' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -583,7 +594,7 @@
             "link": "https://n.news.naver.com/mnews/article/662/0000089463?sid=110"
         },
         {
-            "id": 53,
+            "id": 54,
             "title": "[사설]울산 조류 충돌 방지, 공공시설 전면 의무화부터",
             "excerpt": "지난해 울산야생동물구조관리센터에 접수된 유리창·건물 충돌 구조 개체만 298마리다. 이는 신고와 발견을 전제로 한 수치다. 현장에서 즉사하거나 ...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>지난해 울산야생동물구조관리센터에 접수된 유리창·건물 충돌 구조 개체만 298마리다. 이는 신고와 발견을 전제로 한 수치다. 현장에서 즉사하거나 포식자에 의해 사라진 개체까지 감안하면 실제 피해는 더 클 가능성을... <br><br><a href='https://www.ksilbo.co.kr/news/articleView.html?idxno=1049382' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -594,7 +605,7 @@
             "link": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1049382"
         },
         {
-            "id": 54,
+            "id": 55,
             "title": "[사설]한중 우호교류의 상징 판다 한 쌍 우치동물원 올 것",
             "excerpt": "거점 동물원은 야생동물 보호와 동물 치료 등을 위해 지원금을 받는다. 광주시는 중국측으로부터 판다 대여가 확정되면 준비 기간이 2년 정도 소요될...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>거점 동물원은 야생동물 보호와 동물 치료 등을 위해 지원금을 받는다. 광주시는 중국측으로부터 판다 대여가 확정되면 준비 기간이 2년 정도 소요될 것으로 예상하고 정부와 긴밀히 소통하며 종합 검토하고 있다. 판다... <br><br><a href='http://www.kjdaily.com/article.php?aid=1767868906671091018' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -605,7 +616,7 @@
             "link": "http://www.kjdaily.com/article.php?aid=1767868906671091018"
         },
         {
-            "id": 55,
+            "id": 56,
             "title": "[사설] 멧돼지 잇단 주택가 출몰 시민안전 이상 없나",
             "excerpt": "사설 [충청투데이 김승한 기자] 대전 도심지역 주택가에 멧돼지가 연이어 출몰하고 있어 시민들의 각별한... 어제 오전 9시 께 서구 도안동 근린...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>사설 [충청투데이 김승한 기자] 대전 도심지역 주택가에 멧돼지가 연이어 출몰하고 있어 시민들의 각별한... 어제 오전 9시 께 서구 도안동 근린공원에 멧돼지가 출몰했다는 신고가 들어와 서구청 유해야생동물... <br><br><a href='https://www.cctoday.co.kr/news/articleView.html?idxno=2224531' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -616,7 +627,7 @@
             "link": "https://www.cctoday.co.kr/news/articleView.html?idxno=2224531"
         },
         {
-            "id": 56,
+            "id": 57,
             "title": "[사설] 원천호수 발견 고병원성 AI, 즉각 대처한 수원시",
             "excerpt": "수원특례시가 즉각 국립야생동물질병관리원에 검사를 의뢰한 결과 'H5형 항원'이 검출됐고 최종 검사에서 고병원성 AI 판정을 받은 것이다. 이에 ...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>수원특례시가 즉각 국립야생동물질병관리원에 검사를 의뢰한 결과 'H5형 항원'이 검출됐고 최종 검사에서 고병원성 AI 판정을 받은 것이다. 이에 수원시는 검출 지역 주변을 방역했고 산책로 부근에는 소독발판을... <br><br><a href='http://www.suwonilbo.kr/news/articleView.html?idxno=314129' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -627,7 +638,7 @@
             "link": "http://www.suwonilbo.kr/news/articleView.html?idxno=314129"
         },
         {
-            "id": 57,
+            "id": 58,
             "title": "[사설]ASF·AI 동시 확산, 방역에 빈틈 생겨선 안 돼",
             "excerpt": "철새의 이동 경로, 야생동물의 서식 환경, 축산 농가의 방역 취약지대를 고려한 중장기적 차원의 방역 전략이 시급하다. 특히 철새도래지 인근 농가...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>철새의 이동 경로, 야생동물의 서식 환경, 축산 농가의 방역 취약지대를 고려한 중장기적 차원의 방역 전략이 시급하다. 특히 철새도래지 인근 농가에 대해서는 사육 형태, 방역시설, 출입 통제 수준 등을 전수조사하고... <br><br><a href='https://n.news.naver.com/mnews/article/087/0001169297?sid=110' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
@@ -638,7 +649,7 @@
             "link": "https://n.news.naver.com/mnews/article/087/0001169297?sid=110"
         },
         {
-            "id": 58,
+            "id": 59,
             "title": "[사설] 전북 전통문화유산 잘 지켜야",
             "excerpt": "진안군 백운면은 해발 400m가 넘는 고원지대로 겨울철 강설량이 많고 꿩·토끼 등 야생동물이 풍부해 매사냥 전통이 유지돼 온 지역이다. 이곳 일...",
             "body": "네이버 뉴스 검색 결과입니다.<br><br>진안군 백운면은 해발 400m가 넘는 고원지대로 겨울철 강설량이 많고 꿩·토끼 등 야생동물이 풍부해 매사냥 전통이 유지돼 온 지역이다. 이곳 일대는 날짐승이 많고, 고원지대라서 눈이 많이 내리면 매의 먹이가 되는 꿩이... <br><br><a href='http://sjbnews.com/news/news.php?number=867059' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>",
