@@ -12,14 +12,14 @@ client_secret = os.environ.get("NAVER_CLIENT_SECRET", "")
 # 검색 키워드 및 카테고리 매핑
 categories = {
     # 수렵 탭: 확실히 포획, 엽사, 총기안전 등과 관련된 단어로 좁힘
-    "hunting": ["유해조수 포획단", "수렵면허", "총기 안전 수렵", "야생동물 포획"],
+    "hunting": ["유해조수 포획단", "수렵면허", "총기 안전 수렵", "야생동물 포획", "수렵 관련 법령", "수렵 지침", "야생생물법", "피해방지단", "유해야생동물 기동포획단", "불법엽구", "창애", "올무", "밀렵 단속", "밀거래 단속", "밀렵 특별단속"],
     # ASF 탭: 유해동물 포획이 아니라 '돼지열병' 자체가 강조되어야 함
     "asf": ["아프리카돼지열병 멧돼지", "ASF 멧돼지", "야생멧돼지 아프리카돼지열병"],
     # AI 탭: 야생조류 AI
     "ai": ["야생조류 조류인플루엔자", "고병원성 AI 야생조류", "철새 조류인플루엔자"],
     # 생태계 탭: 뉴트리아, 가시박, 교란종 등
     "ecosystem": ["생태계교란생물", "교란식물", "교란어종", "교란종", "가시박", "단풍잎돼지풀", "베스", "블루길", "뉴트리아 포획", "황소개구리 퇴치"],
-    "association": ["야생생물관리협회"],
+    "association": ["야생생물관리협회", "야생생물 관리협회", "야생생물관리협회 지부", "야생생물관리협회 지회", "야생생물관리협회 밀렵감시단", "밀렵 감시단", "수렵면허시험"],
     # 사설/기획 탭: 야생동물, 수렵, 생태계 등과 관련된 심층/기획 논의
     "editorial": ["야생동물 사설", "야생동물 기고", "야생동물 칼럼", "유해조수 기획", "수렵 기획"]
 }
@@ -46,7 +46,7 @@ def get_best_image(category, title, description):
     combined_text = title + " " + description
     
     # 1. 특정 키워드에 대한 강력한 매칭
-    if "경찰" in combined_text or "순찰" in combined_text or "단속" in combined_text or "총기" in combined_text:
+    if "경찰" in combined_text or "순찰" in combined_text or "단속" in combined_text or "총기" in combined_text or "불법엽구" in combined_text or "창애" in combined_text or "올무" in combined_text or "밀렵" in combined_text or "법령" in combined_text or "지침" in combined_text or "야생생물법" in combined_text:
         return "images/police.png"
     if "조류독감" in combined_text or "조류인플루엔자" in combined_text or "고병원성 AI" in combined_text.upper() or "철새" in combined_text or "야생조류" in combined_text:
         return "images/bird_flu.png"
@@ -105,16 +105,16 @@ def is_duplicate_article(new_title, new_desc, new_date, seen_articles):
             if len(new_t_bi) > 0 and len(seen_t_bi) > 0:
                 t_inter = len(new_t_bi.intersection(seen_t_bi))
                 t_union = len(new_t_bi.union(seen_t_bi))
-                # 바이그램 7개 이상 겹치거나, 유사도가 25% 이상이면 같은 기사로 간주
-                if t_inter >= 7 or (t_union > 0 and t_inter / t_union >= 0.25):
+                # 바이그램 6개 이상 겹치거나, 유사도가 20% 이상이면 같은 기사로 간주
+                if t_inter >= 6 or (t_union > 0 and t_inter / t_union >= 0.20):
                     return True
             
             # 본문(요약) Jaccard & Intersection 검사 (제목은 다르게 썼지만 내용은 복붙한 보도자료 분석)
             if len(new_d_bi) > 0 and len(seen_d_bi) > 0:
                 d_inter = len(new_d_bi.intersection(seen_d_bi))
                 d_union = len(new_d_bi.union(seen_d_bi))
-                # 요약문 바이그램 15개 이상 겹치거나 30% 이상 일치하면 같은 보도자료로 간주해 차단
-                if d_inter >= 15 or (d_union > 0 and d_inter / d_union >= 0.30):
+                # 요약문 바이그램 12개 이상 겹치거나 25% 이상 일치하면 같은 보도자료로 간주해 차단
+                if d_inter >= 12 or (d_union > 0 and d_inter / d_union >= 0.25):
                     return True
                     
     return False
@@ -178,9 +178,10 @@ def main():
                 title = clean_html(str(item.get('title', '')))
                 description = clean_html(str(item.get('description', '')))
                 
-                # 협회관련 탭의 경우 반드시 "야생생물관리협회" 단어가 포함되어야 함
+                # 협회관련 탭의 경우 연관된 단어가 하나라도 포함되어야 함
                 if category == "association":
-                    if "야생생물관리협회" not in title and "야생생물관리협회" not in description:
+                    assoc_keywords = ["야생생물관리협회", "야생생물 관리협회", "관리협회", "밀렵감시단", "수렵면허"]
+                    if not any(ak in title or ak in description for ak in assoc_keywords):
                         continue
                 
                 # 스팸/테마주/해외 기사 원천 차단 블랙리스트
@@ -226,8 +227,8 @@ def main():
                 editorial_tags = ["[사설]", "[기획]", "[기고]", "[칼럼]", "사설]", "기고]", "칼럼]", "기획]"]
                 if category in ["association", "editorial"] or any(tag in title for tag in editorial_tags):
                     max_days = 90  # 협회 및 사설/기획 탭은 뉴스량이 적으므로 최대 90일까지 허용
-                elif category == "ecosystem":
-                    max_days = 30  # 생태계 교란생물 뉴스는 최대 30일(1달)까지 허용
+                elif category in ["ecosystem", "hunting"]:
+                    max_days = 30  # 생태계 교란생물, 수렵 뉴스는 최대 30일(1달)까지 허용
                     
                 pub_date_str = str(item.get('pubDate', ''))
                 days_diff = 0
