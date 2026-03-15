@@ -55,8 +55,8 @@ def generate_weekly_briefing(weekly_news):
         
     client = genai.Client(api_key=api_key)
     
-    # 텍스트 처리에 우수한 2.0-flash 모델 적용
-    model_name = 'gemini-2.0-flash'
+    # 2.0 모델이 무료 할당량(Quota) 초과 에러를 발생시켜, 안정적인 1.5-flash 모델로 롤백합니다.
+    model_name = 'gemini-1.5-flash'
     
     # 이번 주 차수 계산 (예: 3월 2주차)
     now = datetime.now()
