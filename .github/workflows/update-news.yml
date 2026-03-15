@@ -22,20 +22,38 @@ jobs:
       - name: Install dependencies (if any)
         run: |
           python -m pip install --upgrade pip
+          python -m pip install google-generativeai
 
       - name: Run news crawler
         env:
           NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
         run: python update_news.py
+        
+      - name: Process Weekly Briefing (Thursdays only)
+        # UTC 23시에 돌면 한국시간(KST)으로 다음날 아침 8시입니다.
+        # 즉, KST 목요일 아침 8시 브리핑을 원한다면, cron 스케줄은 수요일 밤(UTC 23시)이 되어야 합니다.
+        # 기존 cron 설정이 매일 돌게 되어있으니, 스텝 내에서 "수요일(수요일 UTC 23시 -> 목요일 KST 08시)"일 때만 실행하도록 if 조건을 사용합니다.
+        # cron에서 요일을 지정할 경우 (0=Sun, 1=Mon, ..., 3=Wed)
+        if: github.event.schedule == '0 23 * * *' && github.event.schedule != '' && github.event_name == 'schedule'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          # 현재 요일(UTC 기준) 확인 (수요일이면 3)
+          DAY_OF_WEEK=$(date +%u)
+          if [ "$DAY_OF_WEEK" -eq 3 ] || [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "Generating weekly briefing..."
+            python generate_briefing.py
+          else
+            echo "Not Wednesday UTC (Thursday KST). Skipping briefing generation."
+          fi
 
       - name: Commit and push changes
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
-          git add data/newsData.json
+          git add data/newsData.json data/weekly_briefing.txt
           # 새 뉴스가 있어서 파일이 변경된 경우에만 커밋
-                    git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update: Daily news sync"
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update: Daily news sync & Briefing generation"
           git pull --rebase origin main
           git push
-
