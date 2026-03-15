@@ -55,8 +55,8 @@ def generate_weekly_briefing(weekly_news):
         
     client = genai.Client(api_key=api_key)
     
-    # 결제 계정이 연동되었으므로, 최신 모델인 2.0-flash를 정상적으로 사용할 수 있습니다.
-    model_name = 'gemini-2.0-flash'
+    # 구글 API 정책 변경(2026년)으로 인해 신규 발급 키는 2.5-flash 이상 버전을 사용해야 합니다.
+    model_name = 'gemini-2.5-flash'
     
     # 이번 주 차수 계산 (예: 3월 2주차)
     now = datetime.now()
