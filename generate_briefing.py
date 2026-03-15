@@ -55,8 +55,9 @@ def generate_weekly_briefing(weekly_news):
         
     client = genai.Client(api_key=api_key)
     
-    # 2.0 모델이 무료 할당량(Quota) 초과 에러를 발생시켜, 안정적인 1.5-flash 모델로 롤백합니다.
-    model_name = 'gemini-1.5-flash'
+    # google-genai SDK에서 발생하는 404 에러를 방지하기 위해 보다 검증된 최신 모델명을 명시합니다.
+    # 1.5-flash-8b는 빠르고 가벼워 무료 할당량(Quota) 내에서 브리핑 텍스트 생성에 최적화되어 있습니다.
+    model_name = 'gemini-1.5-flash-8b'
     
     # 이번 주 차수 계산 (예: 3월 2주차)
     now = datetime.now()
