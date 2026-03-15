@@ -1,4 +1,4 @@
-import google.generativeai as genai
+from google import genai
 import json
 import os
 import sys
@@ -53,10 +53,10 @@ def generate_weekly_briefing(weekly_news):
         print("GEMINI_API_KEY 환경 변수가 설정되어 있지 않습니다.")
         sys.exit(1)
         
-    genai.configure(api_key=api_key)
+    client = genai.Client(api_key=api_key)
     
-    # 가장 빠르고 저렴하면서 텍스트 처리에 우수한 1.5-flash 모델 적용
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    # 텍스트 처리에 우수한 2.0-flash 모델 적용
+    model_name = 'gemini-2.0-flash'
     
     # 이번 주 차수 계산 (예: 3월 2주차)
     now = datetime.now()
@@ -105,7 +105,10 @@ def generate_weekly_briefing(weekly_news):
     """
     
     try:
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model=model_name,
+            contents=prompt
+        )
         return response.text
     except Exception as e:
         import traceback
