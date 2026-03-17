@@ -65,8 +65,19 @@
 
             <!-- 뉴스 리스트 영역 -->
             <section class="news-section" aria-live="polite">
+                <!-- ASF 서브 탭 (동적 표시) -->
+                <div class="asf-sub-tabs" id="asfSubTabs" style="display: none;">
+                    <button class="sub-tab-btn active" data-target="news" id="subTabNews">ASF 관련 뉴스</button>
+                    <button class="sub-tab-btn" data-target="map" id="subTabMap">ASF 발생현황</button>
+                </div>
+
                 <div class="news-list" id="newsList">
                     <!-- 자바스크립트를 통해 뉴스 카드가 이 곳에 동적 렌더링 됩니다. -->
+                </div>
+                
+                <!-- ASF 발생현황 맵 영역 -->
+                <div class="asf-status-container" id="asfStatusMap" style="display: none;">
+                    <iframe src="asf_status.html" width="100%" height="680px" frameborder="0" title="ASF 발생현황 지도"></iframe>
                 </div>
                 <!-- 로딩 애니메이션 -->
                 <div class="loading-spinner" id="loadingSpinner">

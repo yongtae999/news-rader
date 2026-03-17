@@ -122,6 +122,32 @@ function initTabs() {
 
             // 데이터 변경 렌더링 호출
             currentCategory = tab.getAttribute('data-category');
+            
+            // ASF 서브탭 보이기/숨기기 처리
+            const asfSubTabs = document.getElementById('asfSubTabs');
+            const asfStatusMap = document.getElementById('asfStatusMap');
+            const newsListDisplay = document.getElementById('newsList');
+            
+            if (asfSubTabs) {
+                if (currentCategory === 'asf') {
+                    asfSubTabs.style.display = 'flex';
+                    // 서브탭 상태를 '뉴스'로 리셋
+                    const subTabNews = document.getElementById('subTabNews');
+                    const subTabMap = document.getElementById('subTabMap');
+                    if(subTabNews && subTabMap) {
+                        subTabNews.classList.add('active');
+                        subTabMap.classList.remove('active');
+                    }
+                    asfStatusMap.style.display = 'none';
+                    // 그리드 복구는 renderNews 안에서 되거나 CSS 기본값 따름
+                    newsListDisplay.style.display = window.innerWidth <= 768 ? 'grid' : 'grid'; 
+                } else {
+                    asfSubTabs.style.display = 'none';
+                    asfStatusMap.style.display = 'none';
+                    newsListDisplay.style.display = window.innerWidth <= 768 ? 'grid' : 'grid';
+                }
+            }
+
             renderNews(currentCategory);
         });
     });
@@ -136,6 +162,34 @@ function initTabs() {
                 indicator.style.transform = `translateX(calc(${activeIndex * 100}% + ${activeIndex * 1}rem))`;
             }
         }
+    });
+}
+
+// 서브 탭 동작 핸들러
+function initSubTabs() {
+    const subTabs = document.querySelectorAll('.sub-tab-btn');
+    const newsListDisplay = document.getElementById('newsList');
+    const asfStatusMap = document.getElementById('asfStatusMap');
+    const loadingSpinnerDOM = document.getElementById('loadingSpinner');
+
+    subTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            if (tab.classList.contains('active')) return;
+            
+            subTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            const target = tab.getAttribute('data-target');
+            if (target === 'news') {
+                asfStatusMap.style.display = 'none';
+                newsListDisplay.style.display = 'grid'; // CSS grid
+                renderNews('asf'); // 뉴스를 다시 페이드인
+            } else if (target === 'map') {
+                newsListDisplay.style.display = 'none'; // 뉴스 리스트 숨기기
+                loadingSpinnerDOM.classList.remove('active'); // 혹시 돌던 로딩바 끄기
+                asfStatusMap.style.display = 'block'; // 맵 표시
+            }
+        });
     });
 }
 
@@ -304,6 +358,7 @@ function quickSearch(keyword) {
 document.addEventListener('DOMContentLoaded', () => {
     fetchNewsData();
     initTabs();
+    initSubTabs();
 
     // AI 주간 뉴스 브리핑 배너 클릭 이벤트
     const aiBanner = document.getElementById('aiBriefingBanner');
