@@ -377,6 +377,16 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchNewsData();
     initTabs();
     initSubTabs();
+    // 야생생물시스템 홍보 배너 키보드 접근성 이벤트
+    const promoBanner = document.getElementById('wildlifePromoBanner');
+    if (promoBanner) {
+        promoBanner.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                window.open('../야생생물시스템_소개자료_공무원용.html', '_blank');
+            }
+        });
+    }
 
     // AI 주간 뉴스 브리핑 배너 클릭 이벤트
     const aiBanner = document.getElementById('aiBriefingBanner');

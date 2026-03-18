@@ -552,6 +552,130 @@ body {
     }
 }
 
+/* --- 야생생물시스템 홍보 배너 --- */
+.wildlife-promo-section {
+    margin-top: 3rem;
+}
+
+.wildlife-promo-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(8, 114, 80, 0.4), rgba(16, 185, 129, 0.3));
+    border: 1px solid rgba(16, 185, 129, 0.5);
+    border-radius: 20px;
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.wildlife-promo-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.7s ease;
+}
+
+.wildlife-promo-banner:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(16, 185, 129, 0.3);
+    border-color: rgba(16, 185, 129, 0.8);
+    background: linear-gradient(135deg, rgba(8, 114, 80, 0.5), rgba(16, 185, 129, 0.4));
+}
+
+.wildlife-promo-banner:hover::before {
+    left: 200%;
+}
+
+.promo-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 1;
+}
+
+.promo-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #059669, #10b981);
+    color: white;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+.promo-text-info h3 {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.promo-text-info .highlight-promo {
+    background: linear-gradient(to right, #6ee7b7, #34d399);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.promo-text-info p {
+    margin: 0.4rem 0 0 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.promo-action {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #ffffff;
+    font-weight: 600;
+    background: rgba(16, 185, 129, 0.2);
+    padding: 0.8rem 1.4rem;
+    border-radius: 12px;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+.promo-action i {
+    transition: transform 0.3s;
+}
+
+.wildlife-promo-banner:hover .promo-action {
+    background: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+}
+
+.wildlife-promo-banner:hover .promo-action i {
+    transform: translateX(4px) translateY(-4px);
+}
+
+@media (max-width: 768px) {
+    .wildlife-promo-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .promo-action {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
 /* --- 주간 AI 뉴스 브리핑 배너 --- */
 .ai-briefing-section {
     margin-top: 3rem;
