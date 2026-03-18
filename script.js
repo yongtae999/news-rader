@@ -383,7 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
         promoBanner.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                window.open('../야생생물시스템_소개자료_공무원용.html', '_blank');
+                window.open('./야생생물시스템_소개자료_공무원용.html', '_blank');
             }
         });
     }
