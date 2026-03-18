@@ -123,28 +123,39 @@ function initTabs() {
             // 데이터 변경 렌더링 호출
             currentCategory = tab.getAttribute('data-category');
             
-            // ASF 서브탭 보이기/숨기기 처리
+            // ASF/AI 서브탭 보이기/숨기기 처리
             const asfSubTabs = document.getElementById('asfSubTabs');
             const asfStatusMap = document.getElementById('asfStatusMap');
+            const aiSubTabs = document.getElementById('aiSubTabs');
+            const aiStatusMap = document.getElementById('aiStatusMap');
             const newsListDisplay = document.getElementById('newsList');
             
-            if (asfSubTabs) {
-                if (currentCategory === 'asf') {
+            // 모든 특수 컨테이너 초기화
+            if (asfSubTabs) asfSubTabs.style.display = 'none';
+            if (asfStatusMap) asfStatusMap.style.display = 'none';
+            if (aiSubTabs) aiSubTabs.style.display = 'none';
+            if (aiStatusMap) aiStatusMap.style.display = 'none';
+            newsListDisplay.style.display = 'grid';
+
+            if (currentCategory === 'asf') {
+                if (asfSubTabs) {
                     asfSubTabs.style.display = 'flex';
-                    // 서브탭 상태를 '뉴스'로 리셋
                     const subTabNews = document.getElementById('subTabNews');
                     const subTabMap = document.getElementById('subTabMap');
                     if(subTabNews && subTabMap) {
                         subTabNews.classList.add('active');
                         subTabMap.classList.remove('active');
                     }
-                    asfStatusMap.style.display = 'none';
-                    // 그리드 복구는 renderNews 안에서 되거나 CSS 기본값 따름
-                    newsListDisplay.style.display = window.innerWidth <= 768 ? 'grid' : 'grid'; 
-                } else {
-                    asfSubTabs.style.display = 'none';
-                    asfStatusMap.style.display = 'none';
-                    newsListDisplay.style.display = window.innerWidth <= 768 ? 'grid' : 'grid';
+                }
+            } else if (currentCategory === 'ai') {
+                if (aiSubTabs) {
+                    aiSubTabs.style.display = 'flex';
+                    const aiSubTabNews = document.getElementById('aiSubTabNews');
+                    const aiSubTabMap = document.getElementById('aiSubTabMap');
+                    if(aiSubTabNews && aiSubTabMap) {
+                        aiSubTabNews.classList.add('active');
+                        aiSubTabMap.classList.remove('active');
+                    }
                 }
             }
 
@@ -176,18 +187,25 @@ function initSubTabs() {
         tab.addEventListener('click', () => {
             if (tab.classList.contains('active')) return;
             
-            subTabs.forEach(t => t.classList.remove('active'));
+            // 클릭된 버튼이 속한 그룹의 서브탭들만 비활성화
+            const parentContainer = tab.parentElement;
+            parentContainer.querySelectorAll('.sub-tab-btn').forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
 
             const target = tab.getAttribute('data-target');
+            const category = parentContainer.id === 'asfSubTabs' ? 'asf' : 'ai';
+            const mapContainer = category === 'asf' ? document.getElementById('asfStatusMap') : document.getElementById('aiStatusMap');
+            const newsListDisplay = document.getElementById('newsList');
+            const loadingSpinnerDOM = document.getElementById('loadingSpinner');
+
             if (target === 'news') {
-                asfStatusMap.style.display = 'none';
-                newsListDisplay.style.display = 'grid'; // CSS grid
-                renderNews('asf'); // 뉴스를 다시 페이드인
+                if (mapContainer) mapContainer.style.display = 'none';
+                newsListDisplay.style.display = 'grid';
+                renderNews(category);
             } else if (target === 'map') {
-                newsListDisplay.style.display = 'none'; // 뉴스 리스트 숨기기
-                loadingSpinnerDOM.classList.remove('active'); // 혹시 돌던 로딩바 끄기
-                asfStatusMap.style.display = 'block'; // 맵 표시
+                newsListDisplay.style.display = 'none';
+                loadingSpinnerDOM.classList.remove('active');
+                if (mapContainer) mapContainer.style.display = 'block';
             }
         });
     });
