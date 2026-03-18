@@ -555,7 +555,74 @@
   .contact-box .c-icon { font-size: 48px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));}
   .contact-box h4 { font-size: 21px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em;}
   .contact-box p { font-size: 16px; color: rgba(255,255,255,0.8); line-height: 1.6;}
-  .contact-box p span { color: var(--green-light); font-weight: 700; font-family: 'Inter', sans-serif; font-size: 17px;}
+  /* ─── RESPONSIVE (MOBILE) ─── */
+  @media (max-width: 768px) {
+    body { height: auto; overflow: visible; background: var(--green-dark); }
+    .slideshow { height: auto; overflow: visible; position: relative; }
+    .slide {
+      position: relative;
+      height: auto;
+      min-height: 100vh;
+      padding: 40px 20px 100px 20px;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+    }
+    .slide.active { display: flex !important; }
+    
+    /* 폰트 사이즈 조정 */
+    #slide-1 .logo-icon { font-size: 56px; margin-bottom: 16px; animation: none; transform: none;}
+    #slide-1 h1 { font-size: 40px; margin-bottom: 16px; }
+    #slide-1 .subtitle { font-size: 17px; margin-bottom: 30px; }
+    #slide-1 .badge { font-size: 13px; padding: 10px 20px; }
+    #slide-1 .badges { gap: 10px; }
+    
+    .slide-title { font-size: 32px; word-break: keep-all; }
+    .slide-desc { font-size: 16px; line-height: 1.6;}
+    .slide-header { margin-bottom: 30px; }
+    
+    /* 그리드 레이아웃 세로 정렬 */
+    .card-grid-3, .card-grid-2, .problem-grid, .highlight-boxes { 
+      grid-template-columns: 1fr; 
+      gap: 16px; 
+    }
+    
+    .card, .problem-card, .diagram-box, .feature-item, .step-box, .h-box, .qna-item {
+      padding: 24px 20px;
+    }
+    
+    .card h3, .problem-card h3, .feature-item h4, .step-box h4, .contact-box h4 { font-size: 19px; }
+    .card p, .problem-card p, .feature-item p, .step-box p, .qna-item .a { font-size: 15px; }
+    
+    .arrow-right { transform: rotate(90deg); margin: 10px 0; padding: 0; animation: pulseDown 2s infinite; }
+    .step-flow { flex-direction: column; }
+    .step-connector { transform: rotate(90deg); margin: 8px 0; padding: 0; }
+    
+    @keyframes pulseDown {
+      0% { transform: translateY(0) rotate(90deg); opacity: 0.7; }
+      50% { transform: translateY(8px) rotate(90deg); opacity: 1; }
+      100% { transform: translateY(0) rotate(90deg); opacity: 0.7; }
+    }
+    
+    .nav {
+      width: 90%;
+      padding: 10px 20px;
+      bottom: 20px;
+      justify-content: space-between;
+    }
+    .slide-logo, .slide-logo-dark {
+      top: 16px;
+      left: 20px;
+      height: 36px;
+    }
+    .slide-inner { margin-top: 40px; }
+    
+    .h-box .h-num { font-size: 42px; }
+    .h-box .h-unit { font-size: 16px; }
+    .h-box .h-icon { font-size: 40px; }
+    
+    .contact-box { flex-direction: column; text-align: center; gap: 16px; padding: 24px;}
+    .contact-box p { font-size: 14px; }
+  }
 </style>
 </head>
 <body>
