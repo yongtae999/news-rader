@@ -41,21 +41,21 @@ svg#MAP{display:block;width:100%;height:auto;background:#5b9ec9}
 </head>
 <body>
 <h1>2026년 고병원성 조류인플루엔자(AI) 발생현황 (V3)</h1>
-<div class="sub">'26.3.18. 기준 · 58차 발생 · 총 피해 292,174두</div>
+<div class="sub">'26.3.21. 기준 · 60차 발생 · 총 피해 335,174두</div>
 <div class="stats">
-  <div class="stat"><div class="slbl">총 발생</div><div class="sval" style="color:#E24B4A">58건</div></div>
-  <div class="stat"><div class="slbl">피해 두수</div><div class="sval" style="color:#185FA5;font-size:13px">292,174두</div></div>
+  <div class="stat"><div class="slbl">총 발생</div><div class="sval" style="color:#E24B4A">60건</div></div>
+  <div class="stat"><div class="slbl">피해 두수</div><div class="sval" style="color:#185FA5;font-size:13px">335,174두</div></div>
   <div class="stat"><div class="slbl">발생 시도</div><div class="sval">8개</div></div>
-  <div class="stat"><div class="slbl">최근</div><div class="sval" style="font-size:11px;padding-top:3px;color:#c00">3.18<br>전북 김제</div></div>
+  <div class="stat"><div class="slbl">최근</div><div class="sval" style="font-size:11px;padding-top:3px;color:#c00">3.21<br>전북 장수</div></div>
 </div>
 <div class="frow">
-  <button class="fb on" onclick="flt('all',this)">전체(58)</button>
+  <button class="fb on" onclick="flt('all',this)">전체(60)</button>
   <button class="fb" onclick="flt('경기',this)">경기(14)</button>
-  <button class="fb" onclick="flt('전북',this)">전북(10)</button>
+  <button class="fb" onclick="flt('전북',this)">전북(11)</button>
   <button class="fb" onclick="flt('충남',this)">충남(9)</button>
   <button class="fb" onclick="flt('경남',this)">경남(8)</button>
   <button class="fb" onclick="flt('경북',this)">경북(7)</button>
-  <button class="fb" onclick="flt('전남',this)">전남(6)</button>
+  <button class="fb" onclick="flt('전남',this)">전남(7)</button>
   <button class="fb" onclick="flt('강원',this)">강원(4)</button>
 </div>
 <div class="mcard">
@@ -68,11 +68,11 @@ svg#MAP{display:block;width:100%;height:auto;background:#5b9ec9}
     <div class="li"><div class="ld" style="background:#1D9E75"></div>'25년 발생 (1~14차)</div>
     <div class="li"><div class="ld" style="background:#378ADD"></div>'26년 1월 (15~34차)</div>
     <div class="li"><div class="ld" style="background:#7F77DD"></div>'26년 2월 (35~50차)</div>
-    <div class="li"><div class="ld" style="background:#E24B4A"></div>'26년 3월 (51~58차)</div>
+    <div class="li"><div class="ld" style="background:#E24B4A"></div>'26년 3월 (51~60차)</div>
     <div class="li"><div class="ld" style="background:#E24B4A;outline:2.5px solid gold;outline-offset:1px"></div>최근 3일 내 보고</div>
   </div>
 </div>
-<div class="note">출처: 농림축산식품부 AI 발생현황 정보공개 + '26.3.18. 발생 보고 | 지도: 통계청 행정구역(2018)</div>
+<div class="note">출처: 농림축산식품부 AI 발생현황 정보공개 + '26.3.21. 발생 보고 | 지도: 통계청 행정구역(2018)</div>
 
 <div class="sbg" id="sbg" onclick="csh(event)">
   <div class="sht" onclick="event.stopPropagation()">
@@ -152,7 +152,9 @@ const DATA=[
   {no:55, date:'3.13(금)',sido:'경기', addr:'경기 포천시 산란계 농장(2차)', heads:55000, virus:'H5N1', lat:37.91, lng:127.21},
   {no:56, date:'3.16(월)',sido:'전북', addr:'전북 김제시 산란계 농장', heads:42000, virus:'H5N1', lat:35.80, lng:126.88},
   {no:57, date:'3.17(화)',sido:'전북', addr:'전북 김제시 용지면 농장', heads:42200,  virus:'H5N1', lat:35.81, lng:126.89},
-  {no:58, date:'3.18(수)',sido:'전북', addr:'전북 김제시 용지면 농장(2차)', heads:82000, virus:'H5N1', lat:35.82, lng:126.90, isNew:true},
+  {no:58, date:'3.18(수)',sido:'전북', addr:'전북 김제시 용지면 농장(2차)', heads:82000, virus:'H5N1', lat:35.82, lng:126.90},
+  {no:59, date:'3.19(목)',sido:'전남', addr:'전남 무안군 육용오리 농장', heads:25000, virus:'H5N1', lat:34.99, lng:126.48, isNew:true},
+  {no:60, date:'3.21(토)',sido:'전북', addr:'전북 장수군 육용오리 농장', heads:18000, virus:'H5N1', lat:35.65, lng:127.52, isNew:true},
 ];
 
 // ── 지도 렌더링 ────────────────────────────────────────────────
@@ -313,9 +315,9 @@ function osh(o,col){
   const c=BCOLS[col]||{bg:'#eee',tx:'#333'};
   const bd=document.getElementById('sbdg');
   bd.style.background=c.bg; bd.style.color=c.tx;
-  bd.textContent=(o.isNew?'★ 최신 · ':'')+'제 '+o.no+'차 발생'+(o.isNew?' (3.18 보고)':'');
+  bd.textContent=(o.isNew?'★ 최신 · ':'')+'제 '+o.no+'차 발생'+(o.isNew?' (3.21 보고)':'');
   document.getElementById('stit').textContent=o.addr;
-  document.getElementById('sdt').textContent=o.date+(o.isNew?' — 3.18 최신':'');
+  document.getElementById('sdt').textContent=o.date+(o.isNew?' — 3.21 최신':'');
   document.getElementById('sad').textContent=o.addr;
   document.getElementById('shd').textContent=o.heads.toLocaleString()+'두';
   document.getElementById('ssd').textContent=o.sido;
