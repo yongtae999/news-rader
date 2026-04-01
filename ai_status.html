@@ -41,18 +41,18 @@ svg#MAP{display:block;width:100%;height:auto;background:#5b9ec9}
 </head>
 <body>
 <h1>2026년 고병원성 조류인플루엔자(AI) 발생현황 (V3)</h1>
-<div class="sub">'26.3.21. 기준 · 60차 발생 · 총 피해 2,574,200두</div>
+<div class="sub">'26.3.21. 기준 · 61차 발생 · 총 피해 2,814,200두</div>
 <div class="stats">
-  <div class="stat"><div class="slbl">총 발생</div><div class="sval" style="color:#E24B4A">60건</div></div>
-  <div class="stat"><div class="slbl">피해 두수</div><div class="sval" style="color:#185FA5;font-size:13px">2,574,200두</div></div>
+  <div class="stat"><div class="slbl">총 발생</div><div class="sval" style="color:#E24B4A">61건</div></div>
+  <div class="stat"><div class="slbl">피해 두수</div><div class="sval" style="color:#185FA5;font-size:13px">2,814,200두</div></div>
   <div class="stat"><div class="slbl">발생 시도</div><div class="sval">8개</div></div>
   <div class="stat"><div class="slbl">최근</div><div class="sval" style="font-size:11px;padding-top:3px;color:#c00">3.21<br>전북 장수</div></div>
 </div>
 <div class="frow">
-  <button class="fb on" onclick="flt('all',this)">전체(60)</button>
+  <button class="fb on" onclick="flt('all',this)">전체(61)</button>
   <button class="fb" onclick="flt('경기',this)">경기(14)</button>
   <button class="fb" onclick="flt('전북',this)">전북(11)</button>
-  <button class="fb" onclick="flt('충남',this)">충남(9)</button>
+  <button class="fb" onclick="flt('충남',this)">충남(10)</button>
   <button class="fb" onclick="flt('경남',this)">경남(8)</button>
   <button class="fb" onclick="flt('경북',this)">경북(7)</button>
   <button class="fb" onclick="flt('전남',this)">전남(7)</button>
@@ -149,12 +149,13 @@ const DATA=[
   {no:52, date:'3.5(목)', sido:'충남', addr:'충남 예산군 산란계 농장', heads:60000,  virus:'H5N9', lat:36.70, lng:126.85},
   {no:53, date:'3.7(토)', sido:'경북', addr:'경북 봉화군 산란계 농장', heads:45000,  virus:'H5N1', lat:36.89, lng:128.74},
   {no:54, date:'3.10(화)',sido:'경기', addr:'경기 포천시 산란계 농장', heads:80000,  virus:'H5N1', lat:37.89, lng:127.20},
-  {no:55, date:'3.13(금)',sido:'경기', addr:'경기 포천시 산란계 농장(2차)', heads:55000, virus:'H5N1', lat:37.91, lng:127.21},
-  {no:56, date:'3.16(월)',sido:'전북', addr:'전북 김제시 산란계 농장', heads:42000, virus:'H5N1', lat:35.80, lng:126.88},
-  {no:57, date:'3.17(화)',sido:'전북', addr:'전북 김제시 용지면 농장', heads:42200,  virus:'H5N1', lat:35.81, lng:126.89},
-  {no:58, date:'3.18(수)',sido:'전북', addr:'전북 김제시 용지면 농장(2차)', heads:82000, virus:'H5N1', lat:35.82, lng:126.90},
-  {no:59, date:'3.19(목)',sido:'전남', addr:'전남 무안군 육용오리 농장', heads:25000, virus:'H5N1', lat:34.99, lng:126.48, isNew:true},
-  {no:60, date:'3.21(토)',sido:'전북', addr:'전북 장수군 육용오리 농장', heads:18000, virus:'H5N1', lat:35.65, lng:127.52, isNew:true},
+  {no:55, date:'3.10(화)',sido:'충남', addr:'충남 아산시 도고면 메추리 농장', heads:240000, virus:'H5N1', lat:36.78, lng:126.90, isNew:true},
+  {no:56, date:'3.13(금)',sido:'경기', addr:'경기 포천시 산란계 농장(2차)', heads:55000, virus:'H5N1', lat:37.91, lng:127.21},
+  {no:57, date:'3.16(월)',sido:'전북', addr:'전북 김제시 산란계 농장', heads:42000, virus:'H5N1', lat:35.80, lng:126.88},
+  {no:58, date:'3.17(화)',sido:'전북', addr:'전북 김제시 용지면 농장', heads:42200,  virus:'H5N1', lat:35.81, lng:126.89},
+  {no:59, date:'3.18(수)',sido:'전북', addr:'전북 김제시 용지면 농장(2차)', heads:82000, virus:'H5N1', lat:35.82, lng:126.90},
+  {no:60, date:'3.19(목)',sido:'전남', addr:'전남 무안군 육용오리 농장', heads:25000, virus:'H5N1', lat:34.99, lng:126.48, isNew:true},
+  {no:61, date:'3.21(토)',sido:'전북', addr:'전북 장수군 육용오리 농장', heads:18000, virus:'H5N1', lat:35.65, lng:127.52, isNew:true},
 ];
 
 // ── 지도 렌더링 ────────────────────────────────────────────────
