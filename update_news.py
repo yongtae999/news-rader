@@ -84,6 +84,47 @@ def get_bigrams(text):
         return set()
     return set(text[i:i+2] for i in range(len(text)-1))
 
+def extract_source_name(link, original_link):
+    """주어진 링크(네이버 뉴스 또는 원문)에서 출처(언론사) 이름을 추출합니다."""
+    # 1. 네이버 뉴스 링크인 경우 HTML에서 추출
+    if link.startswith("https://n.news.naver.com"):
+        try:
+            req = urllib.request.Request(link, headers={'User-Agent': 'Mozilla/5.0'})
+            res = urllib.request.urlopen(req, timeout=3)
+            html = res.read().decode('utf-8', errors='ignore')
+            
+            # twitter:creator 태그 확인 (가장 정확)
+            m = re.search(r'twitter:creator"\s+content="([^"]+)"', html, re.I)
+            if m:
+                return m.group(1).strip()
+                
+            # og:article:author 태그 확인 (보통 '언론사 | 네이버' 형태)
+            m = re.search(r'property="og:article:author"\s+content="([^"]+)"', html, re.I)
+            if m:
+                author = m.group(1).split('|')[0].strip()
+                if author:
+                    return author
+        except Exception:
+            pass
+
+    # 2. 원문 링크에서 og:site_name 추출 시도
+    if original_link:
+        try:
+            req = urllib.request.Request(original_link, headers={'User-Agent': 'Mozilla/5.0'})
+            res = urllib.request.urlopen(req, timeout=3)
+            html = res.read().decode('utf-8', errors='ignore')
+            
+            m = re.search(r'property="og:site_name"\s+content="([^"]+)"', html, re.I)
+            if m:
+                return m.group(1).strip()
+        except Exception:
+            pass
+            
+        # 3. 실패시 도메인 이름 반환
+        return urllib.parse.urlparse(original_link).netloc.replace("www.", "")
+        
+    return "네이버 뉴스"
+
 def is_duplicate_article(new_title, new_desc, new_date, seen_articles):
     """새 기사가 기존 수집된 기사들과 중복(복붙 보도자료 포함)인지 강력하게 판별"""
     norm_t1 = re.sub(r'[\W_]+', '', new_title)
@@ -302,12 +343,16 @@ def main():
                 # 본문(모달용) - API에서 본문을 다 주진 않으므로 description 활용에 링크 추가
                 body_content = f"네이버 뉴스 검색 결과입니다.<br><br>{description}<br><br><a href='{link}' target='_blank' style='color:#3a86ff; text-decoration:underline;'>원문 기사 보러가기</a>"
                 
+                # 원본 링크 가져오기 (출처 추출용)
+                original_link = str(item.get('originallink', ''))
+                source_name = extract_source_name(link, original_link)
+                
                 news_item = {
                     "id": article_id,
                     "title": title,
                     "excerpt": excerpt,
                     "body": body_content,
-                    "source": "네이버 뉴스",
+                    "source": source_name,
                     "image": selected_image,
                     "daysAgo": days_diff,
                     "date": formatted_date,
