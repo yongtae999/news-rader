@@ -242,35 +242,49 @@ def main():
                 if any(b_word in title for b_word in blacklist):
                     continue
                 
+                # 강제 카테고리 이동 여부 먼저 판별 (사설/기획 태그가 있으면 사설/기획 카테고리로 분류)
+                editorial_tags = ["[사설]", "[기획]", "[기고]", "[칼럼]", "사설]", "기고]", "칼럼]", "기획]"]
+                is_editorial_by_tag = any(tag in title for tag in editorial_tags)
+                
+                if category == "editorial" or is_editorial_by_tag:
+                    target_category = "editorial"
+                else:
+                    target_category = category
+                
                 # 카테고리별 엄격한 필수 단어 확인 (오분류 방지)
-                if category == "asf":
+                if target_category == "asf":
                     # ASF 카테고리는 제목에 반드시 'ASF' 나 '돼지열병'이 있어야 통과 (본문에만 있는 단순 포획기사 배제)
                     if "돼지열병" not in title and "asf" not in title.lower():
                         continue
-                elif category == "ai":
+                elif target_category == "ai":
                     # AI 카테고리도 제목 중심으로 판별
                     if "인플루엔자" not in title and "ai" not in title.lower() and "조류독감" not in title:
                         continue
-                elif category == "hunting":
+                elif target_category == "hunting":
                     # 아프리카돼지열병 위주 기사가 수렵으로 빠지는 것을 방지 (제목 기준)
                     if "돼지열병" in title or "asf" in title.lower():
                         continue
-                elif category == "editorial":
+                elif target_category == "editorial":
                     # 일반 뉴스 기사가 기획/사설로 들어오는 것을 방지 (제목에 기획, 사설, 칼럼, 기고, 인터뷰 등이 포함되거나 검색어가 명확한지)
                     good_tags = ["사설", "기획", "기고", "칼럼", "인터뷰", "시론", "데스크"]
                     if not any(tag in title for tag in good_tags):
                         continue
                     # 정치/경제 등 무관한 사설 필터링: 본문이나 설명에 필수 단어가 있는지 확인
-                    must_have = ["야생동물", "수렵", "유해조수", "밀렵", "생태계교란", "동물보호", "철새", "돼지열병", "포획단", "가축전염병", "유해야생동물"]
-                    if not any(word in title for word in must_have) and not any(word in description for word in must_have):
+                    comp_title = title.lower()
+                    comp_desc = description.lower()
+                    must_have = [
+                        "야생동물", "수렵", "유해조수", "밀렵", "생태계교란", "동물보호", 
+                        "철새", "돼지열병", "포획단", "가축전염병", "유해야생동물",
+                        "asf", "아프리카돼지열병", "조류인플루엔자", "조류독감", "야생조류"
+                    ]
+                    if not any(word in comp_title for word in must_have) and not any(word in comp_desc for word in must_have):
                         continue
                 
-                # 2024년, 2025년 초 등 과거 기사 원천 차단 (카테고리별 허용 기간 다름)
+                # 과거 기사 원천 차단 (카테고리별 허용 기간 다름)
                 max_days = 7
-                editorial_tags = ["[사설]", "[기획]", "[기고]", "[칼럼]", "사설]", "기고]", "칼럼]", "기획]"]
-                if category in ["association", "editorial"] or any(tag in title for tag in editorial_tags):
+                if target_category in ["association", "editorial"]:
                     max_days = 90  # 협회 및 사설/기획 탭은 뉴스량이 적으므로 최대 90일까지 허용
-                elif category in ["ecosystem", "hunting"]:
+                elif target_category in ["ecosystem", "hunting"]:
                     max_days = 30  # 생태계 교란생물, 수렵 뉴스는 최대 30일(1달)까지 허용
                     
                 pub_date_str = str(item.get('pubDate', ''))
@@ -314,28 +328,14 @@ def main():
                 
                 global_seen_articles.append({"date": formatted_date, "title": title, "desc": description})
                 
-                # [사설], [기획], [기고], [칼럼] 등이 제목에 있으면 "사설/기획" 탭으로 강제 이동
-                editorial_tags = ["[사설]", "[기획]", "[기고]", "[칼럼]", "사설]", "기고]", "칼럼]", "기획]"]
-                
-                if category == "editorial":
-                    target_category = "editorial"
-                    if len(news_data_output["editorial"]) >= 10:
-                        continue
-                elif any(tag in title for tag in editorial_tags):
-                    target_category = "editorial"
-                    # 만약 사설 탭이 이미 10개가 찼다면 더 넣지 않고 무시
-                    if len(news_data_output["editorial"]) >= 10:
-                        continue
-                else:
-                    target_category = category
-                    # 일반 기사인데 이미 해당 카테고리가 10개가 찼다면 스킵
-                    if len(news_data_output[category]) >= 10:
-                        continue
+                # 이미 위에서 target_category가 결정되었으므로 개수 제한만 체크
+                if len(news_data_output[target_category]) >= 10:
+                    continue
                 
                 link = str(item.get('link', ''))
                 
                 # 기사 내용을 바탕으로 가장 적절한 스마트 이미지 선택
-                selected_image = get_best_image(category, title, description)
+                selected_image = get_best_image(target_category, title, description)
                 
                 # 요약문 생성 (description이 너무 길면 자름)
                 excerpt = description[:80] + '...' if len(description) > 80 else description
