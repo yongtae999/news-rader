@@ -20,6 +20,15 @@ function displayDate() {
     dateElement.innerHTML = `<i class="fa-regular fa-calendar-check"></i> ${dateString}`;
 }
 
+// 이전 페이지로 가기 핸들러 (이전 페이지가 없으면 협회 사이트로 이동)
+function handleGoBack() {
+    if (window.history.length > 1 && document.referrer) {
+        window.history.back();
+    } else {
+        window.location.href = 'https://www.kowaps.or.kr/';
+    }
+}
+
 // '몇 일 전'을 기반으로 최근 날짜를 계산해주는 함수 (매일 업데이트 시뮬레이션 용도)
 function calculatePublishedDate(daysAgo) {
     const today = new Date();
@@ -86,11 +95,11 @@ function renderNews(category) {
             newsListContainer.innerHTML = html;
         } else {
             newsListContainer.innerHTML = `
-        < div class="empty-state" >
+                <div class="empty-state">
                     <i class="fa-regular fa-folder-open" style="font-size: 3rem; margin-bottom: 1rem; color: var(--text-secondary);"></i>
                     <p>현재 등록된 뉴스가 없습니다.</p>
-                </div >
-        `;
+                </div>
+            `;
         }
 
         // 새로 렌더링된 요소 페이드 인
@@ -240,15 +249,15 @@ function openNewsModal(newsId) {
     // 2. 모달 내 DOM 엘리먼트에 데이터 주입
     document.getElementById('modalCategory').textContent = targetCategoryName;
     document.getElementById('modalTitle').textContent = targetNews.title;
-    document.getElementById('modalSource').innerHTML = `< i class="fa-regular fa-building" ></i > ${targetNews.source} `;
+    document.getElementById('modalSource').innerHTML = `<i class="fa-regular fa-building"></i> ${targetNews.source}`;
 
     const publishedDate = targetNews.date || calculatePublishedDate(targetNews.daysAgo);
     document.getElementById('modalDate').innerHTML = `<i class="fa-regular fa-clock"></i> ${publishedDate}`;
 
     // 본문 내용 생성 (항목별 실제 저장된 상세 body 텍스트 활용)
     const articleBodyHTML = `
-        < p > <strong>${targetNews.excerpt}</strong></p >
-            <p>${targetNews.body}</p>
+        <p><strong>${targetNews.excerpt}</strong></p>
+        <p>${targetNews.body}</p>
     `;
     document.getElementById('modalBody').innerHTML = articleBodyHTML;
 
