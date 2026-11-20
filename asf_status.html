@@ -7,7 +7,12 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Pretendard','Noto Sans KR','Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#0b110e;color:#f1f5f9;padding:16px}
-h1{font-size:17px;font-weight:700;color:#f1f5f9;margin-bottom:4px;letter-spacing:-0.02em}
+.top-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+h1{font-size:17px;font-weight:700;color:#f1f5f9;letter-spacing:-0.02em}
+.mode-tabs{display:inline-flex;gap:6px;background:rgba(255,255,255,0.04);padding:4px;border-radius:10px;border:1px solid rgba(255,255,255,0.1)}
+.mode-btn{font-size:11.5px;font-weight:600;padding:6px 12px;border:none;border-radius:7px;background:transparent;color:#94a3b8;cursor:pointer;transition:all .2s ease;white-space:nowrap}
+.mode-btn:hover{color:#f1f5f9}
+.mode-btn.on{background:#10b981;color:#0b110e;font-weight:700}
 .sub{font-size:12px;color:#94a3b8;margin-bottom:12px;line-height:1.5}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
 .stat{background:#131c17;border-radius:10px;padding:10px 12px;border:1px solid rgba(255,255,255,0.1)}
@@ -16,12 +21,15 @@ h1{font-size:17px;font-weight:700;color:#f1f5f9;margin-bottom:4px;letter-spacing
 .sval.accent-red{color:#f87171}
 .sval.accent-green{color:#34d399;font-size:14px}
 .sval.accent-recent{font-size:12px;padding-top:3px;color:#fbbf24;line-height:1.35}
+.sval-sub{display:block;font-size:10px;font-weight:500;color:#94a3b8;margin-top:2px}
 .boar-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;background:#131c17;border:1px solid rgba(16,185,129,0.28);border-radius:10px;padding:9px 12px;margin-bottom:10px}
 .boar-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#a7f3d0}
 .boar-dot{width:8px;height:8px;border-radius:50%;background:#10b981;flex-shrink:0}
 .portal-links{display:flex;flex-wrap:wrap;gap:6px}
-.portal-btn{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:#f1f5f9;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:8px;padding:5px 10px;text-decoration:none;transition:all .2s ease}
+.portal-btn{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:#f1f5f9;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:8px;padding:5px 10px;text-decoration:none;cursor:pointer;transition:all .2s ease}
 .portal-btn:hover{background:#10b981;color:#0b110e;border-color:#10b981}
+.portal-btn.highlight{background:rgba(16,185,129,0.16);border-color:rgba(16,185,129,0.45);color:#6ee7b7}
+.portal-btn.highlight:hover{background:#10b981;color:#0b110e}
 .frow{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
 .fb{font-size:11.5px;padding:5px 11px;border:1px solid rgba(255,255,255,0.12);border-radius:20px;background:#131c17;color:#cbd5e1;cursor:pointer;transition:all .2s ease;-webkit-tap-highlight-color:transparent}
 .fb:hover{border-color:rgba(16,185,129,0.5);color:#fff}
@@ -29,6 +37,19 @@ h1{font-size:17px;font-weight:700;color:#f1f5f9;margin-bottom:4px;letter-spacing
 .mcard{border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#0f2233}
 svg#MAP{display:block;width:100%;max-height:580px;height:auto;background:#11273b;margin:0 auto}
 .hint{font-size:11px;color:#94a3b8;text-align:center;padding:7px 0;background:rgba(11,17,14,0.85);border-top:1px solid rgba(255,255,255,0.08)}
+.monthly-card{display:none;background:#131c17;border-radius:10px;border:1px solid rgba(255,255,255,0.1);padding:12px 14px;margin-top:10px}
+.monthly-card.show{display:block}
+.monthly-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:8px;flex-wrap:wrap}
+.monthly-title{font-size:12px;font-weight:700;color:#e2e8f0}
+.monthly-sub{font-size:11px;color:#94a3b8}
+.monthly-bars{display:grid;grid-template-columns:repeat(11,1fr);gap:6px;align-items:end;height:96px;padding-top:18px}
+.mbar-col{display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end}
+.mbar-val{font-size:10px;font-weight:700;color:#cbd5e1}
+.mbar-bar{width:100%;max-width:28px;border-radius:4px 4px 0 0;background:linear-gradient(180deg,#34d399,#059669);min-height:3px;transition:height .3s ease}
+.mbar-bar.peak{background:linear-gradient(180deg,#f87171,#dc2626)}
+.mbar-bar.recent{background:linear-gradient(180deg,#fbbf24,#d97706)}
+.mbar-bar.zero{background:rgba(255,255,255,0.08)}
+.mbar-lbl{font-size:10px;color:#94a3b8}
 .leg{background:#131c17;border-radius:10px;border:1px solid rgba(255,255,255,0.1);padding:10px 12px;margin-top:10px}
 .ltit{font-size:11px;font-weight:600;color:#cbd5e1;margin-bottom:7px}
 .lrow{display:flex;flex-wrap:wrap;gap:7px 14px}
@@ -43,32 +64,53 @@ svg#MAP{display:block;width:100%;max-height:580px;height:auto;background:#11273b
 .shdl{width:36px;height:4px;background:rgba(255,255,255,0.2);border-radius:2px;margin:0 auto 14px}
 .shbdg{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px}
 .shtit{font-size:15px;font-weight:700;color:#f1f5f9;margin-bottom:10px;line-height:1.4}
-.shr{display:flex;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.08);font-size:13px}
+.shr{display:flex;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.08);font-size:13px;gap:8px}
 .shr:last-child{border:none}
-.shk{color:#94a3b8;width:72px;flex-shrink:0}
-.shv{color:#f1f5f9;font-weight:500}
+.shk{color:#94a3b8;width:82px;flex-shrink:0}
+.shv{color:#f1f5f9;font-weight:500;line-height:1.45}
 .shx{float:right;width:32px;height:32px;border-radius:50%;border:none;background:rgba(255,255,255,0.08);color:#e2e8f0;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;margin-top:-6px}
 .shx:hover{background:rgba(255,255,255,0.18)}
+/* 공식 원본 지도 이미지 모달 */
+.img-modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.82);backdrop-filter:blur(6px);z-index:300;align-items:center;justify-content:center;padding:16px}
+.img-modal-bg.show{display:flex}
+.img-modal-box{background:#131c17;border:1px solid rgba(255,255,255,0.16);border-radius:16px;max-width:860px;width:100%;max-height:90vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,0.6)}
+.img-modal-head{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.1);gap:10px}
+.img-modal-title{font-size:13.5px;font-weight:700;color:#f1f5f9}
+.img-modal-actions{display:flex;align-items:center;gap:8px}
+.img-modal-open{font-size:11.5px;font-weight:600;color:#0b110e;background:#10b981;padding:5px 10px;border-radius:8px;text-decoration:none}
+.img-modal-open:hover{background:#059669}
+.img-modal-close{width:32px;height:32px;border-radius:50%;border:none;background:rgba(255,255,255,0.1);color:#f1f5f9;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.img-modal-close:hover{background:rgba(255,255,255,0.22)}
+.img-modal-body{overflow:auto;padding:12px;background:#0b110e;text-align:center}
+.img-modal-body img{max-width:100%;height:auto;border-radius:8px;display:block;margin:0 auto}
 @media (max-width: 600px){
   .stats{grid-template-columns:repeat(2,1fr)}
+  .monthly-bars{gap:3px}
 }
 </style>
 </head>
 <body>
-<h1>2026년 아프리카돼지열병(ASF) 발생현황</h1>
+<div class="top-header">
+  <h1>2026년 아프리카돼지열병(ASF) 발생현황</h1>
+  <div class="mode-tabs" role="tablist" aria-label="ASF 발생현황 구분">
+    <button type="button" class="mode-btn on" id="btnModeFarm" onclick="switchMode('farm')">사육돼지 농장 (24건)</button>
+    <button type="button" class="mode-btn" id="btnModeWild" onclick="switchMode('wild')">야생멧돼지 ('26년 210건)</button>
+  </div>
+</div>
 <div class="sub" id="subSummary">'26.11.20. 기준 · 사육돼지 농장 1분기(1~3월) 24건 (3.16 이후 추가 발생 없음 · '19년 이후 역대 누적 79건)</div>
 <div class="stats">
-  <div class="stat"><div class="slbl">총 발생 (농장)</div><div class="sval accent-red" id="statCount">-</div></div>
-  <div class="stat"><div class="slbl">피해 두수</div><div class="sval accent-green" id="statHeads">-</div></div>
-  <div class="stat"><div class="slbl">발생 시도</div><div class="sval" id="statSidos">-</div></div>
-  <div class="stat"><div class="slbl">최근 발생</div><div class="sval accent-recent" id="statRecent">3.16<br>산청·함평</div></div>
+  <div class="stat"><div class="slbl" id="lblStat1">총 발생 (농장)</div><div class="sval accent-red" id="statCount">-</div></div>
+  <div class="stat"><div class="slbl" id="lblStat2">피해 두수</div><div class="sval accent-green" id="statHeads">-</div></div>
+  <div class="stat"><div class="slbl" id="lblStat3">발생 시도</div><div class="sval" id="statSidos">-</div></div>
+  <div class="stat"><div class="slbl" id="lblStat4">최근 발생</div><div class="sval accent-recent" id="statRecent">3.16<br>산청·함평</div></div>
 </div>
 <div class="boar-bar">
   <div class="boar-badge">
     <span class="boar-dot"></span>
-    <span>야생멧돼지 ASF (2026년 누적 209건 · 11월 9건 · 역대 4,524건)</span>
+    <span id="boarBadgeText">야생멧돼지 ASF (2026년 누적 210건 · 11월 11건 · 역대 4,526건 · #4526 화천 명월리)</span>
   </div>
   <div class="portal-links">
+    <button type="button" class="portal-btn highlight" onclick="openOfficialMapModal()">공식 검출지도 원본 보기</button>
     <a class="portal-btn" href="https://www.mafra.go.kr/FMD-AI2/map/ASF/ASF_map.jsp" target="_blank" rel="noopener noreferrer">농식품부 ASF 지도 ↗</a>
     <a class="portal-btn" href="https://wadis.go.kr/" target="_blank" rel="noopener noreferrer">국립야생동물질병관리원 WADIS ↗</a>
   </div>
@@ -76,29 +118,45 @@ svg#MAP{display:block;width:100%;max-height:580px;height:auto;background:#11273b
 <div class="frow" id="filterRow"></div>
 <div class="mcard">
   <svg id="MAP" viewBox="0 0 460 580" xmlns="http://www.w3.org/2000/svg"></svg>
-  <div class="hint">마커를 클릭(탭)하면 발생 농장 상세 정보를 볼 수 있습니다</div>
+  <div class="hint" id="mapHint">마커를 클릭(탭)하면 발생 농장 상세 정보를 볼 수 있습니다</div>
+</div>
+<div class="monthly-card" id="monthlyCard">
+  <div class="monthly-head">
+    <div class="monthly-title">2026년 야생멧돼지 ASF 월별 검출 추이 (총 210건)</div>
+    <div class="monthly-sub">역대 누적: '19(55) · '20(856) · '21(964) · '22(878) · '23(735) · '24(719) · '25(109) · '26(210) = 4,526건</div>
+  </div>
+  <div class="monthly-bars" id="monthlyBars"></div>
 </div>
 <div class="leg">
-  <div class="ltit">발생 시기 &nbsp;·&nbsp; 원 크기 = 사육두수 비례</div>
-  <div class="lrow">
-    <div class="li"><div class="ld" style="background:#10b981"></div>1월 (1~4차)</div>
-    <div class="li"><div class="ld" style="background:#38bdf8"></div>2월 초 (5~10차)</div>
-    <div class="li"><div class="ld" style="background:#a78bfa"></div>2월 중후반 (11~22차)</div>
-    <div class="li"><div class="ld" style="background:#ef4444"></div>3월 최신 (23~24차)</div>
-    <div class="li"><div class="ld" style="background:#ef4444;outline:2.5px solid #fbbf24;outline-offset:1px"></div>최근 발생지 (3.16)</div>
-  </div>
+  <div class="ltit" id="legTitle">발생 시기 &nbsp;·&nbsp; 원 크기 = 사육두수 비례</div>
+  <div class="lrow" id="legRow"></div>
 </div>
-<div class="note">출처: <a href="https://www.pigpeople.net/news/article.html?no=12681" target="_blank" rel="noopener noreferrer">돼지와사람 ASF 실시간 현황판 ('26.11.16 기준)</a> · <a href="https://wadis.go.kr/" target="_blank" rel="noopener noreferrer">국립야생동물질병관리원 WADIS</a> ('26.11.20. 기준) | 지도: 통계청 행정구역(2018)</div>
+<div class="note">출처: <a href="https://wadis.go.kr/" target="_blank" rel="noopener noreferrer">국립야생동물질병관리원 WADIS</a> ('26.11.20 기준 야생멧돼지 검출현황) · <a href="https://www.pigpeople.net/news/article.html?no=12681" target="_blank" rel="noopener noreferrer">돼지와사람 ASF 실시간 현황판</a> | 지도: 통계청 행정구역(2018)</div>
 
 <div class="sbg" id="sbg" onclick="csh(event)">
   <div class="sht" onclick="event.stopPropagation()">
     <div class="shdl"></div><button type="button" class="shx" id="shxb" aria-label="닫기">×</button>
     <div id="sbdg" class="shbdg"></div>
     <div id="stit" class="shtit"></div>
-    <div class="shr"><span class="shk">발생일</span><span id="sdt" class="shv"></span></div>
-    <div class="shr"><span class="shk">주소</span><span id="sad" class="shv"></span></div>
-    <div class="shr"><span class="shk">사육두수</span><span id="shd" class="shv"></span></div>
-    <div class="shr"><span class="shk">시·도</span><span id="ssd" class="shv"></span></div>
+    <div class="shr"><span class="shk" id="k1">발생일</span><span id="sdt" class="shv"></span></div>
+    <div class="shr"><span class="shk" id="k2">주소</span><span id="sad" class="shv"></span></div>
+    <div class="shr"><span class="shk" id="k3">사육두수</span><span id="shd" class="shv"></span></div>
+    <div class="shr"><span class="shk" id="k4">시·도</span><span id="ssd" class="shv"></span></div>
+  </div>
+</div>
+
+<div class="img-modal-bg" id="imgModal" onclick="closeOfficialMapModal(event)">
+  <div class="img-modal-box" onclick="event.stopPropagation()">
+    <div class="img-modal-head">
+      <div class="img-modal-title">아프리카돼지열병(ASF) 공식 검출현황 지도 및 지역별 월별 표 ('26.11.20 기준)</div>
+      <div class="img-modal-actions">
+        <a class="img-modal-open" href="images/asf_official_20261120.png" target="_blank" rel="noopener noreferrer">새 탭에서 크게 보기 ↗</a>
+        <button type="button" class="img-modal-close" onclick="closeOfficialMapModal()" aria-label="닫기">×</button>
+      </div>
+    </div>
+    <div class="img-modal-body">
+      <img src="images/asf_official_20261120.png" alt="아프리카돼지열병(ASF) 검출현황 '26.11.20 기준 공식 지도 및 지역별 월별 검출표" loading="lazy"/>
+    </div>
   </div>
 </div>
 
@@ -154,37 +212,47 @@ const DATA=[
   {no:24,date:'3.16(월)',sido:'전남',addr:'전남 함평군 신광면 (전농영농조합법인)',heads:2647, lat:35.12,lng:126.50, isNew:true},
 ];
 
-// ── 통계 및 시도 필터 버튼 동적 생성 (DATA 기준 원천 일치) ──────
-(function renderSummaryAndFilters() {
-  const totalCount = DATA.length;
-  const totalHeads = DATA.reduce((acc, item) => acc + (Number(item.heads) || 0), 0);
-  const sidoCounts = {};
-  DATA.forEach(item => {
-    sidoCounts[item.sido] = (sidoCounts[item.sido] || 0) + 1;
-  });
-  const sortedSidos = Object.entries(sidoCounts).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'ko'));
+// ── ASF 야생멧돼지 시·군별 검출 데이터 ('26.11.20 기준 · 2026년 210건 / 역대 4,526건) ──
+const WILD_DATA = [
+  { name: '화천군', sido: '강원', count26: 78, total: 558, monthly: '1월 6 · 2월 19 · 3월 17 · 4월 13 · 5월 3 · 6월 4 · 7월 9 · 8월 1 · 11월 6', note: '최신 검출 #4526 화천군 명월리 (11.20)', lat: 38.106, lng: 127.708, isNew: true },
+  { name: '포천시', sido: '경기', count26: 25, total: 119, monthly: '1월 1 · 2월 18 · 3월 3 · 4월 2 · 5월 1', note: '2026년 경기도 최다 검출 시·군', lat: 37.895, lng: 127.200 },
+  { name: '춘천시', sido: '강원', count26: 23, total: 254, monthly: '1월 2 · 2월 5 · 3월 10 · 4월 5 · 5월 1', note: '상반기 집중 검출', lat: 37.881, lng: 127.730 },
+  { name: '충주시', sido: '충북', count26: 20, total: 137, monthly: '1월 2 · 2월 5 · 3월 8 · 4월 5', note: '충북권 주요 검출 지역', lat: 36.991, lng: 127.926 },
+  { name: '횡성군', sido: '강원', count26: 15, total: 78,  monthly: '2월 1 · 3월 14', note: '3월 집중 검출', lat: 37.491, lng: 127.985 },
+  { name: '원주시', sido: '강원', count26: 14, total: 98,  monthly: '1월 1 · 2월 11 · 4월 2', note: '2월 집중 검출', lat: 37.342, lng: 127.920 },
+  { name: '가평군', sido: '경기', count26: 7,  total: 69,  monthly: '2월 1 · 6월 5 · 7월 1', note: '하절기(6~7월) 검출', lat: 37.831, lng: 127.510 },
+  { name: '문경시', sido: '경북', count26: 6,  total: 86,  monthly: '2월 2 · 3월 3 · 5월 1', note: '경북 북부권 검출', lat: 36.586, lng: 128.187 },
+  { name: '철원군', sido: '강원', count26: 5,  total: 42,  monthly: '11월 5', note: '11월 신규 집중 검출 (5건)', lat: 38.146, lng: 127.313, isNew: true },
+  { name: '제천시', sido: '충북', count26: 4,  total: 141, monthly: '1월 1 · 4월 2 · 5월 1', note: '충북 북부권 검출', lat: 37.133, lng: 128.191 },
+  { name: '울산광역시', sido: '울산', count26: 4, total: 4, monthly: '3월 3 · 4월 1', note: '2026년 신규 발생 권역', lat: 35.539, lng: 129.311 },
+  { name: '고령군', sido: '경북', count26: 4,  total: 4,   monthly: '3월 4', note: '2026년 신규 발생 권역', lat: 35.726, lng: 128.263 },
+  { name: '파주시', sido: '경기', count26: 2,  total: 102, monthly: '10월 2', note: '10월 검출', lat: 37.760, lng: 126.780 },
+  { name: '홍천군', sido: '강원', count26: 2,  total: 65,  monthly: '2월 1 · 6월 1', note: '산발적 검출', lat: 37.697, lng: 127.888 },
+  { name: '연천군', sido: '경기', count26: 1,  total: 424, monthly: '1월 1', note: '역대 누적 424건 (경기 최다)', lat: 38.096, lng: 127.075 }
+];
 
-  document.getElementById('statCount').textContent = `${totalCount}건`;
-  document.getElementById('statHeads').textContent = `${totalHeads.toLocaleString()}두`;
-  document.getElementById('statSidos').textContent = `${sortedSidos.length}개`;
+const WILD_MONTHLY_2026 = [
+  { m: '1월', c: 14 }, { m: '2월', c: 63 }, { m: '3월', c: 62 },
+  { m: '4월', c: 30 }, { m: '5월', c: 7 },  { m: '6월', c: 10 },
+  { m: '7월', c: 10 }, { m: '8월', c: 1 },  { m: '9월', c: 0 },
+  { m: '10월', c: 2 }, { m: '11월', c: 11 }
+];
 
-  const filterRow = document.getElementById('filterRow');
-  filterRow.innerHTML = '';
-  const allBtn = document.createElement('button');
-  allBtn.type = 'button';
-  allBtn.className = 'fb on';
-  allBtn.textContent = `전체(${totalCount})`;
-  allBtn.onclick = () => flt('all', allBtn);
-  filterRow.appendChild(allBtn);
-
-  sortedSidos.forEach(([sido, cnt]) => {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'fb';
-    btn.textContent = `${sido}(${cnt})`;
-    btn.onclick = () => flt(sido, btn);
-    filterRow.appendChild(btn);
-  });
+// ── 월별 미니 차트 렌더링 ─────────────────────────────────────
+(function renderMonthlyBars() {
+  const container = document.getElementById('monthlyBars');
+  const maxVal = Math.max(...WILD_MONTHLY_2026.map(x => x.c), 1);
+  container.innerHTML = WILD_MONTHLY_2026.map((item, idx) => {
+    const pct = item.c === 0 ? 4 : Math.max(10, Math.round((item.c / maxVal) * 100));
+    const cls = item.c === 0 ? 'zero' : (idx === WILD_MONTHLY_2026.length - 1 ? 'recent' : (item.c >= 50 ? 'peak' : ''));
+    return `
+      <div class="mbar-col">
+        <div class="mbar-val">${item.c}</div>
+        <div class="mbar-bar ${cls}" style="height:${pct}%"></div>
+        <div class="mbar-lbl">${item.m}</div>
+      </div>
+    `;
+  }).join('');
 })();
 
 // ── 지도 렌더링 ────────────────────────────────────────────────
@@ -312,64 +380,211 @@ for(let ln=126;ln<=130;ln++){
   const t2=el('text',{x:x2,y:by-2,'text-anchor':'middle','font-size':'7.5',fill:'rgba(226,232,240,0.85)'});t2.textContent='50km';
 }
 
-// ── ASF 마커 ───────────────────────────────────────────────────
+const MARKER_LAYER = el('g', {id:'markerLayer'});
+
+// ── 모드 전환 (사육돼지 농장 ↔ 야생멧돼지) ────────────────────
+let currentMode = 'farm';
+let MKS = [];
+
 function mcol(n){if(n<=4)return'#10b981';if(n<=10)return'#38bdf8';if(n<=22)return'#a78bfa';return'#ef4444';}
 function mrad(h){return Math.max(8,Math.min(20,Math.sqrt(h/200)));}
+function wcol(o){if(o.isNew)return'#ef4444';if(o.count26>=20)return'#f59e0b';if(o.count26>=5)return'#a78bfa';return'#10b981';}
+function wrad(c){return Math.max(9,Math.min(22,7 + Math.sqrt(c)*1.7));}
 
 const BCOLS={
   '#10b981':{bg:'rgba(16,185,129,0.2)',tx:'#6ee7b7'},
   '#38bdf8':{bg:'rgba(56,189,248,0.2)',tx:'#7dd3fc'},
   '#a78bfa':{bg:'rgba(167,139,250,0.2)',tx:'#c4b5fd'},
+  '#f59e0b':{bg:'rgba(245,158,11,0.2)',tx:'#fcd34d'},
   '#ef4444':{bg:'rgba(239,68,68,0.22)',tx:'#fca5a5'},
 };
-const MKS=[];
 
-DATA.forEach(o => {
-  const [mx,my] = project(o.lng, o.lat);
-  const col = mcol(o.no), r = mrad(o.heads);
-  const g = el('g', {cursor:'pointer'});
-  g._sido = o.sido;
-  if(o.isNew){
-    el('circle',{cx:mx,cy:my,r:r+6,fill:'none',stroke:'#fbbf24','stroke-width':'2.2'},g);
-    el('circle',{cx:mx,cy:my,r:r+2.5,fill:'rgba(251,191,36,0.18)',stroke:'none'},g);
+function switchMode(mode) {
+  currentMode = mode;
+  document.getElementById('btnModeFarm').classList.toggle('on', mode === 'farm');
+  document.getElementById('btnModeWild').classList.toggle('on', mode === 'wild');
+  document.getElementById('monthlyCard').classList.toggle('show', mode === 'wild');
+
+  while (MARKER_LAYER.firstChild) MARKER_LAYER.removeChild(MARKER_LAYER.firstChild);
+  MKS = [];
+
+  const filterRow = document.getElementById('filterRow');
+  filterRow.innerHTML = '';
+
+  if (mode === 'farm') {
+    const totalCount = DATA.length;
+    const totalHeads = DATA.reduce((acc, item) => acc + (Number(item.heads) || 0), 0);
+    const sidoCounts = {};
+    DATA.forEach(item => { sidoCounts[item.sido] = (sidoCounts[item.sido] || 0) + 1; });
+    const sortedSidos = Object.entries(sidoCounts).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'ko'));
+
+    document.getElementById('subSummary').textContent = "'26.11.20. 기준 · 사육돼지 농장 1분기(1~3월) 24건 (3.16 이후 추가 발생 없음 · '19년 이후 역대 누적 79건)";
+    document.getElementById('lblStat1').textContent = '총 발생 (농장)';
+    document.getElementById('lblStat2').textContent = '피해 두수';
+    document.getElementById('lblStat3').textContent = '발생 시도';
+    document.getElementById('lblStat4').textContent = '최근 발생';
+    document.getElementById('statCount').textContent = `${totalCount}건`;
+    document.getElementById('statHeads').textContent = `${totalHeads.toLocaleString()}두`;
+    document.getElementById('statSidos').textContent = `${sortedSidos.length}개`;
+    document.getElementById('statRecent').innerHTML = '3.16<br>산청·함평';
+    document.getElementById('mapHint').textContent = '마커를 클릭(탭)하면 발생 농장 상세 정보를 볼 수 있습니다';
+    document.getElementById('legTitle').textContent = '발생 시기 · 원 크기 = 사육두수 비례';
+    document.getElementById('legRow').innerHTML = `
+      <div class="li"><div class="ld" style="background:#10b981"></div>1월 (1~4차)</div>
+      <div class="li"><div class="ld" style="background:#38bdf8"></div>2월 초 (5~10차)</div>
+      <div class="li"><div class="ld" style="background:#a78bfa"></div>2월 중후반 (11~22차)</div>
+      <div class="li"><div class="ld" style="background:#ef4444"></div>3월 최신 (23~24차)</div>
+      <div class="li"><div class="ld" style="background:#ef4444;outline:2.5px solid #fbbf24;outline-offset:1px"></div>최근 발생지 (3.16)</div>
+    `;
+
+    const allBtn = document.createElement('button');
+    allBtn.type = 'button'; allBtn.className = 'fb on'; allBtn.textContent = `전체(${totalCount})`;
+    allBtn.onclick = () => flt('all', allBtn);
+    filterRow.appendChild(allBtn);
+
+    sortedSidos.forEach(([sido, cnt]) => {
+      const btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 'fb'; btn.textContent = `${sido}(${cnt})`;
+      btn.onclick = () => flt(sido, btn);
+      filterRow.appendChild(btn);
+    });
+
+    DATA.forEach(o => {
+      const [mx, my] = project(o.lng, o.lat);
+      const col = mcol(o.no), r = mrad(o.heads);
+      const g = el('g', {cursor:'pointer'}, MARKER_LAYER);
+      g._sido = o.sido;
+      if (o.isNew) {
+        el('circle', {cx:mx, cy:my, r:r+6, fill:'none', stroke:'#fbbf24', 'stroke-width':'2.2'}, g);
+        el('circle', {cx:mx, cy:my, r:r+2.5, fill:'rgba(251,191,36,0.18)', stroke:'none'}, g);
+      }
+      el('circle', {cx:mx, cy:my, r, fill:col, stroke:'rgba(255,255,255,0.92)', 'stroke-width':'1.5'}, g);
+      const t = el('text', {x:mx, y:my+3.5, 'text-anchor':'middle', 'font-size':r>12?'9':'8', 'font-weight':'700', fill:'#fff', 'pointer-events':'none'}, g);
+      t.textContent = o.no;
+      const tap = () => oshFarm(o, col);
+      g.addEventListener('click', e => { e.stopPropagation(); tap(); });
+      g.addEventListener('touchend', e => { e.preventDefault(); e.stopPropagation(); tap(); }, {passive:false});
+      MKS.push(g);
+    });
+  } else {
+    const total26 = WILD_DATA.reduce((acc, item) => acc + item.count26, 0);
+    const sidoCounts = {};
+    WILD_DATA.forEach(item => { sidoCounts[item.sido] = (sidoCounts[item.sido] || 0) + item.count26; });
+    const sortedSidos = Object.entries(sidoCounts).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'ko'));
+
+    document.getElementById('subSummary').textContent = "'26.11.20. 기준 · 야생멧돼지 2026년 210건 검출 (11월 11건: 화천 6·철원 5) · 역대 누적 4,526건 (#4526 화천 명월리)";
+    document.getElementById('lblStat1').textContent = '2026년 검출';
+    document.getElementById('lblStat2').textContent = '역대 누적 (\'19~)';
+    document.getElementById('lblStat3').textContent = '검출 시·군';
+    document.getElementById('lblStat4').textContent = '최근 검출 (#4526)';
+    document.getElementById('statCount').textContent = `${total26}건`;
+    document.getElementById('statHeads').textContent = '4,526건';
+    document.getElementById('statSidos').innerHTML = `${WILD_DATA.length}개<span class="sval-sub">${sortedSidos.length}개 시도</span>`;
+    document.getElementById('statRecent').innerHTML = '11.20<br>화천 명월리';
+    document.getElementById('mapHint').textContent = '시·군 버블을 클릭(탭)하면 2026년 월별 검출 내역과 역대 누적을 볼 수 있습니다';
+    document.getElementById('legTitle').textContent = '2026년 야생멧돼지 시·군별 검출 규모 · 원 크기 = 검출 건수 비례';
+    document.getElementById('legRow').innerHTML = `
+      <div class="li"><div class="ld" style="background:#ef4444;outline:2.5px solid #fbbf24;outline-offset:1px"></div>11월 최근 검출 (화천·철원)</div>
+      <div class="li"><div class="ld" style="background:#f59e0b"></div>20건 이상 (포천·춘천·충주)</div>
+      <div class="li"><div class="ld" style="background:#a78bfa"></div>5~19건 (횡성·원주·가평·문경)</div>
+      <div class="li"><div class="ld" style="background:#10b981"></div>1~4건 (제천·울산·고령·파주·홍천·연천)</div>
+    `;
+
+    const allBtn = document.createElement('button');
+    allBtn.type = 'button'; allBtn.className = 'fb on'; allBtn.textContent = `전체(${total26})`;
+    allBtn.onclick = () => flt('all', allBtn);
+    filterRow.appendChild(allBtn);
+
+    sortedSidos.forEach(([sido, cnt]) => {
+      const btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 'fb'; btn.textContent = `${sido}(${cnt})`;
+      btn.onclick = () => flt(sido, btn);
+      filterRow.appendChild(btn);
+    });
+
+    // 큰 원이 작은 원을 가리지 않도록 건수 내림차순으로 먼저 그림
+    const orderedWild = [...WILD_DATA].sort((a, b) => b.count26 - a.count26);
+    orderedWild.forEach(o => {
+      const [mx, my] = project(o.lng, o.lat);
+      const col = wcol(o), r = wrad(o.count26);
+      const g = el('g', {cursor:'pointer'}, MARKER_LAYER);
+      g._sido = o.sido;
+      if (o.isNew) {
+        el('circle', {cx:mx, cy:my, r:r+5.5, fill:'none', stroke:'#fbbf24', 'stroke-width':'2.2'}, g);
+        el('circle', {cx:mx, cy:my, r:r+2.5, fill:'rgba(251,191,36,0.18)', stroke:'none'}, g);
+      }
+      el('circle', {cx:mx, cy:my, r, fill:col, 'fill-opacity':'0.9', stroke:'rgba(255,255,255,0.92)', 'stroke-width':'1.5'}, g);
+      const t = el('text', {x:mx, y:my+3.5, 'text-anchor':'middle', 'font-size':r>13?'9.5':'8', 'font-weight':'700', fill:'#fff', 'pointer-events':'none'}, g);
+      t.textContent = o.count26;
+      const tap = () => oshWild(o, col);
+      g.addEventListener('click', e => { e.stopPropagation(); tap(); });
+      g.addEventListener('touchend', e => { e.preventDefault(); e.stopPropagation(); tap(); }, {passive:false});
+      MKS.push(g);
+    });
   }
-  el('circle',{cx:mx,cy:my,r,fill:col,stroke:'rgba(255,255,255,0.92)','stroke-width':'1.5'},g);
-  const t=el('text',{
-    x:mx,y:my+3.5,'text-anchor':'middle',
-    'font-size':r>12?'9':'8','font-weight':'700',
-    fill:'#fff','pointer-events':'none'
-  },g);
-  t.textContent=o.no;
-  const tap=()=>osh(o,col);
-  g.addEventListener('click',e=>{e.stopPropagation();tap();});
-  g.addEventListener('touchend',e=>{e.preventDefault();e.stopPropagation();tap();},{passive:false});
-  SVG.appendChild(g);
-  MKS.push(g);
-});
+
+  notifyHeight();
+}
 
 // ── 팝업 ──────────────────────────────────────────────────────
-function osh(o,col){
-  const c=BCOLS[col]||{bg:'rgba(255,255,255,0.12)',tx:'#f1f5f9'};
-  const bd=document.getElementById('sbdg');
-  bd.style.background=c.bg; bd.style.color=c.tx;
-  bd.textContent=(o.isNew?'★ 최신 · ':'')+'제 '+o.no+'차 발생'+(o.isNew?' (3.16 보고)':'');
-  document.getElementById('stit').textContent=o.addr;
-  document.getElementById('sdt').textContent=o.date+(o.isNew?' — 3.16 최신':'');
-  document.getElementById('sad').textContent=o.addr;
-  document.getElementById('shd').textContent=o.heads.toLocaleString()+'두';
-  document.getElementById('ssd').textContent=o.sido;
+function oshFarm(o, col) {
+  const c = BCOLS[col] || {bg:'rgba(255,255,255,0.12)', tx:'#f1f5f9'};
+  const bd = document.getElementById('sbdg');
+  bd.style.background = c.bg; bd.style.color = c.tx;
+  bd.textContent = (o.isNew ? '★ 최신 · ' : '') + '농장 제 ' + o.no + '차 발생' + (o.isNew ? ' (3.16 보고)' : '');
+  document.getElementById('stit').textContent = o.addr;
+  document.getElementById('k1').textContent = '발생일';
+  document.getElementById('k2').textContent = '주소';
+  document.getElementById('k3').textContent = '사육두수';
+  document.getElementById('k4').textContent = '시·도';
+  document.getElementById('sdt').textContent = o.date + (o.isNew ? ' — 3.16 최신' : '');
+  document.getElementById('sad').textContent = o.addr;
+  document.getElementById('shd').textContent = o.heads.toLocaleString() + '두';
+  document.getElementById('ssd').textContent = o.sido;
   document.getElementById('sbg').classList.add('show');
 }
+
+function oshWild(o, col) {
+  const c = BCOLS[col] || {bg:'rgba(255,255,255,0.12)', tx:'#f1f5f9'};
+  const bd = document.getElementById('sbdg');
+  bd.style.background = c.bg; bd.style.color = c.tx;
+  bd.textContent = (o.isNew ? '★ 11월 최근 검출 · ' : '') + `야생멧돼지 ASF (${o.sido})`;
+  document.getElementById('stit').textContent = `${o.sido} ${o.name} — 2026년 ${o.count26}건 검출`;
+  document.getElementById('k1').textContent = '역대 누적';
+  document.getElementById('k2').textContent = '26년 월별';
+  document.getElementById('k3').textContent = '비고';
+  document.getElementById('k4').textContent = '기준일';
+  document.getElementById('sdt').textContent = `${o.total.toLocaleString()}건 ('19~'26.11.20)`;
+  document.getElementById('sad').textContent = o.monthly;
+  document.getElementById('shd').textContent = o.note;
+  document.getElementById('ssd').textContent = "'26.11.20. 기준 (WADIS)";
+  document.getElementById('sbg').classList.add('show');
+}
+
 function csh(e){if(e&&e.target!==document.getElementById('sbg'))return;document.getElementById('sbg').classList.remove('show');}
 document.getElementById('shxb').onclick=()=>document.getElementById('sbg').classList.remove('show');
-document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('sbg').classList.remove('show');});
+
+function openOfficialMapModal() {
+  document.getElementById('imgModal').classList.add('show');
+}
+function closeOfficialMapModal(e) {
+  if (e && e.target !== document.getElementById('imgModal')) return;
+  document.getElementById('imgModal').classList.remove('show');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.getElementById('sbg').classList.remove('show');
+    document.getElementById('imgModal').classList.remove('show');
+  }
+});
 
 // ── 필터 ──────────────────────────────────────────────────────
-function flt(sido,btn){
-  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('on'));
+function flt(sido, btn) {
+  document.querySelectorAll('.fb').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
-  MKS.forEach((g,i)=>{
-    g.setAttribute('opacity',(sido==='all'||DATA[i].sido===sido)?'1':'0.1');
+  MKS.forEach(g => {
+    g.setAttribute('opacity', (sido === 'all' || g._sido === sido) ? '1' : '0.1');
   });
 }
 
@@ -379,6 +594,9 @@ function notifyHeight(){
     window.parent.postMessage({ type: 'statusIframeHeight', source: 'asf', height: document.documentElement.scrollHeight }, '*');
   }
 }
+
+// 초기 실행 (사육돼지 농장 기본 선택)
+switchMode('farm');
 window.addEventListener('load', notifyHeight);
 window.addEventListener('resize', notifyHeight);
 setTimeout(notifyHeight, 250);
