@@ -575,6 +575,43 @@ function openNewsModal(newsId) {
     document.body.style.overflow = 'hidden';
 }
 
+function openOfficialImageModal(imgSrc, titleText) {
+    document.getElementById('modalCategory').innerHTML = '<i class="fa-solid fa-map-location-dot"></i> ASF 공식 자료';
+    document.getElementById('modalTitle').textContent = titleText;
+    document.getElementById('modalSource').innerHTML = '<i class="fa-regular fa-building"></i> 국립야생동물질병관리원 WADIS';
+    document.getElementById('modalDate').innerHTML = '<i class="fa-regular fa-clock"></i> 26.11.20 기준';
+    document.getElementById('modalBody').innerHTML = `
+        <div style="text-align:center;">
+            <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(titleText)}" style="width:100%; height:auto; border-radius:10px; border:1px solid rgba(255,255,255,0.12); display:block; margin:0 auto;">
+        </div>
+    `;
+
+    const bookmarkBtn = document.getElementById('modalBookmarkBtn');
+    if (bookmarkBtn) bookmarkBtn.style.display = 'none';
+
+    const copyBtn = document.getElementById('modalCopyLinkBtn');
+    if (copyBtn) copyBtn.style.display = 'none';
+
+    const originalLinkBtn = document.getElementById('modalOriginalLink');
+    if (originalLinkBtn) {
+        originalLinkBtn.href = imgSrc;
+        originalLinkBtn.setAttribute('target', '_blank');
+        originalLinkBtn.setAttribute('rel', 'noopener noreferrer');
+        originalLinkBtn.innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i> 새 탭에서 원본 크게 보기';
+        originalLinkBtn.style.display = 'inline-flex';
+    }
+
+    const modalFooter = document.getElementById('modalFooter');
+    if (modalFooter) modalFooter.style.display = 'flex';
+
+    const overlay = document.getElementById('newsModal');
+    if (overlay) {
+        overlay.classList.add('active');
+        overlay.setAttribute('aria-hidden', 'false');
+    }
+    document.body.style.overflow = 'hidden';
+}
+
 function closeNewsModal() {
     const overlay = document.getElementById('newsModal');
     if (!overlay) return;
@@ -582,6 +619,14 @@ function closeNewsModal() {
     overlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     activeModalNews = null;
+
+    // 이미지 모달 열람 후 뉴스 모달 버튼 상태 원복
+    const copyBtn = document.getElementById('modalCopyLinkBtn');
+    if (copyBtn) copyBtn.style.display = 'flex';
+    const originalLinkBtn = document.getElementById('modalOriginalLink');
+    if (originalLinkBtn) {
+        originalLinkBtn.innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i> 원문 기사 보러가기';
+    }
 }
 
 function copyCurrentNewsLink() {
@@ -760,14 +805,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 발생현황 iframe 자동 높이 조절 (이중 스크롤 방지)
+    // 발생현황 iframe 자동 높이 조절 및 공식 이미지 모달 연동
     window.addEventListener('message', (event) => {
-        if (!event.data || event.data.type !== 'statusIframeHeight') return;
-        const targetId = event.data.source === 'asf' ? 'asfStatusIframe' : event.data.source === 'ai' ? 'aiStatusIframe' : null;
-        if (!targetId) return;
-        const iframe = document.getElementById(targetId);
-        if (iframe && typeof event.data.height === 'number' && event.data.height > 300) {
-            iframe.style.height = `${Math.ceil(event.data.height) + 16}px`;
+        if (!event.data) return;
+
+        if (event.data.type === 'statusIframeHeight') {
+            const targetId = event.data.source === 'asf' ? 'asfStatusIframe' : event.data.source === 'ai' ? 'aiStatusIframe' : null;
+            if (!targetId) return;
+            const iframe = document.getElementById(targetId);
+            if (iframe && typeof event.data.height === 'number' && event.data.height > 300) {
+                iframe.style.height = `${Math.ceil(event.data.height) + 16}px`;
+            }
+            return;
+        }
+
+        if (event.data.type === 'openImageModal' && event.data.src) {
+            openOfficialImageModal(event.data.src, event.data.title || '공식 발생현황 지도 원본');
         }
     });
 
