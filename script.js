@@ -575,6 +575,39 @@ function openNewsModal(newsId) {
     document.body.style.overflow = 'hidden';
 }
 
+function openStatusDetailModal(payload) {
+    document.getElementById('modalCategory').innerHTML = `<i class="fa-solid fa-location-dot"></i> ${escapeHtml(payload.category || '발생 상세 정보')}`;
+    document.getElementById('modalTitle').textContent = payload.title || '';
+    document.getElementById('modalSource').innerHTML = `<i class="fa-solid fa-circle-info"></i> ${escapeHtml(payload.source || '')}`;
+    document.getElementById('modalDate').innerHTML = `<i class="fa-regular fa-clock"></i> ${escapeHtml(payload.date || '')}`;
+
+    const rowsHtml = (payload.rows || []).map(row => `
+        <div style="display:flex; gap:12px; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.08); font-size:0.96rem; line-height:1.5;">
+            <span style="color:#94a3b8; width:96px; flex-shrink:0; font-weight:600;">${escapeHtml(row.label)}</span>
+            <span style="color:#f1f5f9; font-weight:500;">${escapeHtml(row.value)}</span>
+        </div>
+    `).join('');
+
+    document.getElementById('modalBody').innerHTML = `
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:6px 16px;">
+            ${rowsHtml}
+        </div>
+    `;
+
+    const bookmarkBtn = document.getElementById('modalBookmarkBtn');
+    if (bookmarkBtn) bookmarkBtn.style.display = 'none';
+
+    const modalFooter = document.getElementById('modalFooter');
+    if (modalFooter) modalFooter.style.display = 'none';
+
+    const overlay = document.getElementById('newsModal');
+    if (overlay) {
+        overlay.classList.add('active');
+        overlay.setAttribute('aria-hidden', 'false');
+    }
+    document.body.style.overflow = 'hidden';
+}
+
 function openOfficialImageModal(imgSrc, titleText) {
     document.getElementById('modalCategory').innerHTML = '<i class="fa-solid fa-map-location-dot"></i> ASF 공식 자료';
     document.getElementById('modalTitle').textContent = titleText;
@@ -821,6 +854,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (event.data.type === 'openImageModal' && event.data.src) {
             openOfficialImageModal(event.data.src, event.data.title || '공식 발생현황 지도 원본');
+            return;
+        }
+
+        if (event.data.type === 'openDetailModal') {
+            openStatusDetailModal(event.data);
         }
     });
 

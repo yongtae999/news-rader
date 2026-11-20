@@ -477,18 +477,39 @@ function switchSeason(season) {
 
 // ── 팝업 ──────────────────────────────────────────────────────
 function osh(o, col) {
+  const seasonLabel = currentSeason === '2627' ? '26/27 동절기' : '25/26 동절기';
+  const badgeText = `${o.isNew ? '★ 최신 · ' : ''}${seasonLabel} 제 ${o.no}차 발생`;
+  const headsText = (o.heads === null || o.heads === undefined)
+    ? '사육규모 미공개'
+    : `${Number(o.heads).toLocaleString()}두`;
+
+  if (window.parent && window.parent !== window) {
+    window.parent.postMessage({
+      type: 'openDetailModal',
+      category: `조류인플루엔자(AI) · ${seasonLabel}`,
+      title: o.addr,
+      source: badgeText,
+      date: o.date,
+      rows: [
+        { label: '발생일', value: o.date },
+        { label: '주소', value: o.addr },
+        { label: '사육두수', value: headsText },
+        { label: '바이러스', value: o.virus || '-' },
+        { label: '시·도', value: o.sido }
+      ]
+    }, '*');
+    return;
+  }
+
   const c = BCOLS[col] || {bg:'rgba(255,255,255,0.12)', tx:'#f1f5f9'};
   const bd = document.getElementById('sbdg');
   bd.style.background = c.bg;
   bd.style.color = c.tx;
-  const seasonLabel = currentSeason === '2627' ? '26/27 동절기' : '25/26 동절기';
-  bd.textContent = `${o.isNew ? '★ 최신 · ' : ''}${seasonLabel} 제 ${o.no}차 발생`;
+  bd.textContent = badgeText;
   document.getElementById('stit').textContent = o.addr;
   document.getElementById('sdt').textContent = o.date;
   document.getElementById('sad').textContent = o.addr;
-  document.getElementById('shd').textContent = (o.heads === null || o.heads === undefined)
-    ? '사육규모 미공개'
-    : `${Number(o.heads).toLocaleString()}두`;
+  document.getElementById('shd').textContent = headsText;
   document.getElementById('svi').textContent = o.virus || '-';
   document.getElementById('ssd').textContent = o.sido;
   document.getElementById('sbg').classList.add('show');

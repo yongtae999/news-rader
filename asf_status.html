@@ -528,33 +528,76 @@ function switchMode(mode) {
 
 // ── 팝업 ──────────────────────────────────────────────────────
 function oshFarm(o, col) {
+  const badgeText = (o.isNew ? '★ 최신 · ' : '') + '농장 제 ' + o.no + '차 발생' + (o.isNew ? ' (3.16 보고)' : '');
+  const dateText = o.date + (o.isNew ? ' — 3.16 최신' : '');
+  const headsText = o.heads.toLocaleString() + '두';
+
+  if (window.parent && window.parent !== window) {
+    window.parent.postMessage({
+      type: 'openDetailModal',
+      category: 'ASF 사육돼지 농장',
+      title: o.addr,
+      source: badgeText,
+      date: o.date,
+      rows: [
+        { label: '발생일', value: dateText },
+        { label: '주소', value: o.addr },
+        { label: '사육두수', value: headsText },
+        { label: '시·도', value: o.sido }
+      ]
+    }, '*');
+    return;
+  }
+
   const c = BCOLS[col] || {bg:'rgba(255,255,255,0.12)', tx:'#f1f5f9'};
   const bd = document.getElementById('sbdg');
   bd.style.background = c.bg; bd.style.color = c.tx;
-  bd.textContent = (o.isNew ? '★ 최신 · ' : '') + '농장 제 ' + o.no + '차 발생' + (o.isNew ? ' (3.16 보고)' : '');
+  bd.textContent = badgeText;
   document.getElementById('stit').textContent = o.addr;
   document.getElementById('k1').textContent = '발생일';
   document.getElementById('k2').textContent = '주소';
   document.getElementById('k3').textContent = '사육두수';
   document.getElementById('k4').textContent = '시·도';
-  document.getElementById('sdt').textContent = o.date + (o.isNew ? ' — 3.16 최신' : '');
+  document.getElementById('sdt').textContent = dateText;
   document.getElementById('sad').textContent = o.addr;
-  document.getElementById('shd').textContent = o.heads.toLocaleString() + '두';
+  document.getElementById('shd').textContent = headsText;
   document.getElementById('ssd').textContent = o.sido;
   document.getElementById('sbg').classList.add('show');
 }
 
 function oshWild(o, col) {
+  const badgeText = (o.isNew ? '★ 11월 최근 검출 · ' : '') + `야생멧돼지 ASF (${o.sido})`;
+  const titleText = `${o.sido} ${o.name} — 2026년 ${o.count26}건 검출`;
+  const totalText = `${o.total.toLocaleString()}건 ('19~'26.11.20)`;
+
+  if (window.parent && window.parent !== window) {
+    window.parent.postMessage({
+      type: 'openDetailModal',
+      category: '야생멧돼지 ASF 검출',
+      title: titleText,
+      source: badgeText,
+      date: "'26.11.20 기준",
+      rows: [
+        { label: '2026년 검출', value: `${o.count26}건` },
+        { label: '역대 누적', value: totalText },
+        { label: '26년 월별', value: o.monthly },
+        { label: '비고', value: o.note },
+        { label: '출처', value: "국립야생동물질병관리원 WADIS ('26.11.20 기준)" }
+      ]
+    }, '*');
+    return;
+  }
+
   const c = BCOLS[col] || {bg:'rgba(255,255,255,0.12)', tx:'#f1f5f9'};
   const bd = document.getElementById('sbdg');
   bd.style.background = c.bg; bd.style.color = c.tx;
-  bd.textContent = (o.isNew ? '★ 11월 최근 검출 · ' : '') + `야생멧돼지 ASF (${o.sido})`;
-  document.getElementById('stit').textContent = `${o.sido} ${o.name} — 2026년 ${o.count26}건 검출`;
+  bd.textContent = badgeText;
+  document.getElementById('stit').textContent = titleText;
   document.getElementById('k1').textContent = '역대 누적';
   document.getElementById('k2').textContent = '26년 월별';
   document.getElementById('k3').textContent = '비고';
   document.getElementById('k4').textContent = '기준일';
-  document.getElementById('sdt').textContent = `${o.total.toLocaleString()}건 ('19~'26.11.20)`;
+  document.getElementById('sdt').textContent = totalText;
   document.getElementById('sad').textContent = o.monthly;
   document.getElementById('shd').textContent = o.note;
   document.getElementById('ssd').textContent = "'26.11.20. 기준 (WADIS)";
