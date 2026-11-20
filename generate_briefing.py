@@ -13,17 +13,18 @@ def load_news_data(filepath):
         print(f"뉴스 데이터를 읽는 데 실패했습니다: {e}")
         return None
 
-def filter_weekly_news(news_data):
-    """최근 7일 이내의 주요 뉴스만 필터링합니다."""
+def filter_weekly_news(news_data, max_days=7):
+    """최근 지정된 일수(기본 7일) 이내의 주요 뉴스만 필터링합니다."""
     weekly_news = {
         "hunting": [],
         "asf": [],
         "ai": [],
-        "ecosystem": []
+        "ecosystem": [],
+        "association": [],
+        "editorial": []
     }
     
     # KST 기준 현재 날짜
-    # 뉴스 날짜 형식이 'YY.MM.DD' 이므로 문자열 파싱
     KST = timezone(timedelta(hours=9))
     now = datetime.now(KST).date()
     
@@ -31,18 +32,16 @@ def filter_weekly_news(news_data):
         if category in news_data:
             for item in news_data[category]:
                 try:
-                    # '25.03.14' 형식 파싱
+                    # 'YY.MM.DD' 형식 파싱 (예: 26.08.15)
                     item_date = datetime.strptime(item['date'], "%y.%m.%d").date()
                     days_diff = (now - item_date).days
                     
-                    # 최근 7일 이내의 기사만 추출
-                    if 0 <= days_diff <= 7:
+                    if 0 <= days_diff <= max_days:
                         weekly_news[category].append(item)
-                except Exception as e:
-                    # 날짜 형식이 다를 경우를 대비한 대체 로직: API 제공 daysAgo 값 활용
-                    if 'daysAgo' in item and item['daysAgo'] <= 7:
-                         weekly_news[category].append(item)
-                    
+                except Exception:
+                    if 'daysAgo' in item and item['daysAgo'] <= max_days:
+                        weekly_news[category].append(item)
+                        
     return weekly_news
 
 def generate_weekly_briefing(weekly_news):
@@ -55,53 +54,67 @@ def generate_weekly_briefing(weekly_news):
         
     client = genai.Client(api_key=api_key)
     
-    # 구글 API 정책 변경(2026년)으로 인해 신규 발급 키는 2.5-flash 이상 버전을 사용해야 합니다.
-    model_name = 'gemini-2.5-flash'
+    # 환경변수로 모델을 지정할 수 있으며 기본값은 최신 고성능 모델 사용
+    model_name = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
     
-    # 이번 주 차수 계산 (예: 3월 2주차)
-    now = datetime.now()
+    KST = timezone(timedelta(hours=9))
+    now = datetime.now(KST)
     month = now.month
-    # 해당 월의 몇 번째 주인지 대략적 계산 (1~4주)
+    # 해당 월의 몇 번째 주인지 계산 (1~5주)
     week_num = (now.day - 1) // 7 + 1
     
-    date_header = f"🚨 {month}월 {week_num}주차 야생생물 관련 주요 동향 🚨\n\n"
+    date_header = f"🚨 {month}월 {week_num}주차 야생생물 & 수렵행정 종합 브리핑 🚨"
     
     # 프롬프트에 제공할 데이터 문자열 구성
-    data_str = "다음은 최근 1주일 동안 수집된 카테고리별 주요 뉴스 원문(제목과 요약)입니다:\n\n"
-    for cat, items in weekly_news.items():
-        data_str += f"[{cat.upper()}]\n"
-        for item in items[:5]: # 카테고리당 너무 많은 데이터가 들어가면 환각 가능성이 있으므로 상위 5개로 제한
-            data_str += f"- 제목: {item['title']}\n"
-            data_str += f"- 요약: {item['excerpt']}\n"
-        data_str += "\n"
+    data_str = ""
+    category_labels = {
+        "hunting": "수렵 및 포획단",
+        "asf": "ASF (아프리카돼지열병)",
+        "ai": "AI (조류인플루엔자)",
+        "ecosystem": "생태계교란생물",
+        "association": "협회 및 유관기관",
+        "editorial": "사설 및 기획보도"
+    }
+    
+    for cat, label in category_labels.items():
+        items = weekly_news.get(cat, [])
+        if items:
+            data_str += f"[{label}]\n"
+            for item in items[:6]:
+                data_str += f"- 제목: {item['title']}\n"
+                data_str += f"  요약: {item['excerpt']}\n"
+            data_str += "\n"
         
     prompt = f"""
-    너는 야생생물관리협회(야생동물 포획, 생태계 교란종 관리, 아프리카돼지열병 및 조류인플루엔자 예방 등을 담당)의 전문 분석가이자 보고서 작성자야.
+    너는 야생생물관리협회(야생동물 포획, 생태계 교란종 관리, 아프리카돼지열병 및 조류인플루엔자 예방 등을 담당)의 수석 전문 분석관이야.
     
-    다음 뉴스 데이터를 분석해서, 회원들에게 보내줄 '주간 뉴스 브리핑' 봇 메시지를 작성해줘.
+    다음 뉴스 데이터를 분석해서, 회원 및 지자체 담당자들에게 전달할 전문적이고 실용적인 '주간 업무 브리핑' 메시지를 작성해줘.
     
     [데이터]
     {data_str}
     
     [출력 양식 규칙]
-    1. 다음의 구조를 정확히 지켜서 마크다운 없이 순수 텍스트(강조를 위한 별표 **등은 허용)로 작성해 줘.
-    2. 뉴스 원문의 내용만을 바탕으로 요약해 줘.
-    3. 각 섹션마다 뉴스가 1~2줄의 간결한 개조식 문장으로 요약되어야 해.
-    4. 관련 뉴스가 전혀 없는 섹션은 "관련 특이동향 없음" 이라고 적어줘.
+    1. 다음의 헤더와 목차 구조를 정확히 지켜서 작성해 줘. (강조를 위한 볼드체 **텍스트** 적극 활용)
+    2. 뉴스 원문의 사실에 기반하여 핵심만 간결한 개조식(- 문장)으로 요약해 줘.
+    3. 실무자(지자체 공무원, 협회원, 포획단원)가 주의해야 할 현장 시사점 및 권고사항을 마지막에 1~2줄로 포함해줘.
+    4. 관련 뉴스가 전혀 없는 섹션은 "관련 특이동향 없음" 이라고 명시해줘.
     
     [출력 포맷 예시]
     {date_header}
 
-    1. 야생동물 질병(ASF, AI) 현황
-    - [이곳에 요약 내용 작성]
+    1. 🐗 야생동물 질병 (ASF · AI) 동향
+    - [ASF/AI 관련 핵심 요약]
     
-    2. 수렵 및 포획단 동향
-    - [이곳에 요약 내용 작성]
+    2. 🎯 수렵 · 포획단 및 총기 안전
+    - [수렵/포획단/총기안전 관련 핵심 요약]
     
-    3. 생태계교란생물 소식
-    - [이곳에 요약 내용 작성]
+    3. 🌿 생태계교란생물 및 환경보전
+    - [교란종 퇴치/외래생물 관련 핵심 요약]
+
+    4. 📢 현장 실무 및 안전 권고사항
+    - [현장 요원 및 지자체 담당자를 위한 핵심 행동 요령 및 주의사항 1~2개]
     
-    _※ 본 요약은 네이버 뉴스 검색 결과를 바탕으로 제미나이가 주간 단위로 분석하여 제공하는 브리핑입니다._
+    _※ 본 브리핑은 야생생물관리협회 뉴스레이더 수집 데이터를 바탕으로 Gemini AI가 주간 단위로 종합 분석한 보고서입니다._
     """
     
     try:
@@ -113,7 +126,7 @@ def generate_weekly_briefing(weekly_news):
     except Exception as e:
         import traceback
         traceback.print_exc()
-        print(f"Gemini API 호출 중 오류 발생: {e}")
+        print(f"Gemini API ({model_name}) 호출 중 오류 발생: {e}")
         return None
 
 def save_briefing(text, output_filepath):
@@ -138,16 +151,20 @@ def main():
     if not news_data:
         return
         
-    # 2. 최근 일주일치 뉴스 필터링
-    weekly_news = filter_weekly_news(news_data)
-    
-    # 필터링된 뉴스가 하나도 없는지 확인
+    # 2. 최근 7일치 뉴스 필터링 (부족할 경우 최대 30일치로 확장)
+    weekly_news = filter_weekly_news(news_data, max_days=7)
     total_news = sum(len(items) for items in weekly_news.values())
+    
+    if total_news < 3:
+        print("최근 7일치 뉴스가 부족하여 30일치 기사로 범위를 확장하여 분석합니다.")
+        weekly_news = filter_weekly_news(news_data, max_days=30)
+        total_news = sum(len(items) for items in weekly_news.values())
+        
     if total_news == 0:
-        print("최근 일주일 내의 뉴스가 없어 브리핑을 생성할 수 없습니다.")
+        print("수집된 유효 뉴스가 없어 브리핑을 생성할 수 없습니다.")
         return
         
-    print(f"최근 7일간의 뉴스 총 {total_news}건 분석 중...")
+    print(f"분석 대상 뉴스 총 {total_news}건 분석 중...")
     
     # 3. 브리핑 생성 (Gemini API)
     briefing_text = generate_weekly_briefing(weekly_news)

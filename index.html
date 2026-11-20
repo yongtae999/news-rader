@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="야생생물관리협회 관련 수렵, ASF, 생태계교란생물 최신 뉴스와 일일 브리핑을 제공합니다.">
+    <meta name="description" content="야생생물관리협회 관련 수렵, ASF, AI, 생태계교란생물 최신 뉴스와 실시간 검색, AI 일일 브리핑을 제공합니다.">
     <title>야생생물관리협회 뉴스 레이더</title>
 
     <!-- 폰트 및 아이콘 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- 스타일시트 -->
     <link rel="stylesheet" href="styles.css">
@@ -25,17 +25,20 @@
     <div class="app-container">
         <!-- 메인 헤더 -->
         <header class="app-header">
-            <div class="logo-area" style="display: flex; align-items: center; gap: 8px;">
-                <button onclick="handleGoBack()" aria-label="이전으로" style="background: none; border: none; font-size: 22px; color: #1e293b; cursor: pointer; padding: 4px;"><i class="fa-solid fa-arrow-left"></i></button>
-                <img src="logo.png" alt="야생생물관리협회 로고" class="header-logo">
+            <div class="logo-area">
+                <button onclick="handleGoBack()" class="back-nav-btn" aria-label="업무데스크로 돌아가기" title="업무 지원 데스크로 이동">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <img src="logo.png" alt="야생생물관리협회 로고" class="header-logo" onerror="this.style.display='none'">
                 <div class="logo-text">
                     <h1>뉴스 레이더</h1>
-                    <span class="subtitle">관련 종사자를 위한 일일 뉴스 브리핑</span>
+                    <span class="subtitle">협회원 및 지자체 담당자를 위한 스마트 뉴스 브리핑</span>
                 </div>
             </div>
             <div class="header-actions">
                 <div class="date-display" id="currentDate">
-                    <!-- 자바스크립트를 통해 오늘 날짜 렌더링 -->
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <span class="date-placeholder">날짜 불러오는 중...</span>
                 </div>
             </div>
         </header>
@@ -49,8 +52,8 @@
                 <button class="tab-button" data-category="asf" id="tab-asf">
                     <i class="fa-solid fa-virus"></i> ASF관련
                 </button>
-                <button class="tab-button" data-category="ai" id="tab-ai">
-                    <i class="fa-solid fa-dove"></i> AI관련
+                <button type="button" class="tab-button" data-category="ai" id="tab-ai">
+                    <i class="fa-solid fa-dove"></i> 조류인플루엔자(AI)
                 </button>
                 <button class="tab-button" data-category="ecosystem" id="tab-ecosystem">
                     <i class="fa-solid fa-leaf"></i> 교란생물 관련
@@ -64,79 +67,95 @@
                 <div class="tab-indicator" aria-hidden="true"></div>
             </nav>
 
-            <!-- 뉴스 리스트 영역 -->
+            <!-- 뉴스 상단 툴바: 실시간 검색 & 스크랩 보기 토글 -->
+            <div class="news-toolbar">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-box-icon"></i>
+                    <input type="text" id="newsSearchInput" placeholder="현재 탭 뉴스 검색 (제목·내용·언론사)" aria-label="현재 탭 뉴스 검색" autocomplete="off">
+                    <button type="button" id="clearSearchBtn" class="clear-search-btn" aria-label="검색어 지우기" style="display: none;">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <button type="button" class="scrap-filter-btn" id="scrapFilterBtn" aria-label="스크랩 기사 모아보기" title="저장한 관심 기사만 보기">
+                    <i class="fa-solid fa-bookmark"></i>
+                    <span>스크랩 <b id="scrapCountBadge">0</b></span>
+                </button>
+            </div>
+
+            <!-- 뉴스 리스트 섹션 -->
             <section class="news-section" aria-live="polite">
-                <!-- ASF 서브 탭 (동적 표시) -->
+                <!-- ASF 서브 탭 -->
                 <div class="asf-sub-tabs" id="asfSubTabs" style="display: none;">
-                    <button class="sub-tab-btn active" data-target="news" id="subTabNews">ASF 관련 뉴스</button>
-                    <button class="sub-tab-btn" data-target="map" id="subTabMap">ASF 발생현황</button>
+                    <button type="button" class="sub-tab-btn active" data-target="news" id="subTabNews">ASF 관련 뉴스</button>
+                    <button type="button" class="sub-tab-btn" data-target="map" id="subTabMap">ASF 발생현황</button>
                 </div>
 
-                <!-- AI 서브 탭 (동적 표시) -->
+                <!-- AI 서브 탭 -->
                 <div class="asf-sub-tabs" id="aiSubTabs" style="display: none;">
-                    <button class="sub-tab-btn active" data-target="news" id="aiSubTabNews">AI 관련 뉴스</button>
-                    <button class="sub-tab-btn" data-target="map" id="aiSubTabMap">AI 발생현황</button>
+                    <button type="button" class="sub-tab-btn active" data-target="news" id="aiSubTabNews">조류인플루엔자(AI) 뉴스</button>
+                    <button type="button" class="sub-tab-btn" data-target="map" id="aiSubTabMap">조류인플루엔자(AI) 발생현황</button>
                 </div>
 
+                <!-- 뉴스 카드 그리드 (초기 스켈레톤 UI로 CLS 방지) -->
                 <div class="news-list" id="newsList">
-                    <!-- 자바스크립트를 통해 뉴스 카드가 이 곳에 동적 렌더링 됩니다. -->
+                    <div class="skeleton-card"><div class="skeleton-line sm" style="width: 35%;"></div><div class="skeleton-line lg" style="width: 85%;"></div><div class="skeleton-line md" style="width: 95%;"></div><div class="skeleton-line md" style="width: 65%;"></div><div class="skeleton-footer"></div></div>
+                    <div class="skeleton-card"><div class="skeleton-line sm" style="width: 30%;"></div><div class="skeleton-line lg" style="width: 80%;"></div><div class="skeleton-line md" style="width: 90%;"></div><div class="skeleton-line md" style="width: 60%;"></div><div class="skeleton-footer"></div></div>
+                    <div class="skeleton-card"><div class="skeleton-line sm" style="width: 38%;"></div><div class="skeleton-line lg" style="width: 88%;"></div><div class="skeleton-line md" style="width: 92%;"></div><div class="skeleton-line md" style="width: 58%;"></div><div class="skeleton-footer"></div></div>
+                    <div class="skeleton-card"><div class="skeleton-line sm" style="width: 32%;"></div><div class="skeleton-line lg" style="width: 82%;"></div><div class="skeleton-line md" style="width: 94%;"></div><div class="skeleton-line md" style="width: 64%;"></div><div class="skeleton-footer"></div></div>
+                    <div class="skeleton-card"><div class="skeleton-line sm" style="width: 36%;"></div><div class="skeleton-line lg" style="width: 86%;"></div><div class="skeleton-line md" style="width: 91%;"></div><div class="skeleton-line md" style="width: 62%;"></div><div class="skeleton-footer"></div></div>
+                    <div class="skeleton-card"><div class="skeleton-line sm" style="width: 28%;"></div><div class="skeleton-line lg" style="width: 84%;"></div><div class="skeleton-line md" style="width: 96%;"></div><div class="skeleton-line md" style="width: 55%;"></div><div class="skeleton-footer"></div></div>
                 </div>
                 
-                <!-- ASF 발생현황 맵 영역 -->
+                <!-- ASF 발생현황 맵 -->
                 <div class="asf-status-container" id="asfStatusMap" style="display: none;">
-                    <iframe src="asf_status.html" width="100%" height="680px" frameborder="0" title="ASF 발생현황 지도"></iframe>
+                    <iframe id="asfStatusIframe" src="asf_status.html" title="ASF 발생현황 지도" loading="lazy"></iframe>
                 </div>
 
-                <!-- AI 발생현황 맵 영역 -->
+                <!-- AI 발생현황 맵 -->
                 <div class="asf-status-container" id="aiStatusMap" style="display: none;">
-                    <iframe src="ai_status.html" width="100%" height="680px" frameborder="0" title="AI 발생현황 지도"></iframe>
-                </div>
-                <!-- 로딩 애니메이션 -->
-                <div class="loading-spinner" id="loadingSpinner">
-                    <div class="spinner"></div>
-                </div>
-            </section>
-
-            <!-- 야생생물시스템 홍보 배너 영역 -->
-            <section class="wildlife-promo-section">
-                <div class="wildlife-promo-banner" id="wildlifePromoBanner" role="button" aria-label="스마트 야생생물 관제 시스템 소개 자료 보기" tabindex="0" onclick="window.open('./야생생물시스템_소개자료_공무원용.html', '_blank')">
-                    <div class="promo-content">
-                        <div class="promo-icon">
-                            <i class="fa-solid fa-mobile-screen-button"></i>
-                        </div>
-                        <div class="promo-text-info">
-                            <h3><span class="highlight-promo">스마트 야생생물 관제시스템</span> 도입 안내</h3>
-                            <p>지자체 담당자와 수렵인을 위한 획기적인 유해생물 관리 플랫폼을 확인해 보세요.</p>
-                        </div>
-                    </div>
-                    <div class="promo-action">
-                        <span>소개서 보기</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </div>
+                    <iframe id="aiStatusIframe" src="ai_status.html" title="조류인플루엔자(AI) 발생현황 지도" loading="lazy"></iframe>
                 </div>
             </section>
 
             <!-- 주간 AI 뉴스 브리핑 배너 영역 -->
             <section class="ai-briefing-section">
-                <div class="ai-briefing-banner" id="aiBriefingBanner" role="button" aria-label="제미나이 주간 AI 뉴스 브리핑 보기"
-                    tabindex="0">
+                <div class="ai-briefing-banner" id="aiBriefingBanner" role="button" aria-label="Gemini 주간 AI 뉴스 브리핑 보기" tabindex="0">
                     <div class="briefing-content">
                         <div class="briefing-icon">
                             <i class="fa-solid fa-wand-magic-sparkles"></i>
                         </div>
                         <div class="briefing-text-info">
-                            <h3><span class="highlight-text">주간 AI 뉴스 브리핑</span></h3>
-                            <p>제미나이가 요약한 한 주간의 주요 야생생물 이슈를 확인하세요. (매주 목요일 업데이트)</p>
+                            <h3><span class="highlight-text">주간 AI 종합 브리핑</span></h3>
+                            <p>Gemini AI가 분석한 한 주간의 주요 야생생물·방역·수렵 행정 핵심 요약을 확인하세요.</p>
                         </div>
                     </div>
                     <div class="briefing-action">
-                        <span>요약 보기</span>
+                        <span>브리핑 열람</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </div>
                 </div>
             </section>
 
-            <!-- 관련 법령/지침 검색 배너 영역 -->
+            <!-- 스마트 관제시스템 안내 배너 -->
+            <section class="wildlife-promo-section">
+                <div class="wildlife-promo-banner" id="wildlifePromoBanner" role="button" aria-label="스마트 야생생물 관제 시스템 소개 자료 보기" tabindex="0" onclick="window.open('./야생생물시스템_소개자료_공무원용.html', '_blank', 'noopener,noreferrer')">
+                    <div class="promo-content">
+                        <div class="promo-icon">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <div class="promo-text-info">
+                            <h3><span class="highlight-promo">스마트 야생생물 관제시스템</span> 소개</h3>
+                            <p>지자체 담당자와 수렵인을 위한 스마트 유해생물 관리 플랫폼을 확인해 보세요.</p>
+                        </div>
+                    </div>
+                    <div class="promo-action">
+                        <span>소개서 열기</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 관련 법령/지침 검색 섹션 -->
             <section class="law-search-section">
                 <div class="law-search-container">
                     <div class="law-search-header">
@@ -144,38 +163,42 @@
                             <i class="fa-solid fa-scale-balanced"></i>
                         </div>
                         <div class="law-search-title">
-                            <h3>관련 법령 검색</h3>
-                            <p>입력하신 검색어는 국가법령정보센터 홈페이지의 원문 검색으로 연결됩니다.</p>
+                            <h3>관련 법령 및 행정규칙 실시간 검색</h3>
+                            <p>입력하신 검색어로 국가법령정보센터의 최신 법령·시행령·지침 원문으로 바로 연결됩니다.</p>
                         </div>
                     </div>
 
                     <form id="lawSearchForm" class="law-search-form" onsubmit="searchLaw(event)">
                         <div class="search-input-wrapper">
                             <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                            <input type="text" id="lawSearchInput" placeholder="예: 야생생물" required
-                                aria-label="법령 및 지침 검색어 입력">
-                            <button type="submit" class="search-btn">검색</button>
+                            <input type="text" id="lawSearchInput" placeholder="예: 야생생물법, 수렵, 유해조수 포획" required aria-label="법령 및 지침 검색어 입력">
+                            <button type="submit" class="search-btn">법령 검색</button>
                         </div>
                     </form>
-
+                    <div class="law-quick-tags">
+                        <span>추천 검색어:</span>
+                        <button type="button" class="quick-tag" onclick="quickSearch('야생생물 보호 및 관리에 관한 법률')">야생생물법</button>
+                        <button type="button" class="quick-tag" onclick="quickSearch('유해야생동물 포획업무 처리지침')">포획지침</button>
+                        <button type="button" class="quick-tag" onclick="quickSearch('총포·도검·화약류 등의 안전관리에 관한 법률')">총포안전법</button>
+                        <button type="button" class="quick-tag" onclick="quickSearch('가축전염병 예방법')">가축전염병예방법</button>
+                    </div>
                 </div>
             </section>
 
-            <!-- 하단 홈페이지 연결 배너 -->
+            <!-- 하단 협회 공식 홈페이지 연결 배너 -->
             <section class="bottom-banner-section">
-                <a href="https://www.kowaps.or.kr/" target="_blank" class="bottom-banner"
-                    aria-label="야생생물관리협회 공식 홈페이지로 이동">
+                <a href="https://www.kowaps.or.kr/" target="_blank" rel="noopener noreferrer" class="bottom-banner" aria-label="야생생물관리협회 공식 홈페이지로 이동">
                     <div class="banner-content">
                         <div class="banner-icon">
                             <i class="fa-solid fa-building"></i>
                         </div>
                         <div class="banner-text-info">
                             <h3>야생생물관리협회 공식 홈페이지</h3>
-                            <p>수렵강습 일정을 확인하세요</p>
+                            <p>수렵면허 및 강습 일정, 공지사항을 확인하세요.</p>
                         </div>
                     </div>
                     <div class="banner-action">
-                        <span>바로가기</span>
+                        <span>홈페이지 이동</span>
                         <i class="fa-solid fa-chevron-right"></i>
                     </div>
                 </a>
@@ -184,20 +207,24 @@
 
         <!-- 푸터 -->
         <footer class="app-footer">
-            <p>&copy; 2026 야생생물관리협회 (Korea Wildlife Management Association). All rights reserved.<br>본 페이지의 뉴스 정보는 매일 최신
-                상태로 업데이트됩니다.</p>
+            <p>&copy; 2026 야생생물관리협회 (Korea Wildlife Management Association). All rights reserved.<br>본 서비스의 뉴스는 매일 아침 최신 상태로 자동 동기화됩니다.</p>
         </footer>
     </div>
 
     <!-- 뉴스 상세 모달 -->
     <div class="modal-overlay" id="newsModal" aria-hidden="true">
         <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <button class="modal-close" id="closeModal" aria-label="모달 닫기">
+            <button type="button" class="modal-close" id="closeModal" aria-label="닫기">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <div class="modal-content">
                 <div class="modal-header">
-                    <span class="modal-category" id="modalCategory">카테고리</span>
+                    <div class="modal-header-top">
+                        <span class="modal-category" id="modalCategory">카테고리</span>
+                        <button type="button" class="modal-bookmark-btn" id="modalBookmarkBtn" aria-label="기사 스크랩">
+                            <i class="fa-regular fa-bookmark"></i>
+                        </button>
+                    </div>
                     <h2 class="modal-title" id="modalTitle">기사 제목</h2>
                     <div class="modal-meta">
                         <span id="modalSource"><i class="fa-regular fa-building"></i> 출처</span>
@@ -205,14 +232,25 @@
                     </div>
                 </div>
                 <div class="modal-body" id="modalBody">
-                    <!-- 기사 상세 내용이 여기에 들어갑니다. -->
+                    <!-- 기사 본문 -->
+                </div>
+                <div class="modal-footer" id="modalFooter">
+                    <button type="button" class="modal-action-btn" id="modalCopyLinkBtn" onclick="copyCurrentNewsLink()">
+                        <i class="fa-solid fa-link"></i> 링크 복사
+                    </button>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="modal-action-btn primary" id="modalOriginalLink">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> 원문 기사 보러가기
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- 토스트 알림 메시지 -->
+    <div class="toast-message" id="toastMessage" aria-live="polite"></div>
+
     <!-- 플로팅 새로고침 버튼 -->
-    <button class="floating-refresh" id="refreshBtn" aria-label="새로고침">
+    <button class="floating-refresh" id="refreshBtn" aria-label="뉴스 새로고침" title="최신 뉴스 다시 불러오기">
         <i class="fa-solid fa-rotate-right"></i>
     </button>
 

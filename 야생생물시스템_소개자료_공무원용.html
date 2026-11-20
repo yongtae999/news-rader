@@ -152,7 +152,7 @@
 
   /* ─── SLIDE 1: COVER ─── */
   #slide-1 {
-    background: radial-gradient(circle at 50% 30%, #1B4332 0%, #0D2B1E 70%, #081a12 100%);
+    background: radial-gradient(circle at 50% 28%, #215741 0%, #123828 68%, #0d281d 100%);
     text-align: center;
   }
   #slide-1 .logo-icon {
@@ -214,7 +214,7 @@
 
   #slide-1 .org {
     margin-top: 60px;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.68);
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.5px;
@@ -268,10 +268,10 @@
   
   /* Dark background slides */
   .slide-dark {
-    background: radial-gradient(circle at 80% 20%, #1B4332 0%, #0D2B1E 80%);
+    background: radial-gradient(circle at 80% 20%, #22543e 0%, #133627 80%);
   }
   .slide-dark .slide-title { color: white; }
-  .slide-dark .slide-desc { color: rgba(255,255,255,0.7); }
+  .slide-dark .slide-desc { color: rgba(255,255,255,0.82); }
   .slide-dark .slide-tag { 
     background: rgba(255,255,255,0.1); 
     border: 1px solid rgba(255,255,255,0.2); 
@@ -318,17 +318,17 @@
   .card p { font-size: 16px; color: #495057; line-height: 1.7; font-weight: 400;}
 
   .card-dark {
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.08);
     border-top-color: var(--green-light);
     border-radius: 20px;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
     border-top: 5px solid var(--green-light);
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   }
   .card-dark h3 { color: white; }
-  .card-dark p { color: rgba(255,255,255,0.7); }
+  .card-dark p { color: rgba(255,255,255,0.85); }
 
   /* ─── PROBLEM SLIDE ─── */
   .problem-grid {
@@ -375,23 +375,54 @@
     100% { transform: translateX(0); opacity: 0.7; }
   }
 
+  /* ─── BACK TO NEWS RADAR BUTTON ─── */
+  .back-to-radar-btn {
+    position: fixed;
+    top: 20px;
+    left: 24px;
+    z-index: 200;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: rgba(13, 43, 30, 0.85);
+    color: #f1f5f9;
+    border: 1px solid rgba(32, 201, 151, 0.45);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transition: var(--transition);
+  }
+  .back-to-radar-btn:hover {
+    background: #10b981;
+    color: #0b110e;
+    border-color: #10b981;
+    transform: translateX(-2px);
+  }
+
   /* ─── LOGO WATERMARK ─── */
   .slide-logo {
     position: absolute;
-    top: 32px;
-    left: 44px;
-    height: 52px;
-    opacity: 0.9;
+    top: 24px;
+    right: 36px;
+    left: auto;
+    height: 48px;
+    opacity: 0.92;
     z-index: 10;
   }
   .slide-logo-dark {
     position: absolute;
-    top: 32px;
-    left: 44px;
-    height: 52px;
+    top: 24px;
+    right: 36px;
+    left: auto;
+    height: 48px;
     opacity: 0.95;
     z-index: 10;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(4px);
     border-radius: 10px;
     padding: 6px 12px;
@@ -609,12 +640,19 @@
       bottom: 20px;
       justify-content: space-between;
     }
-    .slide-logo, .slide-logo-dark {
-      top: 16px;
-      left: 20px;
-      height: 36px;
+    .back-to-radar-btn {
+      top: 12px;
+      left: 12px;
+      padding: 8px 12px;
+      font-size: 12.5px;
     }
-    .slide-inner { margin-top: 40px; }
+    .slide-logo, .slide-logo-dark {
+      top: 12px;
+      right: 16px;
+      left: auto;
+      height: 34px;
+    }
+    .slide-inner { margin-top: 48px; }
     
     .h-box .h-num { font-size: 42px; }
     .h-box .h-unit { font-size: 16px; }
@@ -626,6 +664,7 @@
 </style>
 </head>
 <body>
+<a href="./index.html" class="back-to-radar-btn" aria-label="뉴스레이더로 돌아가기">← 뉴스레이더로 돌아가기</a>
 
 <div class="slideshow">
 
