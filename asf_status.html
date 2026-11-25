@@ -50,6 +50,16 @@ svg#MAP{display:block;width:100%;max-height:580px;height:auto;background:#11273b
 .mbar-bar.recent{background:linear-gradient(180deg,#fbbf24,#d97706)}
 .mbar-bar.zero{background:rgba(255,255,255,0.08)}
 .mbar-lbl{font-size:10px;color:#94a3b8}
+.sample-card{display:none;background:#131c17;border-radius:10px;border:1px solid rgba(255,255,255,0.1);padding:12px 14px;margin-top:10px}
+.sample-card.show{display:block}
+.sample-table-wrap{max-height:260px;overflow-y:auto;margin-top:8px;border:1px solid rgba(255,255,255,0.08);border-radius:8px}
+.sample-table{width:100%;border-collapse:collapse;font-size:11.5px;text-align:center}
+.sample-table thead th{position:sticky;top:0;background:#192620;color:#cbd5e1;padding:7px 6px;border-bottom:1px solid rgba(255,255,255,0.12);font-weight:700}
+.sample-table tbody td{padding:6px 6px;border-bottom:1px solid rgba(255,255,255,0.06);color:#e2e8f0}
+.sample-table tbody tr:hover{background:rgba(16,185,129,0.08);cursor:pointer}
+.zone-pill{display:inline-block;padding:2px 7px;border-radius:999px;font-size:10px;font-weight:700}
+.zone-pill.occ{background:rgba(239,68,68,0.18);color:#fca5a5}
+.zone-pill.non{background:rgba(16,185,129,0.18);color:#6ee7b7}
 .leg{background:#131c17;border-radius:10px;border:1px solid rgba(255,255,255,0.1);padding:10px 12px;margin-top:10px}
 .ltit{font-size:11px;font-weight:600;color:#cbd5e1;margin-bottom:7px}
 .lrow{display:flex;flex-wrap:wrap;gap:7px 14px}
@@ -94,7 +104,8 @@ svg#MAP{display:block;width:100%;max-height:580px;height:auto;background:#11273b
   <h1>2026년 아프리카돼지열병(ASF) 발생현황</h1>
   <div class="mode-tabs" role="tablist" aria-label="ASF 발생현황 구분">
     <button type="button" class="mode-btn on" id="btnModeFarm" onclick="switchMode('farm')">사육돼지 농장 (24건)</button>
-    <button type="button" class="mode-btn" id="btnModeWild" onclick="switchMode('wild')">야생멧돼지 ('26년 210건)</button>
+    <button type="button" class="mode-btn" id="btnModeWild" onclick="switchMode('wild')">야생멧돼지 양성 ('26년 210건)</button>
+    <button type="button" class="mode-btn" id="btnModeSample" onclick="switchMode('sample')">일일 시료채취 ('26.11.24 · 421건)</button>
   </div>
 </div>
 <div class="sub" id="subSummary">'26.11.20. 기준 · 사육돼지 농장 1분기(1~3월) 24건 (3.16 이후 추가 발생 없음 · '19년 이후 역대 누적 79건)</div>
@@ -126,6 +137,27 @@ svg#MAP{display:block;width:100%;max-height:580px;height:auto;background:#11273b
     <div class="monthly-sub">역대 누적: '19(55) · '20(856) · '21(964) · '22(878) · '23(735) · '24(719) · '25(109) · '26(210) = 4,526건</div>
   </div>
   <div class="monthly-bars" id="monthlyBars"></div>
+</div>
+<div class="sample-card" id="sampleCard">
+  <div class="monthly-head">
+    <div class="monthly-title">26.11.24 일일 ASF 시료채취 현황 (총 421건 · 46개 지자체)</div>
+    <div class="monthly-sub">발생지역 155건 (폐사체 10·수렵 133·트랩 12) / 비발생지역 266건 (폐사체 3·수렵 263)</div>
+  </div>
+  <div class="sample-table-wrap">
+    <table class="sample-table">
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th>지자체</th>
+          <th>폐사체</th>
+          <th>수렵</th>
+          <th>포획트랩</th>
+          <th>합계</th>
+        </tr>
+      </thead>
+      <tbody id="sampleTableBody"></tbody>
+    </table>
+  </div>
 </div>
 <div class="leg">
   <div class="ltit" id="legTitle">발생 시기 &nbsp;·&nbsp; 원 크기 = 사육두수 비례</div>
@@ -236,6 +268,58 @@ const WILD_MONTHLY_2026 = [
   { m: '4월', c: 30 }, { m: '5월', c: 7 },  { m: '6월', c: 10 },
   { m: '7월', c: 10 }, { m: '8월', c: 1 },  { m: '9월', c: 0 },
   { m: '10월', c: 2 }, { m: '11월', c: 11 }
+];
+
+// ── 26.11.24 일일 ASF 시료채취 현황 데이터 (발생지역 155 + 비발생지역 266 = 421건) ──
+const SAMPLE_DATA_261124 = [
+  // ASF 발생지역 (14개 지자체 · 155건)
+  { zone: '발생지역', name: '부산광역시', sido: '부산', carcass: 0, hunt: 1,  trap: 0, pen: 0, cage: 0, total: 1,  lat: 35.180, lng: 129.076 },
+  { zone: '발생지역', name: '울산광역시', sido: '울산', carcass: 0, hunt: 15, trap: 0, pen: 0, cage: 0, total: 15, lat: 35.539, lng: 129.311 },
+  { zone: '발생지역', name: '강릉',       sido: '강원', carcass: 0, hunt: 2,  trap: 0, pen: 0, cage: 0, total: 2,  lat: 37.752, lng: 128.876 },
+  { zone: '발생지역', name: '상주',       sido: '경북', carcass: 1, hunt: 28, trap: 0, pen: 0, cage: 0, total: 29, lat: 36.411, lng: 128.159 },
+  { zone: '발생지역', name: '춘천',       sido: '강원', carcass: 0, hunt: 16, trap: 0, pen: 0, cage: 0, total: 16, lat: 37.881, lng: 127.730 },
+  { zone: '발생지역', name: '안동',       sido: '경북', carcass: 0, hunt: 9,  trap: 0, pen: 0, cage: 0, total: 9,  lat: 36.568, lng: 128.729 },
+  { zone: '발생지역', name: '인제',       sido: '강원', carcass: 6, hunt: 0,  trap: 0, pen: 0, cage: 0, total: 6,  lat: 38.070, lng: 128.170 },
+  { zone: '발생지역', name: '봉화',       sido: '경북', carcass: 2, hunt: 5,  trap: 0, pen: 0, cage: 0, total: 7,  lat: 36.893, lng: 128.732 },
+  { zone: '발생지역', name: '괴산',       sido: '충북', carcass: 0, hunt: 13, trap: 0, pen: 0, cage: 0, total: 13, lat: 36.815, lng: 127.787 },
+  { zone: '발생지역', name: '대구광역시', sido: '대구', carcass: 1, hunt: 12, trap: 3, pen: 0, cage: 0, total: 16, lat: 35.871, lng: 128.601 },
+  { zone: '발생지역', name: '연천',       sido: '경기', carcass: 0, hunt: 2,  trap: 9, pen: 0, cage: 0, total: 11, lat: 38.096, lng: 127.075 },
+  { zone: '발생지역', name: '충주',       sido: '충북', carcass: 0, hunt: 13, trap: 0, pen: 0, cage: 0, total: 13, lat: 36.991, lng: 127.926 },
+  { zone: '발생지역', name: '홍천',       sido: '강원', carcass: 0, hunt: 13, trap: 0, pen: 0, cage: 0, total: 13, lat: 37.697, lng: 127.888 },
+  { zone: '발생지역', name: '제천',       sido: '충북', carcass: 0, hunt: 4,  trap: 0, pen: 0, cage: 0, total: 4,  lat: 37.133, lng: 128.191 },
+  // ASF 비발생지역 (32개 지자체 · 266건)
+  { zone: '비발생지역', name: '강진',       sido: '전남', carcass: 0, hunt: 1,  trap: 0, pen: 0, cage: 0, total: 1,  lat: 34.642, lng: 126.767 },
+  { zone: '비발생지역', name: '거제',       sido: '경남', carcass: 0, hunt: 2,  trap: 0, pen: 0, cage: 0, total: 2,  lat: 34.881, lng: 128.621 },
+  { zone: '비발생지역', name: '거창',       sido: '경남', carcass: 0, hunt: 55, trap: 0, pen: 0, cage: 0, total: 55, lat: 35.687, lng: 127.909 },
+  { zone: '비발생지역', name: '고흥',       sido: '전남', carcass: 0, hunt: 6,  trap: 0, pen: 0, cage: 0, total: 6,  lat: 34.605, lng: 127.275 },
+  { zone: '비발생지역', name: '곡성',       sido: '전남', carcass: 0, hunt: 1,  trap: 0, pen: 0, cage: 0, total: 1,  lat: 35.282, lng: 127.292 },
+  { zone: '비발생지역', name: '남원',       sido: '전북', carcass: 0, hunt: 13, trap: 0, pen: 0, cage: 0, total: 13, lat: 35.416, lng: 127.390 },
+  { zone: '비발생지역', name: '대전광역시', sido: '대전', carcass: 0, hunt: 9,  trap: 0, pen: 0, cage: 0, total: 9,  lat: 36.350, lng: 127.385 },
+  { zone: '비발생지역', name: '밀양',       sido: '경남', carcass: 0, hunt: 12, trap: 0, pen: 0, cage: 0, total: 12, lat: 35.504, lng: 128.746 },
+  { zone: '비발생지역', name: '부안',       sido: '전북', carcass: 0, hunt: 7,  trap: 0, pen: 0, cage: 0, total: 7,  lat: 35.732, lng: 126.733 },
+  { zone: '비발생지역', name: '부여',       sido: '충남', carcass: 0, hunt: 6,  trap: 0, pen: 0, cage: 0, total: 6,  lat: 36.276, lng: 126.910 },
+  { zone: '비발생지역', name: '사천',       sido: '경남', carcass: 0, hunt: 3,  trap: 0, pen: 0, cage: 0, total: 3,  lat: 35.004, lng: 128.064 },
+  { zone: '비발생지역', name: '순창',       sido: '전북', carcass: 0, hunt: 4,  trap: 0, pen: 0, cage: 0, total: 4,  lat: 35.374, lng: 127.137 },
+  { zone: '비발생지역', name: '순천',       sido: '전남', carcass: 0, hunt: 9,  trap: 0, pen: 0, cage: 0, total: 9,  lat: 34.951, lng: 127.487 },
+  { zone: '비발생지역', name: '아산',       sido: '충남', carcass: 0, hunt: 1,  trap: 0, pen: 0, cage: 0, total: 1,  lat: 36.790, lng: 127.002 },
+  { zone: '비발생지역', name: '완도',       sido: '전남', carcass: 0, hunt: 6,  trap: 0, pen: 0, cage: 0, total: 6,  lat: 34.311, lng: 126.755 },
+  { zone: '비발생지역', name: '완주',       sido: '전북', carcass: 0, hunt: 7,  trap: 0, pen: 0, cage: 0, total: 7,  lat: 35.905, lng: 127.162 },
+  { zone: '비발생지역', name: '예산',       sido: '충남', carcass: 0, hunt: 17, trap: 0, pen: 0, cage: 0, total: 17, lat: 36.682, lng: 126.845 },
+  { zone: '비발생지역', name: '임실',       sido: '전북', carcass: 0, hunt: 10, trap: 0, pen: 0, cage: 0, total: 10, lat: 35.618, lng: 127.289 },
+  { zone: '비발생지역', name: '장성',       sido: '전남', carcass: 0, hunt: 5,  trap: 0, pen: 0, cage: 0, total: 5,  lat: 35.302, lng: 126.785 },
+  { zone: '비발생지역', name: '정읍',       sido: '전북', carcass: 0, hunt: 1,  trap: 0, pen: 0, cage: 0, total: 1,  lat: 35.570, lng: 126.856 },
+  { zone: '비발생지역', name: '진도',       sido: '전남', carcass: 0, hunt: 7,  trap: 0, pen: 0, cage: 0, total: 7,  lat: 34.487, lng: 126.263 },
+  { zone: '비발생지역', name: '진주',       sido: '경남', carcass: 0, hunt: 4,  trap: 0, pen: 0, cage: 0, total: 4,  lat: 35.180, lng: 128.108 },
+  { zone: '비발생지역', name: '창녕',       sido: '경남', carcass: 0, hunt: 3,  trap: 0, pen: 0, cage: 0, total: 3,  lat: 35.545, lng: 128.492 },
+  { zone: '비발생지역', name: '창원',       sido: '경남', carcass: 0, hunt: 10, trap: 0, pen: 0, cage: 0, total: 10, lat: 35.228, lng: 128.681 },
+  { zone: '비발생지역', name: '통영',       sido: '경남', carcass: 0, hunt: 2,  trap: 0, pen: 0, cage: 0, total: 2,  lat: 34.854, lng: 128.433 },
+  { zone: '비발생지역', name: '하동',       sido: '경남', carcass: 0, hunt: 4,  trap: 0, pen: 0, cage: 0, total: 4,  lat: 35.067, lng: 127.751 },
+  { zone: '비발생지역', name: '함양',       sido: '경남', carcass: 0, hunt: 6,  trap: 0, pen: 0, cage: 0, total: 6,  lat: 35.520, lng: 127.725 },
+  { zone: '비발생지역', name: '합천',       sido: '경남', carcass: 0, hunt: 18, trap: 0, pen: 0, cage: 0, total: 18, lat: 35.567, lng: 128.166 },
+  { zone: '비발생지역', name: '해남',       sido: '전남', carcass: 0, hunt: 19, trap: 0, pen: 0, cage: 0, total: 19, lat: 34.573, lng: 126.599 },
+  { zone: '비발생지역', name: '화순',       sido: '전남', carcass: 0, hunt: 1,  trap: 0, pen: 0, cage: 0, total: 1,  lat: 35.064, lng: 126.986 },
+  { zone: '비발생지역', name: '양평',       sido: '경기', carcass: 0, hunt: 14, trap: 0, pen: 0, cage: 0, total: 14, lat: 37.492, lng: 127.487 },
+  { zone: '비발생지역', name: '공주',       sido: '충남', carcass: 3, hunt: 0,  trap: 0, pen: 0, cage: 0, total: 3,  lat: 36.447, lng: 127.119 }
 ];
 
 // ── 월별 미니 차트 렌더링 ─────────────────────────────────────
@@ -399,11 +483,43 @@ const BCOLS={
   '#ef4444':{bg:'rgba(239,68,68,0.22)',tx:'#fca5a5'},
 };
 
+function scol(o){
+  if (o.zone === '발생지역') return o.carcass > 0 ? '#ef4444' : '#f59e0b';
+  return o.carcass > 0 ? '#38bdf8' : '#10b981';
+}
+function srad(c){return Math.max(8,Math.min(21,6.5 + Math.sqrt(c)*1.9));}
+
+function renderSampleTable(filterKey) {
+  const tbody = document.getElementById('sampleTableBody');
+  const filtered = SAMPLE_DATA_261124.filter(item => {
+    if (!filterKey || filterKey === 'all') return true;
+    if (filterKey === '발생지역' || filterKey === '비발생지역') return item.zone === filterKey;
+    return item.sido === filterKey;
+  });
+  tbody.innerHTML = filtered.map(item => `
+    <tr onclick="oshSampleByName('${item.name}')">
+      <td><span class="zone-pill ${item.zone === '발생지역' ? 'occ' : 'non'}">${item.zone}</span></td>
+      <td style="font-weight:600;color:#f1f5f9">${item.name}</td>
+      <td style="color:${item.carcass > 0 ? '#fca5a5' : '#64748b'};font-weight:${item.carcass > 0 ? '700' : '400'}">${item.carcass || '-'}</td>
+      <td>${item.hunt || '-'}</td>
+      <td style="color:${item.trap > 0 ? '#fcd34d' : '#64748b'}">${item.trap || '-'}</td>
+      <td style="font-weight:700;color:#34d399">${item.total}</td>
+    </tr>
+  `).join('');
+}
+
+function oshSampleByName(name) {
+  const found = SAMPLE_DATA_261124.find(x => x.name === name);
+  if (found) oshSample(found, scol(found));
+}
+
 function switchMode(mode) {
   currentMode = mode;
   document.getElementById('btnModeFarm').classList.toggle('on', mode === 'farm');
   document.getElementById('btnModeWild').classList.toggle('on', mode === 'wild');
+  document.getElementById('btnModeSample').classList.toggle('on', mode === 'sample');
   document.getElementById('monthlyCard').classList.toggle('show', mode === 'wild');
+  document.getElementById('sampleCard').classList.toggle('show', mode === 'sample');
 
   while (MARKER_LAYER.firstChild) MARKER_LAYER.removeChild(MARKER_LAYER.firstChild);
   MKS = [];
@@ -466,7 +582,7 @@ function switchMode(mode) {
       g.addEventListener('touchend', e => { e.preventDefault(); e.stopPropagation(); tap(); }, {passive:false});
       MKS.push(g);
     });
-  } else {
+  } else if (mode === 'wild') {
     const total26 = WILD_DATA.reduce((acc, item) => acc + item.count26, 0);
     const sidoCounts = {};
     WILD_DATA.forEach(item => { sidoCounts[item.sido] = (sidoCounts[item.sido] || 0) + item.count26; });
@@ -521,6 +637,76 @@ function switchMode(mode) {
       g.addEventListener('touchend', e => { e.preventDefault(); e.stopPropagation(); tap(); }, {passive:false});
       MKS.push(g);
     });
+  } else {
+    const totalAll = SAMPLE_DATA_261124.reduce((a, b) => a + b.total, 0);
+    const occItems = SAMPLE_DATA_261124.filter(x => x.zone === '발생지역');
+    const nonItems = SAMPLE_DATA_261124.filter(x => x.zone === '비발생지역');
+    const totalOcc = occItems.reduce((a, b) => a + b.total, 0);
+    const totalNon = nonItems.reduce((a, b) => a + b.total, 0);
+    const totalCarcass = SAMPLE_DATA_261124.reduce((a, b) => a + b.carcass, 0);
+    const totalHunt = SAMPLE_DATA_261124.reduce((a, b) => a + b.hunt, 0);
+    const totalTrap = SAMPLE_DATA_261124.reduce((a, b) => a + b.trap, 0);
+
+    const sidoCounts = {};
+    SAMPLE_DATA_261124.forEach(item => { sidoCounts[item.sido] = (sidoCounts[item.sido] || 0) + item.total; });
+    const sortedSidos = Object.entries(sidoCounts).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'ko'));
+
+    document.getElementById('subSummary').textContent = "'26.11.24. 일일 ASF 시료채취 현황 · 총 421건 (발생지역 155건 · 비발생지역 266건 · 폐사체 13 · 수렵 396 · 포획트랩 12)";
+    document.getElementById('lblStat1').textContent = '총 시료수 (11.24)';
+    document.getElementById('lblStat2').textContent = '발생지역 시료';
+    document.getElementById('lblStat3').textContent = '비발생지역 시료';
+    document.getElementById('lblStat4').textContent = '채취 유형';
+    document.getElementById('statCount').innerHTML = `${totalAll}건<span class="sval-sub">${SAMPLE_DATA_261124.length}개 지자체</span>`;
+    document.getElementById('statHeads').innerHTML = `${totalOcc}건<span class="sval-sub">${occItems.length}개 지역 · 폐사체 10</span>`;
+    document.getElementById('statSidos').innerHTML = `${totalNon}건<span class="sval-sub">${nonItems.length}개 지역 · 폐사체 3</span>`;
+    document.getElementById('statRecent').innerHTML = `수렵 ${totalHunt}<br>폐사체 ${totalCarcass} · 트랩 ${totalTrap}`;
+    document.getElementById('mapHint').textContent = '지자체 버블 또는 아래 표 행을 클릭하면 26.11.24 시료채취 상세를 볼 수 있습니다';
+    document.getElementById('legTitle').textContent = '26.11.24 시료채취 권역 구분 · 원 크기 = 시료 건수 비례';
+    document.getElementById('legRow').innerHTML = `
+      <div class="li"><div class="ld" style="background:#ef4444;outline:2px solid #fbbf24;outline-offset:1px"></div>발생지역 (폐사체 포함: 인제·봉화·상주·대구)</div>
+      <div class="li"><div class="ld" style="background:#f59e0b"></div>발생지역 (수렵·트랩)</div>
+      <div class="li"><div class="ld" style="background:#38bdf8;outline:2px solid #fbbf24;outline-offset:1px"></div>비발생지역 (폐사체 포함: 공주)</div>
+      <div class="li"><div class="ld" style="background:#10b981"></div>비발생지역 (수렵)</div>
+    `;
+
+    const presets = [
+      ['all', `전체(${totalAll})`],
+      ['발생지역', `발생지역(${totalOcc})`],
+      ['비발생지역', `비발생지역(${totalNon})`]
+    ];
+    presets.forEach(([key, label], idx) => {
+      const btn = document.createElement('button');
+      btn.type = 'button'; btn.className = idx === 0 ? 'fb on' : 'fb'; btn.textContent = label;
+      btn.onclick = () => flt(key, btn);
+      filterRow.appendChild(btn);
+    });
+    sortedSidos.forEach(([sido, cnt]) => {
+      const btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 'fb'; btn.textContent = `${sido}(${cnt})`;
+      btn.onclick = () => flt(sido, btn);
+      filterRow.appendChild(btn);
+    });
+
+    const orderedSamples = [...SAMPLE_DATA_261124].sort((a, b) => b.total - a.total);
+    orderedSamples.forEach(o => {
+      const [mx, my] = project(o.lng, o.lat);
+      const col = scol(o), r = srad(o.total);
+      const g = el('g', {cursor:'pointer'}, MARKER_LAYER);
+      g._sido = o.sido;
+      g._zone = o.zone;
+      if (o.carcass > 0) {
+        el('circle', {cx:mx, cy:my, r:r+4.5, fill:'none', stroke:'#fbbf24', 'stroke-width':'1.8'}, g);
+      }
+      el('circle', {cx:mx, cy:my, r, fill:col, 'fill-opacity':'0.88', stroke:'rgba(255,255,255,0.9)', 'stroke-width':'1.4'}, g);
+      const t = el('text', {x:mx, y:my+3.2, 'text-anchor':'middle', 'font-size':r>12?'9':'7.5', 'font-weight':'700', fill:'#fff', 'pointer-events':'none'}, g);
+      t.textContent = o.total;
+      const tap = () => oshSample(o, col);
+      g.addEventListener('click', e => { e.stopPropagation(); tap(); });
+      g.addEventListener('touchend', e => { e.preventDefault(); e.stopPropagation(); tap(); }, {passive:false});
+      MKS.push(g);
+    });
+
+    renderSampleTable('all');
   }
 
   notifyHeight();
@@ -604,6 +790,46 @@ function oshWild(o, col) {
   document.getElementById('sbg').classList.add('show');
 }
 
+function oshSample(o, col) {
+  const badgeText = `ASF ${o.zone} 일일 시료채취 ('26.11.24)`;
+  const titleText = `${o.sido} ${o.name} — 총 ${o.total}건`;
+  const detailText = `폐사체 ${o.carcass} · 수렵 ${o.hunt} · 포획트랩 ${o.trap} · 포획장 ${o.pen} · 포획틀 ${o.cage}`;
+
+  if (window.parent && window.parent !== window) {
+    window.parent.postMessage({
+      type: 'openDetailModal',
+      category: `ASF 일일 시료채취 (${o.zone})`,
+      title: titleText,
+      source: badgeText,
+      date: "'26.11.24 기준",
+      rows: [
+        { label: '권역 구분', value: `ASF ${o.zone}` },
+        { label: '총 시료수', value: `${o.total}건` },
+        { label: '폐사체', value: `${o.carcass}건` },
+        { label: '수렵', value: `${o.hunt}건` },
+        { label: '포획트랩', value: `${o.trap}건` },
+        { label: '포획장·틀', value: `포획장 ${o.pen}건 / 포획틀 ${o.cage}건` }
+      ]
+    }, '*');
+    return;
+  }
+
+  const c = BCOLS[col] || {bg:'rgba(255,255,255,0.12)', tx:'#f1f5f9'};
+  const bd = document.getElementById('sbdg');
+  bd.style.background = c.bg; bd.style.color = c.tx;
+  bd.textContent = badgeText;
+  document.getElementById('stit').textContent = titleText;
+  document.getElementById('k1').textContent = '권역 구분';
+  document.getElementById('k2').textContent = '유형별 내역';
+  document.getElementById('k3').textContent = '총 시료수';
+  document.getElementById('k4').textContent = '기준일';
+  document.getElementById('sdt').textContent = `ASF ${o.zone}`;
+  document.getElementById('sad').textContent = detailText;
+  document.getElementById('shd').textContent = `${o.total}건`;
+  document.getElementById('ssd').textContent = "'26.11.24. 기준";
+  document.getElementById('sbg').classList.add('show');
+}
+
 function csh(e){if(e&&e.target!==document.getElementById('sbg'))return;document.getElementById('sbg').classList.remove('show');}
 document.getElementById('shxb').onclick=()=>document.getElementById('sbg').classList.remove('show');
 
@@ -631,12 +857,17 @@ document.addEventListener('keydown', e => {
 });
 
 // ── 필터 ──────────────────────────────────────────────────────
-function flt(sido, btn) {
+function flt(key, btn) {
   document.querySelectorAll('.fb').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
   MKS.forEach(g => {
-    g.setAttribute('opacity', (sido === 'all' || g._sido === sido) ? '1' : '0.1');
+    const match = key === 'all' || g._sido === key || g._zone === key;
+    g.setAttribute('opacity', match ? '1' : '0.1');
   });
+  if (currentMode === 'sample') {
+    renderSampleTable(key);
+    notifyHeight();
+  }
 }
 
 // ── 부모 iframe 높이 동기화 (이중 스크롤 방지) ────────────────
